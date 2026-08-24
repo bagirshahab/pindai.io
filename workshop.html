@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding dengan Kiro AI — Materi Workshop | Pintar dengan AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="logo-text">Pintar dengan AI</span>
+                <span class="logo-sub">by PindAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#tentang">Tentang</a>
+                <a href="index.html#materi">Program</a>
+                <a href="workshop.html" style="color: var(--accent-orange);">Materi Workshop</a>
+                <a href="index.html#hasil">Hasil</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html#cta" class="btn-primary">Mulai</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="section-dark page-hero" id="hero">
+        <div class="container hero-content">
+            <a href="index.html" class="breadcrumb-back">← Kembali ke Pintar dengan AI</a>
+            <div class="eyebrow">Hands-On Workshop · Komunitas Shevibes</div>
+            <h1>Vibe Coding untuk Semua, Bersama Kiro AI</h1>
+            <p class="subheadline">Dari non-tech ke tech — belajar membangun aplikasi web nyata bersama AI, tanpa perlu latar belakang programming sama sekali. Seluruh materi workshop komunitas Shevibes kami rangkum lengkap di halaman ini.</p>
+
+            <div class="badge-row">
+                <span class="pill-badge">👩‍💻 Komunitas Perempuan</span>
+                <span class="pill-badge">⚡ Powered by Kiro</span>
+                <span class="pill-badge">🚫 No Code Required</span>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#tutorial" class="btn-primary">Buka Materi Workshop Lengkap</a>
+                <a href="https://kiro.dev" target="_blank" rel="noopener" class="btn-secondary">Download Kiro Gratis</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky sub-navigation -->
+    <div class="subnav-wrap">
+        <div class="subnav">
+            <a href="#tentang">Tentang Workshop</a>
+            <a href="#fondasi-ai">Fondasi AI</a>
+            <a href="#genai">Generative AI</a>
+            <a href="#agentic">Agentic AI</a>
+            <a href="#evolusi">Evolusi</a>
+            <a href="#kiro">Apa itu Kiro</a>
+            <a href="#perjalanan">Perjalanan Workshop</a>
+            <a href="#tutorial">Tutorial Lengkap</a>
+        </div>
+    </div>
+
+    <!-- Tentang Workshop -->
+    <section id="tentang" class="section-light">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Tentang Workshop</div>
+            <h2>Satu Ruang, Banyak Kemungkinan</h2>
+            <p class="lede">Workshop komunitas untuk perempuan yang ingin merasakan langsung bagaimana AI mengubah cara orang membangun teknologi — dipandu, kolaboratif, dan penuh eksplorasi.</p>
+        </div>
+        <div class="container mobile-grid-2 desktop-grid-4">
+            <div class="card card-light border-accent">
+                <h3>Untuk Siapa</h3>
+                <p>Peserta non-tech maupun yang ingin naik level ke tech — tidak perlu pengalaman coding sama sekali.</p>
+            </div>
+            <div class="card card-light border-accent">
+                <h3>Format</h3>
+                <p>Dipandu langsung, kolaboratif, dan penuh eksplorasi — belajar sambil membuat sesuatu yang nyata.</p>
+            </div>
+            <div class="card card-light border-accent">
+                <h3>Hasil Akhir</h3>
+                <p>Peserta pulang dengan aplikasi web yang benar-benar mereka buat sendiri bersama AI.</p>
+            </div>
+            <div class="card card-light border-accent">
+                <h3>Durasi Praktik</h3>
+                <p>60 menit membangun aplikasi pertama, dilanjutkan sesi lomba kreativitas 1–1.5 jam.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fondasi AI -->
+    <section id="fondasi-ai" class="section-dark">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Sebelum Mulai · Fondasi</div>
+            <h2>🌱 Kenalan Dulu dengan Dunia AI</h2>
+            <p class="lede">Sebelum masuk ke Agentic AI dan Kiro, mari pahami dasarnya dulu — dari Machine Learning, Deep Learning, sampai Generative AI dan Foundation Model yang menjadi "otak" di balik Kiro.</p>
+        </div>
+
+        <div class="container">
+            <h3 class="text-center">Generative AI Adalah Bagian dari AI</h3>
+            <p class="text-center" style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">Semua ini saling bersarang — Generative AI ada di dalam Deep Learning, yang ada di dalam Machine Learning, yang ada di dalam AI.</p>
+            <div class="nest-diagram">
+                <div class="nest-layer l1">
+                    <h4>Artificial Intelligence (AI)</h4>
+                    <p>Segala teknik yang membuat komputer bisa meniru kecerdasan manusia — lewat logika, aturan if-then, dan machine learning.</p>
+                </div>
+                <div class="nest-layer l2">
+                    <h4>Machine Learning (ML)</h4>
+                    <p>Bagian dari AI yang menggunakan mesin untuk mencari pola dalam data, lalu membangun model logika secara otomatis.</p>
+                </div>
+                <div class="nest-layer l3">
+                    <h4>Deep Learning (DL)</h4>
+                    <p>Bagian dari ML yang tersusun dari neural network berlapis-lapis dalam — untuk tugas seperti pengenalan suara dan gambar.</p>
+                </div>
+                <div class="nest-layer l4">
+                    <h4>Generative AI</h4>
+                    <p>Ditenagai oleh model besar yang dilatih (pretrained) pada data dalam jumlah sangat besar — biasa disebut Foundation Model (FM).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 4rem;">
+            <h3 class="text-center">Apa itu Machine Learning?</h3>
+            <p class="text-center" style="color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem; font-style: italic;">"Bidang studi yang memberi komputer kemampuan untuk belajar tanpa diprogram secara eksplisit." — Arthur Samuel (1959)</p>
+
+            <div class="compare-grid">
+                <div class="card card-dark compare-card">
+                    <h4>Pemrograman Klasik (if/else)</h4>
+                    <p>Manusia menuliskan aturannya sendiri.</p>
+                    <div class="flow-strip">
+                        <span class="flow-chip">Aturan</span><span class="arrow">+</span><span class="flow-chip">Soal</span><span class="arrow">→</span><span class="flow-chip">Jawaban</span>
+                    </div>
+                </div>
+                <div class="card card-dark compare-card border-accent">
+                    <h4>Machine Learning</h4>
+                    <p>Mesin menemukan aturannya sendiri dari contoh.</p>
+                    <div class="flow-strip">
+                        <span class="flow-chip">Soal</span><span class="arrow">+</span><span class="flow-chip">Jawaban</span><span class="arrow">→</span><span class="flow-chip">Model Terlatih</span>
+                    </div>
+                    <div class="flow-strip">
+                        <span class="flow-chip">Soal Baru yang Mirip</span><span class="arrow">→</span><span class="flow-chip">Jawaban</span>
+                    </div>
+                    <p style="font-size:0.8rem;">Butuh data berlabel · Melatih model · Fine-tuning & evaluasi · Satu model untuk satu tugas.</p>
+                </div>
+            </div>
+
+            <!-- Interactive demo -->
+            <div class="demo-box">
+                <div class="eyebrow" style="margin-bottom:0.5rem;">🎮 Coba Sendiri</div>
+                <h4 style="margin-bottom:0.5rem;">Ajari Mesin Menilai Apel: Segar atau Busuk?</h4>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Model ini dilatih dari contoh berlabel untuk satu tugas saja. Geser slider kesegaran apel, lalu lihat jawaban mesin — hasilnya cuma berupa satu label.</p>
+                <div class="demo-emoji" id="apple-emoji">🍏</div>
+                <p>Kesegaran apel: <strong id="apple-value">62%</strong></p>
+                <input type="range" min="0" max="100" value="62" id="apple-slider">
+                <div class="demo-result" id="apple-result">Segar ✅</div>
+                <p class="demo-note">Aturan hasil belajar: skor ≥ 55% = Segar. Output hanya berupa <strong>label</strong>.<br>🔒 Model ini <strong>hanya</strong> tahu cara membedakan segar vs busuk — beda dengan Generative AI di bawah 👇</p>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 4rem;">
+            <h3 class="text-center">Contoh Tugas Machine Learning</h3>
+            <p class="lede text-center">ML dipakai untuk berbagai jenis masalah yang berbeda-beda.</p>
+            <div class="mobile-grid-2 desktop-grid-4">
+                <div class="card card-dark"><h3>🔎 Ranking</h3><p>Membantu pengguna menemukan hal yang paling relevan.</p></div>
+                <div class="card card-dark"><h3>💡 Recommendation</h3><p>Memberi pengguna hal yang mungkin paling mereka minati.</p></div>
+                <div class="card card-dark"><h3>🏷️ Classification</h3><p>Menentukan sesuatu itu termasuk jenis apa. Contoh: kesegaran buah.</p></div>
+                <div class="card card-dark"><h3>📈 Regression</h3><p>Memprediksi sebuah nilai numerik dari suatu hal.</p></div>
+                <div class="card card-dark"><h3>🧩 Clustering</h3><p>Mengelompokkan hal-hal yang serupa jadi satu.</p></div>
+                <div class="card card-dark"><h3>⚠️ Anomaly Detection</h3><p>Menemukan hal-hal yang tidak biasa / langka.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generative AI -->
+    <section id="genai" class="section-light">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Konsep Inti</div>
+            <h2>Apa itu Generative AI?</h2>
+        </div>
+        <div class="container mobile-grid-2" style="max-width: 800px; margin: 0 auto 3rem; display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+            <div class="card card-light"><h3>Menciptakan Hal Baru</h3><p>Membuat konten dan ide baru — mulai dari percakapan, cerita, gambar, video, sampai musik.</p></div>
+            <div class="card card-light"><h3>Ditenagai Model Besar</h3><p>Dijalankan oleh model besar yang dilatih pada data dalam jumlah sangat besar — dikenal sebagai Foundation Model (FM).</p></div>
+        </div>
+
+        <div class="container">
+            <h3 class="text-center">Bedanya dengan Model ML Tradisional</h3>
+            <p class="lede text-center">Inilah lompatan besarnya: dari satu model untuk satu tugas, menjadi satu model untuk banyak tugas.</p>
+            <div class="compare-grid">
+                <div class="card card-light compare-card">
+                    <h4>ML Tradisional</h4>
+                    <div class="flow-strip" style="color: var(--text-dark);">
+                        <span class="flow-chip">Data Berlabel</span><span class="arrow">→</span><span class="flow-chip">Train</span><span class="arrow">→</span><span class="flow-chip">Deploy</span><span class="arrow">→</span><span class="flow-chip">Tugas</span>
+                    </div>
+                    <p>Butuh model sendiri untuk tiap masalah bisnis — dibangun dari nol, pakai data berlabel, dan di-deploy terpisah.</p>
+                </div>
+                <div class="card card-light compare-card border-accent">
+                    <h4>Foundation Model</h4>
+                    <div class="flow-strip" style="color: var(--text-dark);">
+                        <span class="flow-chip">Data Tak Berlabel</span><span class="arrow">→</span><span class="flow-chip">Pretrain</span><span class="arrow">→</span><span class="flow-chip">FM</span><span class="arrow">→</span><span class="flow-chip">Adapt</span><span class="arrow">→</span><span class="flow-chip">Banyak Tugas</span>
+                    </div>
+                    <p>Satu model untuk semua masalah — lebih cepat, lebih murah, dibangun untuk skala besar. Contoh: text generation, summarization, information extraction, Q&A, chatbot.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 3.5rem;">
+            <h3 class="text-center">Jenis-Jenis Inti Foundation Model</h3>
+            <p class="lede text-center">Sistem AI skala besar yang dilatih pada data yang sangat beragam — dibangun sekali, dipakai di mana saja.</p>
+            <div class="mobile-grid-2 desktop-grid-4">
+                <div class="card card-light"><div class="eyebrow" style="margin-bottom:0.5rem;">Teks → Teks</div><h3>LLM</h3><p>Memahami, menghasilkan, dan menalar bahasa manusia dalam skala besar. Contoh: GPT-4o, Claude, Llama 3.</p></div>
+                <div class="card card-light"><div class="eyebrow" style="margin-bottom:0.5rem;">Teks → Kode</div><h3>Code Model</h3><p>Memahami, menghasilkan, dan men-debug kode di berbagai bahasa pemrograman.</p></div>
+                <div class="card card-light"><div class="eyebrow" style="margin-bottom:0.5rem;">Gambar/Video → Teks</div><h3>Vision Model</h3><p>Mengenali objek, memahami suasana gambar, dan membuat gambar dari deskripsi.</p></div>
+                <div class="card card-light"><div class="eyebrow" style="margin-bottom:0.5rem;">Data Mentah → Vektor</div><h3>Embedding Model</h3><p>Menangkap makna dan hubungan antar data untuk pencarian dan pencocokan kemiripan.</p></div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 3.5rem;">
+            <h3 class="text-center">Cara Kerja: Dari Input ke Output</h3>
+            <div class="mobile-grid-2 desktop-grid-4">
+                <div class="card card-light"><h3>Teks jadi Teks</h3><p><em>"Ringkas artikel soal dampak jalan kaki untuk kesehatan jantung"</em> → "Sepuluh ribu langkah per hari optimal untuk menjaga jantung sehat."</p></div>
+                <div class="card card-light"><h3>Teks jadi Gambar</h3><p><em>"foto astronaut naik kuda di Mars"</em> → gambar sesuai deskripsi.</p></div>
+                <div class="card card-light"><h3>Teks jadi Angka (Vektor)</h3><p><em>"hand soap"</em> → representasi numerik dari "hand soap refills, dispenser, antibacterial".</p></div>
+            </div>
+        </div>
+
+        <div class="container text-center" style="margin-top: 3rem;">
+            <p style="color:#475569;">Para penyedia Foundation Model terkemuka — banyak tersedia di Amazon Bedrock: <strong>Anthropic (Claude) · OpenAI (GPT) · Meta (Llama) · Mistral AI · Amazon (Titan/Nova) · Cohere · Stability AI</strong>. Kiro dibangun di atas foundation model seperti inilah.</p>
+        </div>
+    </section>
+
+    <!-- Agentic AI -->
+    <section id="agentic" class="section-dark">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Konsep Dasar</div>
+            <h2>🧠 Apa itu Agentic AI?</h2>
+            <p class="lede">Kiro adalah contoh dari Agentic AI — AI yang tidak cuma menjawab pertanyaan, tapi bisa bertindak untuk mencapai tujuan Anda, langkah demi langkah, secara mandiri.</p>
+        </div>
+        <div class="container mobile-grid-2 desktop-grid-4">
+            <div class="card card-dark border-accent"><h3>🧩 LLM "Otak"</h3><p>Bagian yang berpikir — memahami permintaan, menyusun rencana, dan memutuskan langkah selanjutnya.</p></div>
+            <div class="card card-dark border-accent"><h3>🛠️ Tools "Tangan"</h3><p>Kemampuan bertindak — menulis file, menjalankan terminal, browsing web.</p></div>
+            <div class="card card-dark border-accent"><h3>🎯 Goal "Tujuan"</h3><p>Hasil akhir yang ingin dicapai. Goal menuntun setiap keputusan LLM dan penggunaan tools.</p></div>
+            <div class="card card-dark border-accent"><h3>🔁 Loop</h3><p>Goal → Think → Act → Observe. Berulang sampai tujuan tercapai.</p></div>
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+            <div class="compare-grid">
+                <div class="card card-dark compare-card">
+                    <h4>AI Biasa (Chatbot)</h4>
+                    <p>Anda tanya → AI jawab teks. Selesai. Tidak bisa membuat file, menjalankan program, atau memperbaiki error sendiri.</p>
+                </div>
+                <div class="card card-dark compare-card border-accent">
+                    <h4>Agentic AI (seperti Kiro)</h4>
+                    <p>Anda beri tujuan → AI berpikir, bertindak dengan tools, melihat hasilnya, lalu mengulang sampai tujuan benar-benar tercapai — tanpa Anda perlu mengawasi tiap langkah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolusi -->
+    <section id="evolusi" class="section-light">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Evolusi Teknologi</div>
+            <h2>🚀 Evolusi Agentic AI</h2>
+            <p class="lede">Dari chatbot sederhana hingga AI yang bisa bekerja mandiri.</p>
+        </div>
+        <div class="container era-timeline">
+            <div class="era-card">
+                <div class="era-year">Era 1 · 2010–2015</div>
+                <h3>🤖 Rule-Based AI</h3>
+                <p>AI berdasarkan aturan yang ditulis manual — seperti flowchart, jika A maka B. Contoh: "Jika kata 'harga', jawab 'lihat menu'".</p>
+                <div class="era-tags"><span>❌ Kaku & terbatas</span><span>✅ Predictable</span><span>📝 Manual rules</span></div>
+            </div>
+            <div class="era-card">
+                <div class="era-year">Era 2 · 2016–2021</div>
+                <h3>💬 Conversational AI (Chatbots)</h3>
+                <p>AI yang bisa chat lebih natural menggunakan machine learning, tapi masih sebatas tanya-jawab.</p>
+                <div class="era-tags"><span>✅ Natural conversation</span><span>❌ Passive</span><span>🧠 Pre-trained models</span></div>
+            </div>
+            <div class="era-card">
+                <div class="era-year">Era 3 · 2022–2023</div>
+                <h3>🔧 Function-Calling AI</h3>
+                <p>LLM yang bisa "memanggil function" — langkah pertama menuju action, tapi masih butuh developer untuk menghubungkan tools.</p>
+                <div class="era-tags"><span>✅ Can use APIs</span><span>⚠️ Manual integration</span><span>🛠️ Limited tools</span></div>
+            </div>
+            <div class="era-card" style="border-left-color: var(--accent-orange); border-width: 2px;">
+                <div class="era-year">Era 4 · 2024–Kini</div>
+                <h3>🚀 Agentic AI (Autonomous) — Kiro ada di sini!</h3>
+                <p>AI yang benar-benar mandiri — bisa berpikir, bertindak, melihat hasil, dan mengulang sampai tujuan tercapai.</p>
+                <div class="era-tags"><span>✅ Fully autonomous</span><span>🔁 Self-correcting</span><span>🛠️ Rich tools</span><span>🎯 Goal-driven</span></div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 2.5rem;">
+            <h3 class="text-center">📊 Perbandingan Kemampuan</h3>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead><tr><th>Kemampuan</th><th>Rule-Based</th><th>Chatbot</th><th>Function-Call</th><th>Agentic AI</th></tr></thead>
+                    <tbody>
+                        <tr><td>Natural Language</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                        <tr><td>Take Actions</td><td>⚠️</td><td>❌</td><td>⚠️</td><td>✅</td></tr>
+                        <tr><td>Self-Correction</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                        <tr><td>Multi-Step Tasks</td><td>❌</td><td>❌</td><td>⚠️</td><td>✅</td></tr>
+                        <tr><td>Goal-Driven</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apa itu Kiro -->
+    <section id="kiro" class="section-dark">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Meet Your Partner</div>
+            <h2>🤔 Apa itu Kiro?</h2>
+            <p class="lede">Kiro adalah penerapan nyata dari Agentic AI — lengkap dengan LLM, tools, dan kemampuan mengejar goal secara mandiri. Bayangkan Kiro seperti teman programmer yang selalu siap membantu.</p>
+        </div>
+        <div class="container">
+            <div class="card card-dark border-accent" style="max-width: 650px; margin: 0 auto 3rem;">
+                <p style="margin-bottom: 0.5rem;"><strong>Anda:</strong> "Bikinkan halaman toko online untuk jual kue"</p>
+                <p style="margin: 0;"><strong>Kiro:</strong> Menulis kode, membuat file, menjalankannya untuk Anda.</p>
+            </div>
+        </div>
+        <div class="container">
+            <h3 class="text-center">5 Kemampuan Utama Kiro</h3>
+            <div class="mobile-grid-2 desktop-grid-4">
+                <div class="card card-dark"><h3>Ngobrol Bahasa Manusia</h3><p>Tulis permintaan seperti chat ke teman — Bahasa Indonesia, English, atau campur, semua dipahami.</p></div>
+                <div class="card card-dark"><h3>Menulis Kode & File Otomatis</h3><p>Kiro membuat file, folder, dan struktur project untuk Anda — tanpa Anda perlu mengetik satu baris kode.</p></div>
+                <div class="card card-dark"><h3>Menjalankan Perintah Teknis</h3><p>Install, build, jalankan aplikasi — semua proses di balik layar dikerjakan Kiro secara otomatis.</p></div>
+                <div class="card card-dark"><h3>Memperbaiki Error Sendiri</h3><p>Kalau ada yang salah, Kiro mendeteksi dan memperbaikinya sendiri — Anda tidak perlu tahu cara debug.</p></div>
+            </div>
+            <p class="text-center" style="color: var(--text-muted); margin-top: 2rem; max-width: 650px; margin-left:auto; margin-right:auto;">Anda tidak perlu menghafal kode. Cukup jelaskan apa yang Anda mau — dalam bahasa apapun — dan Kiro yang menulis kode-nya. Inilah yang membuat coding bisa diakses siapa saja.</p>
+        </div>
+    </section>
+
+    <!-- Perjalanan Workshop -->
+    <section id="perjalanan" class="section-light">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Perjalanan Workshop</div>
+            <h2>Lima Bagian, Satu Pengalaman</h2>
+            <p class="lede">Dari membangun aplikasi pertama Anda, sampai bereksperimen bebas di lomba kreativitas penutup.</p>
+        </div>
+        <div class="container strict-col-1">
+            <div class="step-card" style="background: var(--bg-alt); border-color: var(--border-color-dark);">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>🛍️ Membuat Aplikasi Web</h3>
+                    <p>Studi kasus: membangun website e-commerce UMKM kerajinan bambu Jogja dari nol, bersama Kiro — dari katalog produk sampai checkout.</p>
+                </div>
+            </div>
+            <div class="step-connector" style="background: var(--border-color-dark);"></div>
+            <div class="step-card" style="background: var(--bg-alt); border-color: var(--border-color-dark);">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>🧭 Kiro Steering</h3>
+                    <p>Bagaimana Kiro "mengingat" konteks project dan aturan bisnis secara otomatis — tanpa harus diulang setiap prompt.</p>
+                </div>
+            </div>
+            <div class="step-connector" style="background: var(--border-color-dark);"></div>
+            <div class="step-card" style="background: var(--bg-alt); border-color: var(--border-color-dark);">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>📋 Spec-Driven Development</h3>
+                    <p>Pendekatan terstruktur untuk membangun fitur bersama Kiro — berpikir dulu lewat Requirements dan Design, baru eksekusi lewat Tasks.</p>
+                </div>
+            </div>
+            <div class="step-connector" style="background: var(--border-color-dark);"></div>
+            <div class="step-card" style="background: var(--bg-alt); border-color: var(--border-color-dark);">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>🔌 MCP & Playwright</h3>
+                    <p>Memperluas kemampuan Kiro dengan "plugin" — dari sekadar membaca kode, menjadi bisa mengontrol browser sungguhan secara otomatis.</p>
+                </div>
+            </div>
+            <div class="step-connector" style="background: var(--border-color-dark);"></div>
+            <div class="step-card" style="background: var(--bg-alt); border-color: var(--border-color-dark);">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>🏆 Lomba Kreativitas</h3>
+                    <p>Sesi penutup: peserta bebas membuat apapun dengan Kiro — tanpa batasan tema atau teknologi. Kreativitas jadi bintang utama.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container text-center" style="margin-top: 3rem;">
+            <div class="flow-strip" style="justify-content:center; color: var(--text-dark);">
+                <span class="flow-chip" style="background:var(--bg-alt); border:1px solid var(--border-color-dark);">Requirements</span>
+                <span class="arrow">→</span>
+                <span class="flow-chip" style="background:var(--bg-alt); border:1px solid var(--border-color-dark);">Design</span>
+                <span class="arrow">→</span>
+                <span class="flow-chip" style="background:var(--bg-alt); border:1px solid var(--border-color-dark);">Tasks</span>
+            </div>
+            <p style="color:#475569; margin-top:0.75rem;">Spec-Driven Development mengajak Anda berpikir terstruktur sebelum membangun — hasilnya lebih tepat dan minim rework.</p>
+        </div>
+    </section>
+
+    <!-- ================= TUTORIAL LENGKAP (TABS) ================= -->
+    <section id="tutorial" class="section-dark">
+        <div class="container text-center section-header">
+            <div class="eyebrow">Panduan Lengkap</div>
+            <h2>📚 Materi Tutorial Hands-On</h2>
+            <p class="lede">Panduan lengkap untuk pemula hingga developer — pilih topik di bawah untuk membaca detailnya.</p>
+        </div>
+
+        <div class="container">
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="tab-app">Membuat Aplikasi</button>
+                <button class="tab-btn" data-tab="tab-steer">Kiro Steering</button>
+                <button class="tab-btn" data-tab="tab-spec">Spec-Driven Dev</button>
+                <button class="tab-btn" data-tab="tab-mcp">MCP</button>
+                <button class="tab-btn" data-tab="tab-lomba">Lomba Kreativitas</button>
+                <button class="tab-btn jury-btn" id="jury-toggle-btn" data-tab="tab-jury">🔒 Tab Juri</button>
+            </div>
+
+            <!-- TAB: Membuat Aplikasi -->
+            <div class="tab-panel active" id="tab-app">
+                <div class="toc-box">
+                    <h4>📑 Daftar Isi — Membuat Aplikasi</h4>
+                    <ul class="toc-list">
+                        <li><a href="#app-kiro">1. Apa itu Kiro?</a></li>
+                        <li><a href="#app-prep">2. Persiapan Sebelum Workshop</a></li>
+                        <li><a href="#app-tech">3. Teknologi yang Digunakan</a></li>
+                        <li><a href="#app-step1">4. Langkah 1: Jelaskan Apa yang Anda Mau</a></li>
+                        <li><a href="#app-step2">5. Langkah 2: Berikan Spesifikasi</a></li>
+                        <li><a href="#app-step3">6. Langkah 3: Tambahkan Requirement Baru</a></li>
+                        <li><a href="#app-step4">7. Langkah 4: Jalankan dan Lihat Hasilnya</a></li>
+                        <li><a href="#app-tips">8. Tips Menulis Prompt yang Efektif</a></li>
+                        <li><a href="#app-prompts">9. Contoh Prompt yang Bisa Anda Coba</a></li>
+                        <li><a href="#app-learn">10. Apa yang Anda Pelajari</a></li>
+                        <li><a href="#app-schedule">11. Alur Workshop</a></li>
+                        <li><a href="#app-faq">12. FAQ</a></li>
+                    </ul>
+                </div>
+
+                <h3 class="sub-h" id="app-kiro">🤔 Apa itu Kiro?</h3>
+                <p>Kiro adalah <strong>AI-powered development environment</strong> yang dibuat oleh Amazon. Kiro berfungsi seperti partner programming yang bisa menulis kode dari instruksi bahasa sehari-hari, membuat file dan struktur project otomatis, menjalankan perintah terminal, menjelaskan konsep teknologi dengan mudah, serta memperbaiki error dan bug dalam kode.</p>
+                <p>Anda tidak perlu menghafal kode. Cukup jelaskan apa yang Anda mau dalam Bahasa Indonesia, Kiro yang akan menulis kode-nya.</p>
+
+                <h3 class="sub-h" id="app-prep">🛠️ Persiapan Sebelum Workshop</h3>
+                <p><strong>Software yang perlu diinstall:</strong></p>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">1</div><div class="txt"><h4>Kiro IDE</h4><p>Download gratis di <a href="https://kiro.dev" target="_blank" rel="noopener" style="color: var(--accent-orange);">kiro.dev</a></p></div></div>
+                    <div class="mini-step"><div class="num">2</div><div class="txt"><h4>Node.js (versi 18+)</h4><p>Download di <a href="https://nodejs.org" target="_blank" rel="noopener" style="color: var(--accent-orange);">nodejs.org</a></p></div></div>
+                    <div class="mini-step"><div class="num">3</div><div class="txt"><h4>Browser modern</h4><p>Chrome, Firefox, atau Edge.</p></div></div>
+                </div>
+                <p style="margin-top:1.5rem;"><strong>Yang tidak perlu Anda ketahui:</strong> workshop ini dirancang agar pemula pun bisa mengikuti. Anda tidak harus pernah programming sebelumnya, tahu HTML/CSS/JavaScript, atau paham database dan server.</p>
+
+                <h3 class="sub-h" id="app-tech">🧰 Teknologi yang Digunakan</h3>
+                <p>Anda tidak perlu menghafal — Kiro yang mengurus implementasinya.</p>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead><tr><th>Teknologi</th><th>Fungsi</th><th>Analogi</th></tr></thead>
+                        <tbody>
+                            <tr><td>Next.js</td><td>Framework web full-stack</td><td>"Mesin" website</td></tr>
+                            <tr><td>React</td><td>Library UI</td><td>"Kanvas" tampilan</td></tr>
+                            <tr><td>Tailwind CSS</td><td>Styling/desain</td><td>"Cat & dekorasi"</td></tr>
+                            <tr><td>JSON File</td><td>Database lokal</td><td>"Buku catatan" data</td></tr>
+                            <tr><td>localStorage</td><td>Data di browser</td><td>"Ingatan" browser</td></tr>
+                            <tr><td>Node.js</td><td>Runtime JavaScript</td><td>"Penerjemah" kode</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-h" id="app-step1">📝 Langkah 1: Jelaskan Apa yang Anda Mau</h3>
+                <p>Buka Kiro IDE, buat folder baru, lalu ketik prompt pertama di chat panel:</p>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+Saya mau bikin website untuk UMKM jualan barang-barang kerajinan bambu Jogja. Saya mau user bisa beli tanpa login, dengan login, melihat barang yang dijual, keranjang belanja, dan bayar apa yang pengunjung mau beli. Saya gak tau mulai dari mana, jelaskan supaya saya ngerti cara buat website seperti itu.</div>
+                <p><strong>Kiro akan menjawab dengan:</strong> penjelasan komponen utama website (Frontend, Backend, Database), alur belanja dari browsing sampai bayar, rekomendasi teknologi yang cocok, langkah-langkah memulai, dan pertanyaan balik untuk memperjelas kebutuhan Anda.</p>
+
+                <div class="accordion-group">
+                    <div class="accordion-item">
+                        <button class="accordion-trigger"><span>▶ Contoh Jawaban Kiro (Lengkap) — klik untuk buka/tutup</span><span class="chevron">⌄</span></button>
+                        <div class="accordion-content">
+                            <p><strong>Panduan Membuat Website E-Commerce Kerajinan Bambu Jogja</strong></p>
+                            <p>Saya jelaskan gambaran besar dulu supaya Anda paham alurnya, lalu kita bisa mulai bangun bersama.</p>
+                            <p><strong>Komponen Utama:</strong></p>
+                            <ul>
+                                <li><strong>1. Frontend (tampilan):</strong> Halaman beranda & katalog, detail produk, keranjang, checkout, login/register</li>
+                                <li><strong>2. Backend (logika bisnis):</strong> Manajemen produk & user, proses order, integrasi pembayaran</li>
+                                <li><strong>3. Database:</strong> Data produk, user, order, keranjang</li>
+                            </ul>
+                            <p><strong>Alur Belanja:</strong> Pengunjung → Lihat katalog → Tambah ke keranjang → Checkout → Bayar → Konfirmasi</p>
+                            <p><strong>Mau Mulai?</strong> Beritahu saya: nama brand, contoh produk, bahasa, dan payment gateway. Semakin detail kebutuhan Anda, semakin tepat hasilnya. Tapi tidak perlu sempurna — bisa ditambah nanti.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="sub-h" id="app-step2">📝 Langkah 2: Berikan Spesifikasi</h3>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+Nama brand: Jogja Kriya Bamboo
+Buat contoh produk
+Bilingual
+Simulasi dulu untuk payment gateway
+Saya mau aplikasi bisa dijalankan tanpa koneksi internet di laptop saya</div>
+                <p><strong>Kiro langsung bekerja:</strong> membuat 15+ file project, menulis kode frontend & backend, membuat 8 contoh produk kerajinan bambu, install dependencies & verifikasi berjalan.</p>
+                <p><strong>💡 Di Balik Layar:</strong> File dibuat langsung oleh Kiro, terminal menjalankan <code>npm install</code>, dan jika terjadi error akan otomatis diperbaiki (problem solving).</p>
+
+                <h3 class="sub-h" id="app-step3">📝 Langkah 3: Tambahkan Requirement Baru</h3>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+website juga harus bisa ditampilkan di hp dengan baik</div>
+                <p>Kiro menerapkan mobile-first layout, hamburger menu, dan grid fleksibel.</p>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+Buat desain lebih elegan dan modern seperti website profesional</div>
+                <p><strong>Kiro mengubah desain:</strong> navbar glass morphism + animasi, hero full-screen dengan card hover effects, tombol pill-shaped dengan warna warm & earthy, dan footer profesional 3 kolom.</p>
+
+                <h3 class="sub-h" id="app-step4">📝 Langkah 4: Jalankan dan Lihat Hasilnya</h3>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+jalankan aplikasi, lalu buka di browser</div>
+                <p>Kiro menjalankan <code>npm run dev</code>, server berjalan di <code>http://localhost:3000</code>, dan browser terbuka otomatis.</p>
+                <p><strong>🎉 Hasil dalam &lt;10 menit:</strong> Halaman utama elegan, katalog 8 produk + filter kategori, keranjang belanja berfungsi, checkout + form lengkap, login & register, responsive HP & desktop, bilingual (ID & EN), dan 100% offline.</p>
+
+                <h3 class="sub-h" id="app-tips">💬 Tips Menulis Prompt yang Efektif</h3>
+                <div class="do-dont">
+                    <div class="box do">
+                        <h4>✅ Prompt yang Baik</h4>
+                        <ul>
+                            <li><strong>Spesifik:</strong> "Buat halaman produk dengan grid 4 kolom dan tombol tambah ke keranjang"</li>
+                            <li><strong>Kontekstual:</strong> "Website ini untuk UMKM kerajinan bambu Jogja"</li>
+                            <li><strong>Bertahap:</strong> Mulai dari besar, detailkan satu per satu</li>
+                            <li><strong>Minta penjelasan:</strong> "Jelaskan dulu konsepnya"</li>
+                        </ul>
+                    </div>
+                    <div class="box dont">
+                        <h4>❌ Kurang Efektif</h4>
+                        <ul>
+                            <li>"Buatkan website" (terlalu vague)</li>
+                            <li>10 fitur kompleks sekaligus</li>
+                            <li>"Buat simpel tapi lengkap seperti Tokopedia" (kontradiktif)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="sub-h" id="app-prompts">🎯 Contoh Prompt Eksplorasi</h3>
+                <div class="mobile-grid-2 desktop-grid-4">
+                    <div class="card card-dark idea-card"><div class="idea-num">1</div><h3>Pencarian produk</h3><p>Tambahkan fitur search/pencarian di halaman produk supaya pengunjung bisa cari produk berdasarkan nama.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">2</div><h3>Detail produk</h3><p>Buat halaman detail produk ketika user klik salah satu produk.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">3</div><h3>Halaman admin</h3><p>Buat halaman admin di /admin untuk melihat daftar pesanan yang masuk.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">4</div><h3>Ubah tema warna</h3><p>Ganti warna tema dari coklat bambu ke hijau emerald yang lebih segar.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">5</div><h3>Penjelasan kode</h3><p>Jelaskan bagaimana keranjang belanja bekerja di CartContext.jsx.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">6</div><h3>Arsitektur diagram</h3><p>Buatkan diagram arsitektur dan sequence diagram alur checkout dalam format Mermaid.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">7</div><h3>Problem teknis production</h3><p>Jika aplikasi ini sudah di production dengan banyak pengunjung, apa masalah teknis yang mungkin muncul?</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">8</div><h3>Rekomendasi improvement</h3><p>Apa yang perlu di-improve supaya siap production? Prioritas keamanan, performa, skalabilitas.</p></div>
+                </div>
+
+                <h3 class="sub-h" id="app-learn">📚 Yang Anda Pelajari</h3>
+                <div class="compare-grid">
+                    <div class="card card-dark compare-card">
+                        <h4>Pemula (Non-IT)</h4>
+                        <ul style="color: var(--text-muted); padding-left: 1.1rem;">
+                            <li>Cara kerja website modern (frontend vs backend)</li>
+                            <li>Alur e-commerce (katalog → keranjang → checkout)</li>
+                            <li>Responsive design</li>
+                            <li>Bekerja dengan AI tanpa coding manual</li>
+                        </ul>
+                    </div>
+                    <div class="card card-dark compare-card">
+                        <h4>Developer</h4>
+                        <ul style="color: var(--text-muted); padding-left: 1.1rem;">
+                            <li>AI-assisted development workflow</li>
+                            <li>Next.js 14 App Router</li>
+                            <li>React Context API</li>
+                            <li>Tailwind CSS rapid UI dev</li>
+                            <li>Iterasi cepat: requirement → prototype</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="sub-h" id="app-schedule">⏱️ Alur Workshop (60 menit)</h3>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">1</div><div class="txt"><h4>Pengenalan Kiro (10 menit)</h4><p>Install, buka workspace, kenalan interface.</p></div></div>
+                    <div class="mini-step"><div class="num">2</div><div class="txt"><h4>Buat Aplikasi Bersama (25 menit)</h4><p>Ikuti langkah 1–4 di atas.</p></div></div>
+                    <div class="mini-step"><div class="num">3</div><div class="txt"><h4>Eksplorasi Mandiri (20 menit)</h4><p>Tambah fitur sendiri dengan prompt.</p></div></div>
+                    <div class="mini-step"><div class="num">4</div><div class="txt"><h4>Sharing & Tanya Jawab (5 menit)</h4><p>Diskusi dan tips lanjutan.</p></div></div>
+                </div>
+
+                <h3 class="sub-h" id="app-faq">❓ FAQ</h3>
+                <div class="accordion-group">
+                    <div class="accordion-item">
+                        <button class="accordion-trigger"><span>Apakah Kiro gratis?</span><span class="chevron">⌄</span></button>
+                        <div class="accordion-content"><p>Ya, download gratis di <a href="https://kiro.dev" target="_blank" rel="noopener" style="color: var(--accent-orange);">kiro.dev</a>.</p></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger"><span>Perlu bisa coding?</span><span class="chevron">⌄</span></button>
+                        <div class="accordion-content"><p>Tidak. Kiro menulis kode dari instruksi bahasa sehari-hari.</p></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger"><span>Bahasa prompt?</span><span class="chevron">⌄</span></button>
+                        <div class="accordion-content"><p>Indonesia, English, atau campur keduanya.</p></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger"><span>Bisa langsung untuk bisnis?</span><span class="chevron">⌄</span></button>
+                        <div class="accordion-content"><p>Ini prototype. Untuk production: tambah hosting, payment gateway asli, dan keamanan — semua bisa dibantu Kiro.</p></div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger"><span>Butuh internet?</span><span class="chevron">⌄</span></button>
+                        <div class="accordion-content"><p>Tidak. Aplikasi 100% offline. Internet hanya untuk install awal.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: Kiro Steering -->
+            <div class="tab-panel" id="tab-steer">
+                <div class="toc-box">
+                    <h4>📑 Daftar Isi — Kiro Steering</h4>
+                    <ul class="toc-list">
+                        <li><a href="#steer-what">1. Apa itu Steering?</a></li>
+                        <li><a href="#steer-analogy">2. Analogi Sederhana</a></li>
+                        <li><a href="#steer-compare">3. Tanpa vs Dengan Steering</a></li>
+                        <li><a href="#steer-create">4. Cara Membuat Steering</a></li>
+                        <li><a href="#steer-structure">5. Struktur File Steering</a></li>
+                        <li><a href="#steer-examples">6. Contoh Isi Steering</a></li>
+                        <li><a href="#steer-types">7. Jenis-Jenis Steering</a></li>
+                        <li><a href="#steer-practice">8. Latihan Praktik</a></li>
+                        <li><a href="#steer-tips">9. Tips & Best Practices</a></li>
+                    </ul>
+                </div>
+
+                <h3 class="sub-h" id="steer-what">1. 🤔 Apa itu Steering?</h3>
+                <p><strong>Steering</strong> adalah file Markdown di folder <code>.kiro/steering/</code> yang Kiro baca otomatis setiap kali Anda berinteraksi dengan project. Seperti briefing tertulis untuk asisten baru — sekali ditulis, Kiro selalu ingat tanpa perlu diulang.</p>
+                <ul style="color: var(--text-muted); padding-left: 1.1rem;">
+                    <li>Project ini tentang apa</li>
+                    <li>Teknologi yang dipakai</li>
+                    <li>Aturan desain dan coding</li>
+                    <li>Yang boleh dan tidak boleh dilakukan</li>
+                </ul>
+
+                <h3 class="sub-h" id="steer-analogy">2. 🎯 Analogi Sederhana</h3>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead><tr><th>Dunia Nyata</th><th>Kiro Steering</th></tr></thead>
+                        <tbody>
+                            <tr><td>SOP di kantor</td><td>Aturan coding & desain</td></tr>
+                            <tr><td>Briefing karyawan baru</td><td>Konteks project & bisnis</td></tr>
+                            <tr><td>Style guide brand</td><td>Panduan warna, font, UI</td></tr>
+                            <tr><td>Checklist QA</td><td>Standar kualitas kode</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-h" id="steer-compare">3. ⚖️ Tanpa vs Dengan Steering</h3>
+                <div class="do-dont">
+                    <div class="box dont">
+                        <h4>❌ Tanpa Steering</h4>
+                        <p>Harus selalu bilang: "Pakai Tailwind", "Bilingual ID & EN", "Harga Rupiah", "Mobile-first", "Warna bamboo-700".</p>
+                        <p><strong>Repot & sering lupa.</strong></p>
+                    </div>
+                    <div class="box do">
+                        <h4>✅ Dengan Steering</h4>
+                        <p>Cukup bilang: "Tambahkan halaman Tentang Kami" — Kiro otomatis pakai Tailwind, bilingual, warna brand, dan mobile-first.</p>
+                        <p><strong>Simpel & konsisten.</strong></p>
+                    </div>
+                </div>
+
+                <h3 class="sub-h" id="steer-create">4. 🛠️ Cara Membuat Steering</h3>
+                <p>Tidak perlu buat manual — minta Kiro!</p>
+                <p><strong>Alternatif 1: Serahkan ke Kiro (Simpel)</strong></p>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>Buatkan file steering untuk project ini</div>
+                <p>→ Kiro analisis project lalu buatkan steering yang relevan.</p>
+                <p><strong>Alternatif 2: Berikan Arahan Spesifik</strong></p>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+Buatkan steering file untuk project ini yang berisi:
+1. Konteks bisnis (toko bambu Jogja, harga Rupiah, bilingual)
+2. Panduan desain (warna brand, mobile-first)
+3. Standar coding (Next.js, Tailwind, JavaScript)</div>
+
+                <h3 class="sub-h" id="steer-structure">5. 📁 Struktur File</h3>
+                <div class="code-block">project-anda/
+├── .kiro/
+│   └── steering/
+│       ├── project-context.md
+│       ├── design-guide.md
+│       └── coding-standards.md
+├── src/
+└── package.json</div>
+                <p>File steering = Markdown biasa. Bisa diedit manual atau minta Kiro update.</p>
+
+                <h3 class="sub-h" id="steer-examples">6. 📄 Contoh Isi</h3>
+                <p><strong>project-context.md</strong></p>
+                <div class="code-block"># Konteks Project
+- E-commerce kerajinan bambu Yogyakarta
+- Target: pembeli 25-45 tahun
+- Harga dalam Rupiah
+- Bilingual ID & EN
+- Guest checkout tersedia</div>
+                <p><strong>design-guide.md</strong></p>
+                <div class="code-block"># Panduan Desain
+- Primary: bamboo-700 (#6b5a3f)
+- Tombol: rounded-full, hover shadow
+- Card: rounded-2xl, hover translate-y
+- Mobile-first, minimalis, aksesibel</div>
+                <p><strong>coding-standards.md</strong></p>
+                <div class="code-block"># Standar Coding
+- Next.js 14 App Router
+- Tailwind CSS (bukan CSS modules)
+- JSON file database
+- JavaScript (bukan TypeScript)
+- Teks bilingual di object {id, en}</div>
+
+                <h3 class="sub-h" id="steer-types">7. 🏷️ Jenis Steering</h3>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead><tr><th>Jenis</th><th>Kapan Aktif</th><th>Contoh</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Always (default)</strong></td><td>Selalu</td><td>Standar coding, konteks bisnis</td></tr>
+                            <tr><td><strong>File Match</strong></td><td>Saat file tertentu dibaca</td><td>Aturan khusus API</td></tr>
+                            <tr><td><strong>Manual</strong></td><td>Dipanggil via # di chat</td><td>Panduan deploy</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-muted);">Gunakan "always" untuk workshop — paling mudah dan langsung terasa.</p>
+
+                <h3 class="sub-h" id="steer-practice">8. ✏️ Latihan Praktik</h3>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">A</div><div class="txt"><h4>Buat steering dari nol</h4><p><em>"Buatkan file steering untuk project ini"</em></p></div></div>
+                    <div class="mini-step"><div class="num">B</div><div class="txt"><h4>Verifikasi steering bekerja</h4><p><em>"Tambahkan halaman Tentang Kami"</em> → Kiro otomatis bilingual, Tailwind, warna brand tanpa disuruh.</p></div></div>
+                    <div class="mini-step"><div class="num">C</div><div class="txt"><h4>Update steering</h4><p><em>"Tambahkan di steering bahwa setiap halaman baru harus punya breadcrumb"</em></p></div></div>
+                    <div class="mini-step"><div class="num">D</div><div class="txt"><h4>Aturan bisnis baru</h4><p><em>"Update steering: produk di atas Rp 200.000 harus diberi label 'Premium'"</em></p></div></div>
+                </div>
+
+                <h3 class="sub-h" id="steer-tips">9. 💡 Tips & Best Practices</h3>
+                <div class="do-dont">
+                    <div class="box do"><h4>✅ Do</h4><ul><li>Tulis jelas dan ringkas</li><li>Pisahkan per topik (satu file per concern)</li><li>Update saat aturan berubah</li><li>Commit ke Git — satu tim dapat aturan yang sama</li></ul></div>
+                    <div class="box dont"><h4>❌ Don't</h4><ul><li>Terlalu panjang (membingungkan Kiro)</li><li>Kontradiksi antar file</li><li>Simpan API key / password</li><li>Masukkan hal yang sering berubah</li></ul></div>
+                </div>
+            </div>
+
+            <!-- TAB: Spec-Driven Development -->
+            <div class="tab-panel" id="tab-spec">
+                <div class="toc-box">
+                    <h4>📑 Daftar Isi — Spec-Driven Development</h4>
+                    <ul class="toc-list">
+                        <li><a href="#spec-intro">1. Apa yang Akan Kita Pelajari?</a></li>
+                        <li><a href="#spec-concept">2. Konsep Singkat</a></li>
+                        <li><a href="#spec-setup">3. Persiapan: Buka Workspace Baru</a></li>
+                        <li><a href="#spec-prompt1">4. Prompt 1: Minta Saran dari Kiro</a></li>
+                        <li><a href="#spec-saran">5. Contoh Saran dari Kiro</a></li>
+                        <li><a href="#spec-prompt2">6. Prompt 2: Eksekusi</a></li>
+                        <li><a href="#spec-result">7. Baca Hasil dari Kiro</a></li>
+                        <li><a href="#spec-lesson">8. Pelajaran dari Latihan Ini</a></li>
+                    </ul>
+                </div>
+
+                <h3 class="sub-h" id="spec-intro">1. 🎯 Apa yang Akan Kita Pelajari?</h3>
+                <p>Di bagian ini, Anda akan belajar tentang <strong>Spec-Driven Development</strong> — cara Kiro membantu Anda membangun fitur secara terstruktur: mulai dari requirements, design, sampai tasks.</p>
+                <p>Yang unik: Anda tidak perlu membaca materi panjang. Anda akan minta Kiro menjelaskannya untuk Anda, sambil belajar teknik prompting yang lebih advanced.</p>
+
+                <h3 class="sub-h" id="spec-concept">2. 💡 Konsep Singkat</h3>
+                <div class="flow-strip"><span class="flow-chip">📋 Requirements</span><span class="arrow">→</span><span class="flow-chip">🎨 Design</span><span class="arrow">→</span><span class="flow-chip">✅ Tasks</span></div>
+                <p>Dari "apa yang mau dibuat" → "bagaimana cara membangunnya" → "langkah-langkah kerjanya". Daripada langsung coding, Kiro membantu Anda berpikir dulu — lalu mengeksekusi langkah per langkah. Hasilnya lebih terstruktur dan minim rework.</p>
+
+                <h3 class="sub-h" id="spec-setup">3. 🆕 Persiapan: Buka Workspace Baru</h3>
+                <p>Untuk latihan ini, kita akan mulai dari workspace kosong yang fresh agar tidak tercampur dengan project sebelumnya.</p>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">1</div><div class="txt"><h4>Buka window Kiro baru</h4><p>Klik <code>File → New Window</code> (atau <code>Ctrl/Cmd + Shift + N</code>)</p></div></div>
+                    <div class="mini-step"><div class="num">2</div><div class="txt"><h4>Buat folder baru</h4><p>Buat folder baru (misalnya <code>belajar-spec</code>) di lokasi mana pun yang mudah ditemukan.</p></div></div>
+                    <div class="mini-step"><div class="num">3</div><div class="txt"><h4>Buka folder tersebut di Kiro</h4><p>Klik <code>File → Open Folder</code>, lalu pilih folder <code>belajar-spec</code>.</p></div></div>
+                    <div class="mini-step"><div class="num">4</div><div class="txt"><h4>Pilih Vibe chat</h4><p>Pastikan Anda berada di mode Vibe (bukan Spec) di panel chat Kiro.</p></div></div>
+                </div>
+                <p style="margin-top:1rem;"><strong>💡 Kenapa Workspace Baru?</strong> Agar tidak ada steering atau file lama yang mempengaruhi output Kiro, Anda bisa melihat hasil murni dari prompt Anda, dan mensimulasikan pengalaman "mulai dari nol" yang realistis.</p>
+
+                <h3 class="sub-h" id="spec-prompt1">4. 💬 Prompt 1: Minta Saran dari Kiro</h3>
+                <p>Di Vibe chat workspace baru Anda, ketik prompt berikut. Perhatikan: Anda minta Kiro kasih saran dulu, bukan langsung eksekusi.</p>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+Cari informasi tentang Spec-Driven Development dari dokumentasi resmi di website kiro.dev, lalu buatkan tutorial dalam format single page html yang bisa saya gunakan untuk berlatih (hands-on) dengan contoh nyata. Sebelum mulai menjelaskan apakah prompt ini sudah cukup baik? Beri saran</div>
+                <p><strong>🤔 Kenapa Minta Saran Dulu?</strong> Hasil lebih berkualitas karena Kiro punya kesempatan memperjelas scope sebelum kerja, Anda belajar melihat apa yang Kiro anggap kurang dari prompt Anda, ini jadi kolaborasi bukan hanya menyuruh, dan ini teknik pro yang sering dipakai developer berpengalaman.</p>
+
+                <h3 class="sub-h" id="spec-saran">5. 🤖 Contoh Saran dari Kiro</h3>
+                <div class="accordion-group">
+                    <div class="accordion-item">
+                        <button class="accordion-trigger"><span>Lihat contoh saran yang mungkin diberikan Kiro</span><span class="chevron">⌄</span></button>
+                        <div class="accordion-content">
+                            <p><strong>Prompt Anda sudah bagus, tapi saya punya beberapa saran untuk memperkaya hasilnya:</strong></p>
+                            <ul>
+                                <li><strong>Tentukan kedalaman konten</strong> — overview singkat 5 menit baca, atau tutorial lengkap step-by-step?</li>
+                                <li><strong>Tentukan konteks penggunaan</strong> — materi presentasi, dokumentasi tim, atau landing page edukatif?</li>
+                                <li><strong>Tentukan style/desain</strong> — ada preferensi warna, layout, atau framework CSS?</li>
+                                <li><strong>Tentukan bahasa</strong> — Bahasa Indonesia, English, atau bilingual?</li>
+                                <li><strong>Scope konten</strong> — konsep saja, atau perlu contoh penggunaan nyata?</li>
+                            </ul>
+                            <p>Mau saya lanjutkan dengan saran-saran ini, atau ada yang ingin Anda ubah?</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">Setiap orang bisa mendapat saran yang sedikit berbeda — itu normal! Yang penting adalah Kiro membantu Anda memikirkan hal yang mungkin terlewat.</p>
+
+                <h3 class="sub-h" id="spec-prompt2">6. 💬 Prompt 2: Eksekusi</h3>
+                <p>Setelah melihat saran Kiro, buat session chat baru (klik ikon "+") dan tetap pilih mode Vibe. Lalu copy prompt yang disarankan Kiro, dan paste di session chat baru tersebut.</p>
+                <p><strong>Contoh Prompt dari Instructor:</strong></p>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>
+Cari informasi tentang Spec-Driven Development dari kiro.dev. Buatkan tutorial single-page HTML dalam Bahasa Indonesia, target audience developer yang sudah familiar dengan VS Code tapi baru kenal Kiro. Gunakan contoh nyata: membangun fitur todo-list API (CRUD). Cakup seluruh flow dari requirements sampai implementation. Style clean & responsive, dark mode</div>
+                <p><strong>✅ Kenapa Prompt Ini Lebih Baik?</strong> Sumber jelas ("dari kiro.dev"), target audience spesifik, scope konten 3 poin jelas, arahan desain jelas, dan format output yang pasti (single page HTML).</p>
+
+                <h3 class="sub-h" id="spec-result">7. 📖 Baca Hasil dari Kiro</h3>
+                <p>Setelah Kiro selesai (biasanya 30-60 detik), Anda akan mendapat file HTML baru di workspace.</p>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">1</div><div class="txt"><h4>Buka file HTML yang dihasilkan</h4><p>Klik file di sidebar Kiro, atau "Open with Live Server" / "Reveal in Finder" lalu buka di browser.</p></div></div>
+                    <div class="mini-step"><div class="num">2</div><div class="txt"><h4>Baca isinya</h4><p>File ini berisi penjelasan lengkap tentang Spec-Driven Development di Kiro.</p></div></div>
+                    <div class="mini-step"><div class="num">3</div><div class="txt"><h4>Pahami flow-nya</h4><p>Requirements → Design → Tasks.</p></div></div>
+                </div>
+                <p style="margin-top:1rem;"><strong>⚠️ Kalau Hasil Kurang Sesuai?</strong> Anda bisa lanjut iterasi di chat yang sama:</p>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>Bagian tentang "Design" kurang jelas, jelaskan lebih detail dengan contoh konkret</div>
+
+                <h3 class="sub-h" id="spec-lesson">8. 📚 Pelajaran dari Latihan Ini</h3>
+                <div class="compare-grid">
+                    <div class="card card-dark compare-card"><h4>Prompt Langsung</h4><p><em>"Buatkan materi tentang Spec"</em> → Hasil generik, mungkin kurang relevan.</p></div>
+                    <div class="card card-dark compare-card border-accent"><h4>Minta Saran Dulu</h4><p><em>"Buatkan materi... tapi kasih saran dulu"</em> → Hasil spesifik, kontekstual, berkualitas.</p></div>
+                </div>
+                <p style="margin-top:1.5rem;"><strong>Teknik yang Anda Pelajari:</strong> workspace fresh, minta Kiro cari dari sumber resmi, minta review prompt sebelum eksekusi, eksekusi dengan prompt spesifik, baca dan pelajari output, serta iterasi kalau kurang pas. Teknik "minta saran dulu" bisa dipakai untuk task apa pun — menulis email, membuat desain, planning fitur, atau presentasi.</p>
+            </div>
+
+            <!-- TAB: MCP -->
+            <div class="tab-panel" id="tab-mcp">
+                <div class="toc-box">
+                    <h4>📑 Daftar Isi — MCP</h4>
+                    <ul class="toc-list">
+                        <li><a href="#mcp-what">1. Apa itu MCP?</a></li>
+                        <li><a href="#mcp-playwright">2. Apa itu Playwright?</a></li>
+                        <li><a href="#mcp-compare">3. Playwright MCP vs Fetch</a></li>
+                        <li><a href="#mcp-setup">4. Setup Playwright MCP</a></li>
+                        <li><a href="#mcp-demo1">5. Demo: Buka Amazon</a></li>
+                        <li><a href="#mcp-demo2">6. Interaksi: Cari Produk</a></li>
+                        <li><a href="#mcp-demo3">7. Analisis Halaman</a></li>
+                        <li><a href="#mcp-bonus">8. Bonus: Bandingkan Harga</a></li>
+                        <li><a href="#mcp-lesson">9. Pelajaran</a></li>
+                    </ul>
+                </div>
+
+                <h3 class="sub-h" id="mcp-what">1. 🔌 Apa itu MCP?</h3>
+                <p><strong>MCP (Model Context Protocol)</strong> adalah standar "plugin" yang memberi Kiro kemampuan baru di luar kemampuan bawaannya.</p>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <tbody>
+                            <tr><td><strong>Kiro tanpa MCP</strong></td><td>Otak yang bisa berpikir, baca file, tulis kode</td></tr>
+                            <tr><td><strong>Kiro + MCP</strong></td><td>Otak + "tangan tambahan" yang bisa akses browser, database, API external</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Contoh MCP yang tersedia: <strong>Playwright</strong> (kontrol browser), <strong>Gmail</strong> (baca/kirim email), <strong>Google Calendar</strong> (cek jadwal), <strong>Slack</strong> (kirim pesan), <strong>GitHub</strong> (akses repo/issues), <strong>Notion</strong>, dan <strong>SQLite/PostgreSQL</strong> (query database). Cari MCP yang Anda butuhkan di <a href="https://registry.modelcontextprotocol.io/" target="_blank" rel="noopener" style="color: var(--accent-orange);">registry.modelcontextprotocol.io</a>.</p>
+
+                <h3 class="sub-h" id="mcp-playwright">2. 🎭 Apa itu Playwright?</h3>
+                <p><strong>Playwright</strong> adalah tool open-source untuk otomasi browser, biasa dipakai developer untuk automated testing. Dengan Playwright MCP, Kiro bisa membuka Chrome/Firefox/Safari, navigasi ke URL mana pun, klik tombol, isi form, scroll halaman, mengambil screenshot, dan membaca isi halaman yang sudah di-render JavaScript.</p>
+                <div class="flow-strip">👤 Anda <span class="arrow">→</span> 🤖 Kiro <span class="arrow">→</span> 🔌 Playwright MCP <span class="arrow">→</span> 🌐 Browser <span class="arrow">→</span> 🛒 Website</div>
+
+                <h3 class="sub-h" id="mcp-compare">3. ⚖️ Playwright MCP vs Fetch (Built-in)</h3>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead><tr><th>Aspek</th><th>Fetch (built-in)</th><th>Playwright MCP</th></tr></thead>
+                        <tbody>
+                            <tr><td>Cara kerja</td><td>Download HTML mentah</td><td>Buka browser nyata, render lengkap</td></tr>
+                            <tr><td>JavaScript</td><td>❌ Tidak dijalankan</td><td>✅ Dijalankan seperti browser asli</td></tr>
+                            <tr><td>Interaksi</td><td>❌ Hanya baca</td><td>✅ Klik, ketik, scroll, isi form</td></tr>
+                            <tr><td>Visual</td><td>❌ Tidak ada</td><td>✅ Bisa screenshot</td></tr>
+                            <tr><td>Halaman dinamis</td><td>❌ Sering gagal</td><td>✅ Bisa handle SPA, lazy-load</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-muted);">Singkatnya: Fetch = baca buku. Playwright = masuk ke toko dan belanja sendiri.</p>
+
+                <h3 class="sub-h" id="mcp-setup">4. 🛠️ Setup Playwright MCP</h3>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">1</div><div class="txt"><h4>Klik icon Kiro (👻) di sidebar kiri</h4></div></div>
+                    <div class="mini-step"><div class="num">2</div><div class="txt"><h4>Cari section "MCP Servers"</h4></div></div>
+                    <div class="mini-step"><div class="num">3</div><div class="txt"><h4>Klik tombol "+" atau "Add MCP Server"</h4></div></div>
+                    <div class="mini-step"><div class="num">4</div><div class="txt"><h4>Pilih tipe "Command"</h4></div></div>
+                    <div class="mini-step"><div class="num">5</div><div class="txt"><h4>Isi konfigurasi</h4><p>Name: <code>playwright</code>, Command: <code>npx</code>, Args: <code>@playwright/mcp@latest</code></p></div></div>
+                    <div class="mini-step"><div class="num">6</div><div class="txt"><h4>Save</h4><p>Kiro akan otomatis membuat file <code>.kiro/settings/mcp.json</code></p></div></div>
+                </div>
+                <p style="margin-top:1rem;"><strong>📄 Alternatif: Buat File Manual</strong></p>
+                <div class="code-block">{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Pertama kali dijalankan, Playwright akan download browser otomatis (~1 menit). Requirement: Node.js 20+. Tidak perlu API key!</p>
+
+                <h3 class="sub-h" id="mcp-demo1">5. 🌐 Demo: Buka Amazon</h3>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>Buka https://amazon.com dan screenshot halaman utama</div>
+                <p>Browser Chrome terbuka otomatis, navigasi ke amazon.com, dan Kiro mengambil serta menampilkan screenshot di chat.</p>
+
+                <h3 class="sub-h" id="mcp-demo2">6. 🔍 Interaksi: Cari Produk</h3>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>Di halaman Amazon yang sudah terbuka, cari produk 'bamboo lamp' di search bar, lalu screenshot hasil pencariannya</div>
+                <p>Kiro membaca <strong>accessibility tree</strong> halaman — struktur elemen yang sama digunakan oleh screen reader — untuk menemukan dan mengklik elemen yang tepat.</p>
+
+                <h3 class="sub-h" id="mcp-demo3">7. 📊 Analisis Halaman</h3>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>Dari hasil pencarian tadi, klik produk pertama dan screenshot halaman detail produknya. Lalu jelaskan informasi apa saja yang terlihat di halaman tersebut (nama produk, harga, rating)</div>
+
+                <h3 class="sub-h" id="mcp-bonus">8. 🎁 Bonus: Bandingkan Harga</h3>
+                <div class="code-block"><span class="prompt-label">Prompt Anda</span>Kembali ke hasil pencarian 'bamboo lamp', list 5 produk pertama beserta nama dan harganya</div>
+                <p style="color: var(--text-muted);"><strong>💡 Ide eksplorasi lainnya:</strong> test aplikasi sendiri, riset kompetitor, screenshot portfolio, atau form testing dengan data dummy.</p>
+
+                <h3 class="sub-h" id="mcp-lesson">9. 📚 Pelajaran</h3>
+                <p>MCP memperluas kemampuan Kiro, setup-nya sederhana (1 file JSON, tanpa API key), Playwright memungkinkan browser otomatis, dan berbeda dari Fetch karena bisa berinteraksi penuh. Eksplor MCP lain di <a href="https://registry.modelcontextprotocol.io/" target="_blank" rel="noopener" style="color: var(--accent-orange);">registry.modelcontextprotocol.io</a> — ada puluhan MCP siap pakai!</p>
+            </div>
+
+            <!-- TAB: Lomba Kreativitas -->
+            <div class="tab-panel" id="tab-lomba">
+                <div class="toc-box">
+                    <h4>📑 Daftar Isi — Lomba Kreativitas</h4>
+                    <ul class="toc-list">
+                        <li><a href="#lomba-intro">1. Tentang Lomba</a></li>
+                        <li><a href="#lomba-rules">2. Aturan</a></li>
+                        <li><a href="#lomba-ideas">3. Inspirasi Ide</a></li>
+                        <li><a href="#lomba-tips">4. Tips Menang</a></li>
+                        <li><a href="#lomba-submit">5. Pengumpulan & Penilaian</a></li>
+                    </ul>
+                </div>
+
+                <h3 class="sub-h" id="lomba-intro">1. Tentang Lomba</h3>
+                <p>Saatnya menunjukkan kreativitas Anda! Dalam lomba ini, Anda bebas membuat <strong>apapun</strong> menggunakan Kiro — tidak ada batasan tema atau teknologi.</p>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <tbody>
+                            <tr><td><strong>Durasi</strong></td><td>1 — 1.5 jam</td></tr>
+                            <tr><td><strong>Format</strong></td><td>Individu</td></tr>
+                            <tr><td><strong>Tema</strong></td><td>Bebas — buat apapun yang Anda mau!</td></tr>
+                            <tr><td><strong>Hadiah</strong></td><td>3 pemenang terbaik akan mendapatkan hadiah</td></tr>
+                            <tr><td><strong>Penilaian</strong></td><td>Juri akan melihat hasil masing-masing peserta dan memberikan penilaian</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Yang bisa Anda buat:</strong> Aplikasi Web (portfolio, calculator, quiz, landing page), Aplikasi Mobile (desain UI mobile-first), Game (snake, tic-tac-toe, memory card, trivia), Slide Presentasi (HTML-based), Materi Pembelajaran (tutorial interaktif, flashcard), Utilitas (to-do list, pomodoro, budget tracker), Kreasi Visual (animasi CSS, generative art), atau apapun lainnya.</p>
+
+                <h3 class="sub-h" id="lomba-rules">2. Aturan</h3>
+                <div class="do-dont">
+                    <div class="box do">
+                        <h4>✅ Yang Harus Dipatuhi & Boleh</h4>
+                        <ul>
+                            <li>Gunakan Kiro — semua pembuatan harus menggunakan Kiro IDE</li>
+                            <li>Project baru dari workspace kosong yang fresh</li>
+                            <li>Kerjakan sendiri (boleh tanya ke Kiro, tidak boleh copy dari peserta lain)</li>
+                            <li>Boleh minta Kiro mencari referensi & inspirasi dari internet</li>
+                            <li>Boleh menggunakan MCP (Playwright, dll) jika sudah di-setup</li>
+                            <li>Boleh iterasi berkali-kali sampai puas</li>
+                        </ul>
+                    </div>
+                    <div class="box dont">
+                        <h4>❌ Yang Tidak Boleh</h4>
+                        <ul>
+                            <li>Melanjutkan project dari sesi sebelumnya</li>
+                            <li>Copy-paste kode dari luar (project lama, internet manual)</li>
+                            <li>Menggunakan IDE lain selain Kiro</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="sub-h" id="lomba-ideas">3. Inspirasi Ide</h3>
+                <p>Bingung mau buat apa? Berikut beberapa contoh prompt untuk memulai — ini hanya contoh, Anda bebas buat ide sendiri!</p>
+                <div class="mobile-grid-2 desktop-grid-4">
+                    <div class="card card-dark idea-card"><div class="idea-num">1</div><h3>Game Sederhana</h3><p>Buat game memory card matching dengan tema hewan lucu. Ada timer, score, dan efek animasi saat card cocok. Single page HTML.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">2</div><h3>Portfolio Personal</h3><p>Buat website portfolio personal yang kreatif dan unik untuk seorang desainer. Animasi smooth, dark mode, responsive.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">3</div><h3>Aplikasi Produktivitas</h3><p>Buat aplikasi Pomodoro Timer yang cantik dengan statistik belajar dan notifikasi suara.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">4</div><h3>Quiz Interaktif</h3><p>Buat quiz interaktif tentang pengetahuan umum Indonesia dengan 10 soal, timer, dan leaderboard lokal.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">5</div><h3>Landing Page Produk</h3><p>Buat landing page untuk produk fiktif: headphone wireless premium, dengan testimonial dan pricing.</p></div>
+                    <div class="card card-dark idea-card"><div class="idea-num">6</div><h3>Visualisasi Data</h3><p>Buat dashboard visualisasi data cuaca kota-kota di Indonesia dengan chart dan prakiraan 5 hari.</p></div>
+                </div>
+
+                <h3 class="sub-h" id="lomba-tips">4. Tips Menang</h3>
+                <p><strong>Kriteria yang dinilai juri:</strong> Kreativitas, Fungsionalitas, Desain/Visual, Kompleksitas, dan Prompt Skill.</p>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">1</div><div class="txt"><h4>Pilih ide yang Anda sukai</h4><p>Passion terlihat di hasil.</p></div></div>
+                    <div class="mini-step"><div class="num">2</div><div class="txt"><h4>Mulai dari MVP</h4><p>Buat versi basic yang jalan dulu, baru tambah fitur.</p></div></div>
+                    <div class="mini-step"><div class="num">3</div><div class="txt"><h4>Iterasi desain</h4><p>Minta Kiro perbaiki visual setelah fungsionalitas jalan.</p></div></div>
+                    <div class="mini-step"><div class="num">4</div><div class="txt"><h4>Tambah detail kecil</h4><p>Animasi, hover effect, loading state — hal kecil yang bikin beda.</p></div></div>
+                    <div class="mini-step"><div class="num">5</div><div class="txt"><h4>Test hasilnya</h4><p>Pastikan bisa dibuka dan berfungsi sebelum waktu habis.</p></div></div>
+                </div>
+
+                <h3 class="sub-h" id="lomba-submit">5. Pengumpulan & Penilaian</h3>
+                <p><strong>Saat waktu habis:</strong> stop coding & simpan semua perubahan, pastikan project bisa ditampilkan (browser atau screenshot), tunggu instruksi juri, dan tunjukkan hasil saat diminta.</p>
+                <p><strong>Pengumuman pemenang:</strong> juri melihat dan menilai setiap karya, lalu 3 pemenang terbaik diumumkan dan mendapatkan hadiah.</p>
+                <p style="color: var(--text-muted); font-style: italic;">Yang terpenting bukan menang — tapi Anda baru saja membuat sesuatu dari nol menggunakan AI. Itu sudah luar biasa!</p>
+            </div>
+
+            <!-- TAB: Jury (hidden by default, toggled via button) -->
+            <div class="tab-panel" id="tab-jury">
+                <div class="card card-dark border-accent" style="margin-bottom: 2rem;">
+                    <p style="margin:0;"><strong>⚠️ Dokumen Internal Juri.</strong> Bagian ini hanya untuk juri. Jangan tampilkan ke peserta sebelum waktu pengerjaan lomba selesai.</p>
+                </div>
+
+                <h3 class="sub-h">📊 Kriteria Penilaian</h3>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead><tr><th>Kriteria</th><th>Bobot</th><th>Deskripsi</th></tr></thead>
+                        <tbody>
+                            <tr><td>Kreativitas</td><td>30%</td><td>Seberapa unik dan original idenya?</td></tr>
+                            <tr><td>Fungsionalitas</td><td>25%</td><td>Apakah berjalan baik? Fitur bekerja?</td></tr>
+                            <tr><td>Desain/Visual</td><td>20%</td><td>Tampilan rapi, menarik, user-friendly?</td></tr>
+                            <tr><td>Kompleksitas</td><td>15%</td><td>Seberapa ambisius project?</td></tr>
+                            <tr><td>Prompt Skill</td><td>10%</td><td>Efektivitas penggunaan Kiro/AI</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-h">🎯 Flow Penilaian</h3>
+                <div class="mini-steps">
+                    <div class="mini-step"><div class="num">1</div><div class="txt"><p>Waktu pengerjaan selesai → peserta stop coding</p></div></div>
+                    <div class="mini-step"><div class="num">2</div><div class="txt"><p>Juri tampilkan prompt scoring ke peserta (dari bagian ini)</p></div></div>
+                    <div class="mini-step"><div class="num">3</div><div class="txt"><p>Peserta diminta buka chat baru di Kiro (Vibe mode)</p></div></div>
+                    <div class="mini-step"><div class="num">4</div><div class="txt"><p>Peserta copy-paste prompt scoring ke chat Kiro mereka</p></div></div>
+                    <div class="mini-step"><div class="num">5</div><div class="txt"><p>Kiro menganalisis workspace dan generate score</p></div></div>
+                    <div class="mini-step"><div class="num">6</div><div class="txt"><p>Peserta tunjukkan score ke juri (screenshot atau layar)</p></div></div>
+                    <div class="mini-step"><div class="num">7</div><div class="txt"><p>Juri juga memberikan penilaian pribadi setelah melihat hasil langsung</p></div></div>
+                    <div class="mini-step"><div class="num">8</div><div class="txt"><p>Kombinasi score AI + penilaian juri → tentukan 3 pemenang</p></div></div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">Juri memiliki keputusan final. Score AI adalah referensi, bukan satu-satunya penentu.</p>
+
+                <h3 class="sub-h">📋 Prompt Scoring</h3>
+                <p>Tampilkan di layar / projector agar peserta bisa copy:</p>
+                <div class="code-block">Kamu adalah juri lomba kreativitas. Analisis SELURUH file di workspace ini dan berikan penilaian objektif.
+
+Kriteria penilaian (score 1-10 untuk masing-masing):
+1. KREATIVITAS (bobot 30%) — Seberapa unik dan original ide project ini?
+2. FUNGSIONALITAS (bobot 25%) — Apakah project berjalan dengan baik tanpa error?
+3. DESAIN/VISUAL (bobot 20%) — Apakah tampilannya rapi, menarik, dan user-friendly?
+4. KOMPLEKSITAS (bobot 15%) — Seberapa ambisius dan teknis project ini?
+5. PROMPT SKILL (bobot 10%) — Seberapa efektif penggunaan AI, berdasarkan struktur project dan kode?
+
+Berikan penilaian yang JUJUR dan OBJEKTIF dalam format score card ringkas dengan total skor /100 dan 2-3 kalimat komentar juri yang positif dan konstruktif. Jangan inflate score — gunakan range penuh 1-10.</div>
+
+                <h3 class="sub-h">📢 Script Pengumuman</h3>
+                <p style="font-style: italic; color: var(--text-muted);">"Waktu sudah habis! Sekarang kita akan melakukan penilaian. Silakan buka chat baru di Kiro, pilih Vibe mode, lalu copy-paste prompt yang akan saya tampilkan di layar. Jalankan prompt tersebut, lalu tunjukkan score card yang muncul."</p>
+
+                <h3 class="sub-h">💡 Tips untuk Juri</h3>
+                <ul style="color: var(--text-muted); padding-left: 1.1rem;">
+                    <li>Lihat hasil di browser/layar peserta — bukan hanya score AI</li>
+                    <li>Perhatikan detail: animasi, responsiveness, error handling</li>
+                    <li>Apresiasi ide unik meskipun eksekusi belum sempurna</li>
+                    <li>Jika score AI terasa tidak adil, juri bisa adjust manual</li>
+                    <li>Pertimbangkan effort — peserta pemula yang buat sesuatu dari nol sudah luar biasa</li>
+                    <li><strong>Tiebreaker:</strong> jika score sama, pilih "mana yang paling ingin Anda pakai sendiri?"</li>
+                </ul>
+
+                <div class="text-center" style="margin-top: 2rem;">
+                    <button id="hide-jury-inline" class="btn-secondary" style="border-color: var(--accent-orange); cursor:pointer;">Sembunyikan Tab Juri & Kembali</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + Footer -->
+    <footer id="cta" class="footer-section section-dark">
+        <div class="container">
+            <div class="cta-box">
+                <div class="eyebrow text-accent">Siap Coba Sendiri?</div>
+                <h2>Download Kiro dan mulai vibe coding hari ini</h2>
+                <p>Tidak perlu pengalaman coding. Tidak perlu tahu HTML, CSS, atau JavaScript. Cukup datang, bawa ide, dan biarkan Kiro membantu Anda mewujudkannya.</p>
+                <div class="cta-actions">
+                    <a href="https://kiro.dev" target="_blank" rel="noopener" class="btn-primary">Download Kiro Gratis</a>
+                    <a href="index.html" class="btn-secondary">Kembali ke Pintar dengan AI</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <div class="logo-text">Pintar dengan AI</div>
+                    <p class="brand-line">Materi workshop "Vibe Coding dengan Kiro AI" — dirangkum untuk komunitas Shevibes, dihadirkan oleh PindAI.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="index.html#materi">Program</a>
+                    <a href="#tutorial">Tutorial</a>
+                </div>
+                <div class="footer-meta">
+                    <span class="copyright">© 2026 PindAI · Materi asli oleh komunitas Shevibes</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="workshop.js"></script>
+</body>
+</html>

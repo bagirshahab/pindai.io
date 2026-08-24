@@ -1,0 +1,2701 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop Cloud Computing</title>
+  <!-- Font Awesome untuk Ikon Menarik -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts untuk Tampilan Modern -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&family=Space+Grotesk:wght@400;500;600;700&"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #ff9900;
+      /* AWS Orange */
+      --dark-color: #232f3e;
+      /* AWS Dark Blue */
+      --card-border: #e9e9e9;
+      /* AWS Dark Blue */
+      --light-bg: #f4f6f9;
+      --text-color: #333;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    header {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 4px solid var(--primary-color);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #aab7c4;
+      font-size: 1rem;
+    }
+
+    .text-white {
+      color: #ffffff;
+    }
+
+    /* Container Utama Tab Slider */
+
+    .tabs-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 0 0.5rem;
+    }
+
+    .nav-btn {
+      background: white;
+      border: none;
+      font-size: 1.2rem;
+      padding: 1rem;
+      cursor: pointer;
+      color: var(--dark-color);
+      transition: color 0.2s;
+    }
+
+    .nav-btn:hover {
+      color: var(--primary-color);
+    }
+
+    @media (min-width: 1024px) {
+      .nav-btn {
+        display: none;
+      }
+    }
+
+    .tabs-wrapper {
+      display: flex;
+      /* justify-content: center; */
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      white-space: nowrap;
+      flex-grow: 1;
+      scrollbar-width: none;
+      /* Hide scrollbar Firefox */
+    }
+
+    .tabs-wrapper::after,
+    .tabs-wrapper::before {
+      content: '';
+      flex-grow: 1;
+    }
+
+    .tabs-wrapper::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar Chrome/Safari */
+    }
+
+    .tab-link {
+      padding: 1rem 1.5rem;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-link:hover {
+      color: var(--dark-color);
+      background-color: #f9f9f9;
+    }
+
+    .tab-link.active {
+      color: var(--primary-color);
+      border-bottom-color: var(--primary-color);
+    }
+
+    /* Area Konten */
+
+    .content-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 2rem;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-content.active {
+      display: flex;
+      flex-direction: column;
+      gap: 5em;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Tipografi & Grid Konten internal */
+
+    h2 {
+      color: var(--dark-color);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    h2 i {
+      color: var(--primary-color);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .col-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.25rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .card.normal {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      padding: 1.25rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark-color);
+    }
+
+    .badge {
+      background-color: #fff3cd;
+      color: #856404;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .badge-header {
+      background-color: rgb(205 203 196 / 25%);
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      padding: 0.25rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+
+    .content-spacer-sm {
+      margin-top: 2em;
+    }
+
+    .content-spacer {
+      margin-top: 5em;
+    }
+
+    .container ol {
+      padding-top: 1rem;
+      margin: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: var(--dark-color);
+      color: white;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* Responsif */
+
+    @media (max-width: 600px) {
+      .tab-content {
+        padding: 1.5rem;
+      }
+    }
+
+    ol>li {
+      margin-left: 35px;
+    }
+
+    li>a {
+      color: #3471c0;
+      text-decoration: none;
+    }
+
+    li>a:hover {
+      color: #478fec;
+      text-decoration: underline;
+    }
+
+    .warning-box {
+      background: #fff0df;
+      border: none;
+      border-left: 4px solid var(--primary-color);
+      padding: 1.25rem;
+      border-radius: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      color: #8f4c00;
+    }
+
+    .text-warning-box {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .step-card {
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0.75rem;
+      border-width: 1px;
+      border: 1px solid #e5e7eb;
+      background-color: #ffffff;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .text-mono-quote {
+      padding-top: 0.125rem;
+      padding-bottom: 0.125rem;
+      padding-left: 0.375rem;
+      padding-right: 0.375rem;
+      border-radius: 0.25rem;
+      font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+        monospace;
+      color: #dc2626;
+      background-color: #f3f4f6;
+    }
+
+    .step-card-title {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .step-card-text {
+      font-size: 1rem;
+    }
+
+    .semibold {
+      font-weight: 600;
+    }
+
+    .inline-orange-button {
+      background: #f59e0b;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: 600;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      white-space: nowrap;
+    }
+
+    .footnote-box {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      background-color: #f1f5f9;
+      padding: 0.75rem;
+      border-radius: 0.25rem;
+      color: #475569;
+      border-left-width: 2px;
+      border-left-color: #94a3b8;
+      border-left-style: solid;
+    }
+
+    .info-box {
+      background-color: #ecfeff;
+      border-left-width: 4px;
+      border-left-color: #06b6d4;
+      border-left-style: solid;
+      padding: 1.25rem;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+
+    .white-box {
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      border-width: 1px;
+      border-color: #fef3c7;
+      border-style: solid;
+    }
+
+    .green-box {
+      background-color: #ecfdf5;
+      border-width: 1px;
+      border-color: #a7f3d0;
+      border-style: solid;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+    }
+
+    .rose-box {
+      background-color: #fff1f2;
+      border-width: 1px;
+      border-color: #fecdd3;
+      border-style: solid;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+    }
+
+    .table-responsive-wrapper {
+      /* Container untuk membungkus tabel agar responsif di layar hp */
+      width: 100%;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    .custom-table {
+      /* Base Style Tabel */
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #334155;
+      /* Slate 700 */
+      min-width: 600px;
+      /* Menjaga struktur kolom di layar kecil */
+    }
+
+    .custom-table thead tr {
+      /* Styling Header Tabel */
+      background-color: #0f172a;
+      /* Deep Slate Blue */
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .custom-table th {
+      padding: 1rem 1.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      border: none;
+    }
+
+    .custom-table td {
+      /* Styling Baris dan Sel Body */
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+      /* Slate 200 */
+      transition: background-color 0.2s ease;
+    }
+
+    .custom-table tbody tr:nth-of-type(even) {
+      /* Warna belang-belang (Zebra Striping) */
+      background-color: #f8fafc;
+      /* Slate 50 */
+    }
+
+    .custom-table tbody tr:hover {
+      /* Efek Hover saat baris disorot */
+      background-color: #f1f5f9;
+      /* Slate 100 */
+    }
+
+    .custom-table tbody tr:last-of-type td {
+      /* Baris terakhir tidak memiliki border bawah agar rapi */
+      border-bottom: 2px solid #0f172a;
+    }
+
+    .custom-table td strong {
+      /* Styling tambahan untuk teks tebal di kolom pertama */
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .step-badge {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-italic {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1rem;
+      color: #0e7490;
+      font-style: italic;
+    }
+
+    .lang-switch-btn {
+      background-color: rgb(205 203 196);
+      color: #0f172a;
+      border: 1px solid #ffffff;
+      padding: 0.25rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .lang-switch-btn a {
+      color: #3b42a1;
+      text-decoration: none;
+    }
+
+    .divider {
+      padding: 0 10px;
+    }
+
+    a.selected-lang {
+      color: #0f172a;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <span class="badge-header">✨Pintar Dengan AI · <strong>by PindAI</strong></span>
+    <span class="lang-switch-btn">
+      <a href="cloud-computing-en.html" title="Switch to English">
+        EN
+      </a>
+      <span class="divider">|</span>
+      <a class="selected-lang" href="#" title="Selected Indonesia">
+        ID
+      </a>
+    </span>
+
+    <h1 class="content-spacer-sm">Menyelami AWS Cloud & Generative AI</h1>
+    <p class="content-spacer-sm">
+      Eksplorasi AWS Skill Builder, Partyrock, dan Kiro untuk Pemula
+    </p>
+    <p class="text-white">Juli 2026 | Jakarta, Indonesia</p>
+  </header>
+
+  <!-- Horizontal Tabs Menu dengan Slider -->
+  <div class="tabs-container">
+    <button class="nav-btn" id="slide-left" title="chevron-left">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <div class="tabs-wrapper" id="tabs-wrapper">
+      <button class="tab-link active" onclick="openTab(event, 'tab-cloud')">
+        <i class="fa-solid fa-cloud"></i> Cloud Computing
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-skillbuilder')">
+        <i class="fa-brands fa-aws"></i> AWS Skill Builder
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-gen-ai')">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Generative AI
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-partyrock')">
+        <i class="fa-solid fa-briefcase"></i> Hands-on AWS PartyRock
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-intro-kiro')">
+        <i class="fa-solid fa-star"></i> Pengenalan Kiro
+      </button>
+    </div>
+    <button class="nav-btn" id="slide-right" title="chevron-right">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Konten Tab Utama -->
+  <div class="content-container">
+    <!-- Tab 1: Cloud Computing -->
+    <div id="tab-cloud" class="tab-content active">
+      <!-- Daftar Isi : Cloud Computing -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>📑 Daftar Isi — Cloud Computing</h3>
+            <ol>
+              <li>
+                <a href="#app-cloud">Apa itu Cloud Computing?</a>
+              </li>
+              <li>
+                <a href="#app-why-cloud">Kenapa Belajar Cloud Computing?</a>
+              </li>
+              <li>
+                <a href="#app-aws">Apa itu AWS (Amazon Web Services)?</a>
+              </li>
+              <li>
+                <a href="#app-benefit">Kelebihan Cloud Computing</a>
+              </li>
+              <li>
+                <a href="#app-job">Job Role Populer di bidang Cloud Computing</a>
+              </li>
+              <li><a href="#app-skillbuilder">AWS Skill Builder</a></li>
+              <li>
+                <a href="#app-badge">AWS Knowledge: Cloud Essentials Badge</a>
+              </li>
+              <li>
+                <a href="#app-core-service">AWS Core Services Overview</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Apa itu Cloud Computing -->
+      <section id="app-cloud">
+        <h2><i class="fa-solid fa-cloud"></i> Apa itu Cloud Computing?</h2>
+        <div class="card">
+          <p><strong>Definisi menurut Amazon Web Services (AWS):</strong></p>
+          <p class="wrap">
+            Cloud Computing adalah layanan komponen IT secara on-demand yang
+            dapat diakses di mana pun melalui internet dengan biaya
+            pay-as-you-go.
+          </p>
+          <p style="font-size: 0.85rem; color: #666; margin-top: 1rem">
+            Sumber:
+            <a rel="noopener" href="https://aws.amazon.com/what-is-cloud-computing/"
+              target="_blank">aws.amazon.com/what-is-cloud-computing/</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Konten: Kenapa Belajar Cloud Computing -->
+      <section id="app-why-cloud">
+        <h2>
+          <i class="fa-solid fa-circle-question"></i> Kenapa Belajar Cloud
+          Computing?
+        </h2>
+        <ul>
+          <li>Merupakan trend saat ini dan masa depan di dunia industri.</li>
+          <li>
+            Kebutuhan skill Cloud Computing di industri terus meningkat secara
+            konsisten.
+          </li>
+          <li>Membuka peluang kompetisi tenaga kerja secara global.</li>
+        </ul>
+        <div class="card" style="margin-top: 1rem">
+          <h4><i class="fa-solid fa-globe"></i> Cloud di Sekitar Kita:</h4>
+          <p style="margin-top: 0.5rem">
+            Social Media, E-Commerce, Entertainment & Games, Productivity,
+            Conference, hingga aplikasi Kolaborasi kerja.
+          </p>
+        </div>
+      </section>
+
+      <!-- Konten: Apa itu AWS -->
+      <section id="app-aws">
+        <h2>
+          <i class="fa-brands fa-aws"></i> Apa itu AWS (Amazon Web Services)?
+        </h2>
+        <ul>
+          <li>
+            Platform yang menyediakan solusi cloud computing yang terstruktur
+            dan hemat biaya (Didirikan Tahun 2006).
+          </li>
+          <li>
+            Penyedia layanan cloud computing terbesar di dunia dengan pangsa
+            pasar (*market share*) mencapai sekitar <strong>32%</strong>.
+          </li>
+          <li>
+            Banyak digunakan oleh perusahaan raksasa dunia seperti Airbnb,
+            Netflix, Twitch, dan Twitter.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Konten: Kelebihan Cloud Computing -->
+      <section id="app-benefit">
+        <h2><i class="fa-solid fa-star"></i> Kelebihan Cloud Computing</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>1. Pembayaran Fleksibel</h3>
+            <p>Menggunakan sistem berbasis kebutuhan nyata.</p>
+          </div>
+          <div class="card">
+            <h3>2. Efisiensi Biaya Fisik</h3>
+            <p>Berhenti membayar pemeliharaan server fisik (Datacenter).</p>
+          </div>
+          <div class="card">
+            <h3>3. Berhenti Menebak Kapasitas</h3>
+            <p>Bisa melakukan scaling otomatis kapan saja.</p>
+          </div>
+          <div class="card">
+            <h3>4. Economy of Scale</h3>
+            <p>
+              Semakin banyak penggunaan global, biaya per unit menjadi lebih
+              murah.
+            </p>
+          </div>
+          <div class="card">
+            <h3>5. Kecepatan Tinggi</h3>
+            <p>Mendeploy infrastruktur baru hanya dalam hitungan menit.</p>
+          </div>
+          <div class="card">
+            <h3>6. Go Global Secara Cepat</h3>
+            <p>
+              Menjangkau pelanggan di seluruh dunia dengan latensi minimal.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Job Role Cloud -->
+      <section id="app-job">
+        <h2>
+          <i class="fa-solid fa-briefcase"></i> Job Role Terpopuler di Cloud
+        </h2>
+        <p>
+          Berdasarkan *Future of Jobs Survey* dari World Economic Forum, Cloud
+          computing menempati peringkat teratas (17%) tren adopsi teknologi.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Bigdata Analytics</h3>
+            <p>
+              Mengidentifikasi, Mengumpulkan, Menganalisis, dan
+              Memvisualisasikan data.
+            </p>
+            <p>
+              <span class="badge">Estimasi Gaji: IDR 8M - 25M / Bulan</span>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Machine Learning Engineer</h3>
+            <p>
+              Mendesain sistem AI untuk melakukan otomatisasi model prediksi.
+            </p>
+            <p>
+              <span class="badge">Estimasi Gaji: IDR 9M - 31M / Bulan</span>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Data Engineer</h3>
+            <p>
+              Mendesain, membangun, dan memelihara infrastruktur pipa data.
+            </p>
+            <p>
+              <span class="badge">Estimasi Gaji: IDR 10M - 28M / Bulan</span>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Cloud Solution Architect</h3>
+            <p>Mendesain tata letak sistem cloud arsitektur perusahaan.</p>
+            <p>
+              <span class="badge">Estimasi Gaji: IDR 27M - 115M / Bulan</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: AWS Skill Builder -->
+      <section id="app-skillbuilder">
+        <h2><i class="fa-solid fa-graduation-cap"></i> AWS Skill Builder</h2>
+        <p>
+          Pusat pembelajaran digital resmi untuk membangun keterampilan cloud
+          yang diminati industri:
+        </p>
+        <ul>
+          <li>Lebih dari 500 digital course gratis.</li>
+          <li>Akses ke AWS Certification Official Practice Exams.</li>
+          <li>
+            <strong>AWS Cloud Quest:</strong> Pembelajaran AWS seru berbasis
+            game.
+          </li>
+          <li>
+            <strong>AWS Jam & Builder Labs:</strong> Latihan praktik sesuai
+            dengan skenario dunia nyata.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Konten: AWS Badge -->
+      <section id="app-badge">
+        <h2>
+          <i class="fa-solid fa-id-badge"></i> AWS Knowledge: Cloud Essentials
+          Badge
+        </h2>
+        <p>
+          Lencana digital resmi yang membuktikan pemahaman dasar Anda tentang
+          cloud computing dasar di aspek Compute, Storage, Networking, dan
+          Database.
+        </p>
+        <div class="card" style="margin-top: 1rem">
+          <h4>Mengapa harus mulai dari badge ini?</h4>
+          <ul style="margin-top: 0.5rem; margin-bottom: 0">
+            <li>Sangat ramah bagi pemula.</li>
+            <li>Tersedia modul pembelajaran gratis berbahasa Indonesia.</li>
+            <li>Dapat langsung dipajang di LinkedIn untuk pamer keahlian.</li>
+          </ul>
+        </div>
+
+        <h2 class="content-spacer">
+          <i class="fa-solid fa-book-open"></i> Jalur Modul Cloud Essentials
+        </h2>
+        <p>Ada 5 Modul Utama + 1 Ujian singkat untuk mendapatkan badge:</p>
+        <ol style="margin-left: 1.5rem">
+          <li>Job Roles in the Cloud</li>
+          <li>AWS Cloud Practitioner Essentials</li>
+          <li>Getting Started with Cloud Acquisition</li>
+          <li>AWS Billing and Cost Management</li>
+          <li>
+            AWS Foundations: Getting Started with the AWS Cloud Essentials
+          </li>
+          <li>
+            Cloud Essentials Knowledge Badge Assessment (Ujian kelulusan)
+          </li>
+        </ol>
+      </section>
+
+      <!-- Konten: AWS Core Services -->
+      <section id="app-core-service">
+        <h2><i class="fa-solid fa-server"></i> AWS Core Services Overview</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3><i class="fa-solid fa-microchip"></i> Compute</h3>
+            <p>
+              Virtual Machine (EC2), Container (ECS, EKS), dan Serverless (AWS
+              Lambda).
+            </p>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-network-wired"></i> Networking</h3>
+            <p>
+              VPC untuk jaringan privat, Route 53 untuk DNS, dan Cloudfront
+              untuk Content Delivery Network (CDN).
+            </p>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-database"></i> Database</h3>
+            <p>
+              Relational (Amazon RDS/Aurora), NoSQL Key-Value (DynamoDB),
+              hingga DocumentDB.
+            </p>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-floppy-disk"></i> Storage</h3>
+            <p>
+              EBS (Block Storage berlatensi rendah), Amazon S3 (Object Storage
+              global), dan EFS (File System).
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            Download PDF 
+            <a 
+              rel="noopener noreferrer" 
+              href="https://drive.google.com/file/d/1jbzUYV64-U3_PXhsXjMaKE1Crbq7N4Y5/view?usp=sharing" 
+              target="_blank">di sini
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab 2: AWS Skill Builder -->
+    <div id="tab-skillbuilder" class="tab-content">
+      <!-- Daftar Isi : AWS Skill Builder -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>📑 Daftar Isi — AWS Skill Builder</h3>
+            <ol>
+              <li>
+                <a href="#aws-sb-persiapan">Persiapan & Requirement Device</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah1">Langkah 1: Membuat Akun AWS Builder ID</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah2">Langkah 2: Data Diri & Zona Waktu</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah3">Langkah 3: Cara Mengakses Kursus</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah4">Langkah 4: Struktur Pengerjaan Modul</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah5">Langkah 5: Ketentuan Ujian Akhir & Kelulusan</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Persiapan -->
+      <section id="aws-sb-persiapan">
+        <h2>Persiapan & Requirement Device</h2>
+        <p>
+          Sebelum memulai pendaftaran akun <strong>AWS Skill Builder</strong>,
+          pastikan Anda telah menyiapkan kebutuhan perangkat berikut demi
+          kenyamanan pengisian data.
+        </p>
+        <div class="grid-2">
+          <div class="card normal">
+            <h4 class="step-card-title">💻 Perangkat Utama</h4>
+            <p class="step-card-text">
+              Sangat disarankan menggunakan <strong>Laptop / PC</strong> untuk
+              tampilan antarmuka yang optimal.
+            </p>
+          </div>
+          <div class="card normal">
+            <h4 class="step-card-title">🌐 Aplikasi Browser</h4>
+            <p class="step-card-text">
+              Gunakan browser <strong>Google Chrome</strong> versi terbaru.
+            </p>
+          </div>
+        </div>
+        <div class="warning-box content-spacer-sm">
+          <h5 class="text-warning-box">Perhatian Penting:</h5>
+          <p>
+            Untuk device disarankan menggunakan laptop untuk tampilan yang
+            lebih baik. Jika menggunakan smartphone, silakan diubah menjadi
+            <strong>mode desktop</strong> agar seluruh tombol navigasi AWS
+            dapat terlihat dan diklik dengan benar.
+          </p>
+        </div>
+      </section>
+
+      <!-- Konten: Langkah 1 -->
+      <section id="aws-sb-langkah1">
+        <h2 class="">Langkah 1: Membuat Akun AWS Builder ID</h2>
+        <div class="space-y-6">
+          <div class="step-card">
+            <h3 class="step-card-title">1. Mencari & Mengakses Platform</h3>
+            <p class="step-card-text">
+              Tuliskan
+              <code class="text-mono-quote">aws skill builder</code> di Google
+              search, silakan di-klik hasil pencarian paling atas atau Anda
+              bisa langsung klik tautan resmi berikut:
+              <a href="https://skillbuilder.aws" target="_blank" rel="noopener noreferrer" style="
+                    display: block;
+                    margin-top: 0.25rem;
+                    font-weight: 500;
+                    color: #2563eb;
+                    text-decoration: underline;
+                  ">https://skillbuilder.aws</a>
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">2. Registrasi Awal</h3>
+            <p class="step-card-text">
+              Jika muncul tampilan dashboard AWS Skill Builder, silakan klik
+              tombol
+              <span class="semibold">"Create free account"</span>
+              (atau <strong>"Buat akun gratis"</strong>).
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">3. Memilih Metode Masuk</h3>
+            <p class="step-card-text">
+              Pada tampilan pilihan metode sign in, silakan di-klik tombol
+              <span class="inline-orange-button">Create or Sign In</span> pada
+              opsi **AWS Builder ID**.
+            </p>
+            <div class="footnote-box">
+              <strong>Perhatian:</strong> Jika tampilan tidak seperti di atas,
+              silakan klik <em>"Sign in with a different option"</em> kemudian
+              pilih <em>AWS Builder ID</em>.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">4. Mengisi Email & Nama Lengkap</h3>
+            <ul>
+              <li>
+                Tuliskan <strong>email aktif</strong> Anda (yang sering
+                dibuka/sering digunakan), lalu klik tombol
+                <span class="semibold">"Next"</span>.
+              </li>
+              <li>
+                Tuliskan <strong>nama lengkap</strong> Anda secara jelas dan
+                jangan disingkat, lalu klik tombol
+                <span class="semibold">"Next"</span>.
+              </li>
+            </ul>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">5. Verifikasi & Pengaturan Sandi</h3>
+            <p class="step-card-text">
+              Muncul halaman <strong>"Email Verification"</strong>. Silakan
+              cek kotak masuk email yang digunakan untuk mendaftar, lalu salin
+              (*Copy*) <em>verification code</em> yang Anda terima. Tempel
+              (*Paste*) kode tersebut ke kolom yang disediakan, lalu klik
+              tombol <span class="semibold">"Verify"</span>.
+            </p>
+            <p class="step-card-text">
+              Selanjutnya pada halaman buat password, tuliskan password dengan
+              kombinasi
+              <strong>huruf besar, huruf kecil, angka, dan karakter khusus</strong>
+              (Contoh:
+              <code class="text-mono-quote">ATsn2368#@</code>). Ulangi penulisan password, masukkan karakter Captcha
+              gambar
+              dengan cermat, lalu klik menu
+              <span class="semibold">"Create AWS Builder ID"</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Langkah 2 -->
+      <section id="aws-sb-langkah2">
+        <h2 class="">Langkah 2: Data Diri & Zona Waktu</h2>
+
+        <div class="step-card">
+          <h3 class="step-card-title">Halaman Syarat dan Ketentuan</h3>
+          <p class="step-card-text">
+            Pada halaman <em>Terms and conditions</em> AWS Training and
+            Certification, silakan langsung di-klik tombol
+            <span class="inline-orange-button">Accept terms</span>.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3 class="step-card-title">
+            Pembaruan Informasi Profil (*Update Personal Info*)
+          </h3>
+          <ol>
+            <li>
+              Silakan tuliskan nama depan (<em>First Name</em>) dan nama
+              belakang (<em>Last Name</em>) Anda.
+            </li>
+            <li>
+              Pada kolom <strong>Additional Fields</strong>, Anda cukup
+              mengisi bagian kolom
+              <span class="semibold">Country/Region</span> saja,
+              pilih <strong>Indonesia</strong>.
+            </li>
+            <li>
+              Silakan di-klik tanda kotak persetujuan pembagian info (jika
+              ada), kemudian klik tombol
+              <span class="semibold">"CONTINUE / Buat Profil"</span>.
+            </li>
+          </ol>
+        </div>
+
+        <div class="info-box content-spacer-sm">
+          <h3 class="step-card-title">
+            Pembaruan Zona Waktu (*New Time Zone Detected*)
+          </h3>
+          <p class="text-sm text-cyan-800">
+            Jika sistem mendeteksi ketidaksesuaian waktu dan menampilkan
+            notifikasi perubahan ke zona lokal
+            <strong class="text-cyan-950">(GMT +07:00) Asia/Jakarta</strong>,
+            silakan di-klik tombol
+            <span class="font-bold underline">"UPDATE"</span>.
+          </p>
+          <div class="note-italic">
+            *Kasus khusus: Bagaimana jika tidak muncul pesan new time zone
+            detected? TIDAK MASALAH, SILAKAN DILANJUTKAN KE LANGKAH
+            SELANJUTNYA.
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Langkah 3 -->
+      <section id="aws-sb-langkah3">
+        <h2>Langkah 3: Cara Mengakses Kursus</h2>
+        <p>
+          Jika pendaftaran akun sudah selesai dan Anda diarahkan masuk ke
+          Halaman Dashboard Utama pengguna, ikuti panduan pencarian materi
+          berikut:
+        </p>
+        <div>
+          <div class="step-card">
+            <h4 class="step-card-title">1. Cari Bagian Unggulan</h4>
+            <p class="text-xs text-slate-600">
+              Mohon diperhatikan dari tampilan learner dashboard Anda, silakan
+              di-scroll ke bawah sampai menemukan tampilan
+              <strong>Featured content</strong>.
+            </p>
+          </div>
+          <div class="step-card">
+            <h4 class="step-card-title">2. Geser Halaman Navigasi Konten</h4>
+            <p class="text-xs text-slate-600">
+              Silakan di-klik tanda panah ke kanan (<span class="font-mono">&gt;</span>) pada navigasi halaman produk
+              agar daftar bergeser ke halaman
+              selanjutnya (Halaman 2/2).
+            </p>
+          </div>
+          <div class="step-card">
+            <h4 class="step-card-title">
+              3. Membuka Jalur Pembelajaran Wajib
+            </h4>
+            <p class="text-xs text-slate-600">
+              Cari kursus dengan judul berikut:
+              <strong class="text-slate-900">Cloud Essentials Knowledge Badge Readiness Path</strong>, KEMUDIAN LANGSUNG
+              KLIK SAJA.
+            </p>
+          </div>
+          <div class="step-card">
+            <h4 class="step-card-title">
+              4. Registrasi ke Dalam Kelas (*Enroll*)
+            </h4>
+            <p class="text-xs text-slate-600">
+              Silakan klik tombol oranye
+              <span class="inline-orange-button">ENROLL</span>. Jika kemudian
+              muncul kotak dialog pemberitahuan sukses, silakan klik tombol
+              <span class="font-bold text-amber-600">"START LEARNING NOW"</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Langkah 4 -->
+      <section id="aws-sb-langkah4">
+        <h2 class="">Langkah 4: Struktur Pengerjaan Modul</h2>
+        <p class="step-card-text">
+          Course ini memiliki total struktur berupa
+          <strong>5 modul utama</strong> dan
+          <strong>1 assessment</strong> (ujian akhir untuk mendapatkan
+          Knowledge Badge).
+        </p>
+
+        <div class="warning-box">
+          <h4>Perhatian: Kamu Bebas Memilih Metode Belajar</h4>
+          <div class="grid-2">
+            <div class="white-box" style="color: #2c2c2c;">
+              <span class="semibold" style="color: #ffa500;">Pilihan #1</span><br />
+              Mengerjakan 5 modul secara berurutan terlebih dahulu, lalu baru
+              lanjut mengerjakan assessment.
+            </div>
+            <div class="white-box" style="color: #2c2c2c;">
+              <span class="semibold" style="color: #00c9c9;">Pilihan #2</span><br />
+              Langsung melompat dan fokus untuk mengerjakan bagian Assessment
+              saja di akhir halaman.
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card content-spacer-sm">
+          <h3 class="step-card-title">Alur Pengisian Materi Kelas:</h3>
+          <p class="step-card-text">
+            Silakan di-pilih course yang akan dikerjakan (pengerjaan materi
+            tidak harus urut), lalu klik coursenya. Silakan klik tombol
+            <strong>"START LEARNING NOW"</strong>.
+          </p>
+          <p class="step-card-text">
+            Tipe materi kursus disajikan dalam bentuk teks materi bacaan serta
+            media video pembelajaran. Kemudian di bagian penutup akhir modul
+            akan disediakan evaluasi ringkas berupa
+            <em>"Knowledge Check"</em> dan <em>"feedback"</em>, silakan diisi.
+          </p>
+        </div>
+      </section>
+
+      <!-- Konten: Langkah 5 -->
+      <section id="aws-sb-langkah5">
+        <h2 class="">Langkah 5: Ketentuan Ujian Akhir & Kelulusan</h2>
+
+        <div class="step-card">
+          <h3 class="step-card-title">Memulai Lembar Ujian</h3>
+          <p class="step-card-text">
+            Silakan di-pilih opsi
+            <strong class="text-slate-950">Cloud Essentials Knowledge Badge Assessment</strong>
+            yang akan dikerjakan, klik kelasnya, lalu silakan di-klik tombol
+            <span class="bg-amber-500 text-slate-900 font-bold px-3 py-1 rounded text-xs shadow-sm">BEGIN THE
+              TEST</span>.
+          </p>
+          <div class="grid-3 col-3" style="background-color: #f8fafc; padding: 20px;">
+            <div>
+              <span class="block semibold">Passing Mark</span> 80% Benar
+            </div>
+            <div>
+              <span class="block semibold">Batas Waktu</span> No Time
+              Limit
+            </div>
+            <div>
+              <span class="block semibold">Jumlah Soal</span> 50
+              Pertanyaan
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <h3 class="step-card-title">Regulasi Selama Mengisi Ujian:</h3>
+          <ul>
+            <li>
+              Untuk bisa lanjut ke soal berikutnya, semua soal pada halaman
+              aktif harus terjawab terlebih dahulu. Klik tombol
+              <strong>"NEXT PAGE"</strong> untuk melanjutkan.
+            </li>
+            <li>
+              Jika ingin melanjutkan di lain kesempatan, maka Anda bisa klik
+              tombol
+              <span class="text-amber-600 font-bold">"SAVE TEST, YOU CAN RESUME LATER"</span>. Fitur ini memungkinkan
+              Anda akan memulai kembali di soal
+              terakhir yang Anda kerjakan ketika login nanti menggunakan
+              tombol
+              <span class="text-cyan-600 font-bold">"RESUME THE TEST"</span>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-2">
+          <div class="green-box step-card">
+            <h3 class="step-card-title">KONDISI LULUS (Passed)</h3>
+            <p class="step-card-text">
+              Jika Anda berhasil mendapatkan total skor minimal
+              <strong>83%</strong> atau di atas batas kelulusan, selamat Anda
+              lulus! Silakan luangkan waktu mengisi data kuesioner evaluasi (
+              <em>Survei/Feedback</em>). Kemudian, Anda bisa langsung
+              mengunduh berkas dengan klik tombol
+              <strong style="color: #0e9958">DOWNLOAD YOUR CERTIFICATE</strong>. Untuk Badge fisik digital akan dikirim
+              ke alamat email
+              terdaftar (silakan menunggu antrean kiriman selama 2-5 hari
+              kerja).
+            </p>
+          </div>
+          <div class="rose-box step-card">
+            <h3 class="step-card-title">KONDISI GAGAL (Not Passed)</h3>
+            <p class="step-card-text">
+              Jika nilai akhir Anda berada di bawah kriteria kelulusan, Anda
+              dinyatakan tidak lulus. Langkah selanjutnya apa? Anda bisa
+              mengerjakan ulang tes/assessmentnya kembali. Namun harap
+              dicatat, Anda harus mematuhi masa tunggu pembekuan ujian selama
+              <strong>24 jam (1 hari kemudian)</strong> untuk bisa mencoba
+              mengambil tes kembali.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            Download PDF 
+            <a 
+              rel="noopener noreferrer" 
+              href="https://drive.google.com/file/d/1uB4cSsf4NiWzNhelaDV4wJQyH1EN1oZZ/view?usp=sharing" 
+              target="_blank">di sini
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab 3: Intro to Generative AI -->
+    <div id="tab-gen-ai" class="tab-content">
+      <!-- Daftar Isi — Intro to Generative AI -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>
+              📑 Daftar Isi — Introduction to Generative Artificial
+              Intelligence
+            </h3>
+            <ol>
+              <li>
+                <a href="#gen-ai-intro">Apa itu Artificial Intelligence?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-sejarah-ai">Sejarah Perkembangan AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-kenapa-ai">Mengapa Belajar Artificial Intelligence?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-definisi">Apa itu Generative AI (Gen AI)?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-perbedaan">Apa Bedanya Gen AI dengan AI Lainnya?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-jenis-output">Jenis-Jenis Gen AI Berdasarkan Output</a>
+              </li>
+              <li>
+                <a href="#gen-ai-cara-belajar">Cara Belajar dan Ikut Mengembangkan</a>
+              </li>
+              <li>
+                <a href="#gen-ai-sertifikasi">Sertifikasi Resmi AWS di Bidang AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-komponen">Komponen Membangun Aplikasi Gen AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-layanan-aws">Solusi Layanan Generative AI di AWS</a>
+              </li>
+              <li>
+                <a href="#gen-ai-manfaat">Manfaat Utama AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-do-dont">Do's and Don'ts Penggunaan AI</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Gen AI Intro -->
+      <section id="gen-ai-intro">
+        <h2>
+          <i class="fa-solid fa-brain"></i> Apa itu Artificial Intelligence?
+        </h2>
+        <p>
+          Kecerdasan Buatan (AI) adalah bidang ilmu komputer yang dikhususkan
+          untuk memecahkan masalah kognitif yang umumnya terkait dengan
+          kecerdasan manusia, seperti pembelajaran, penciptaan, dan pengenalan
+          gambar.
+        </p>
+        <div class="card" style="margin-top: 1.5rem">
+          <h3>Manfaat Utama Implementasi AI:</h3>
+          <ul>
+            <li>Memecahkan masalah yang kompleks.</li>
+            <li>Mengotomatiskan proses bisnis.</li>
+            <li>Membuat keputusan yang lebih pintar.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Konten: Sejarah -->
+      <section id="gen-ai-sejarah-ai">
+        <h2>
+          <i class="fa-solid fa-clock-rotate-left"></i> Sejarah Perkembangan
+          AI
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>1950's: Artificial Intelligence (AI)</h3>
+            <p>Kecerdasan manusia yang ditunjukkan oleh mesin.</p>
+          </div>
+          <div class="card">
+            <h3>1980's: Machine Learning</h3>
+            <p>Sistem AI yang belajar dari data historis.</p>
+          </div>
+          <div class="card">
+            <h3>2010's: Deep Learning</h3>
+            <p>Model pembelajaran mesin yang meniru fungsi otak manusia.</p>
+          </div>
+          <div class="card">
+            <h3>2020's: Generative AI (Gen AI)</h3>
+            <p>
+              Model deep learning (foundation models) yang mampu menciptakan
+              konten orisinil.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Mengapa Belajar -->
+      <section id="gen-ai-kenapa-ai">
+        <h2>
+          <i class="fa-solid fa-arrow-up-right-dots"></i> Mengapa Belajar
+          Artificial Intelligence?
+        </h2>
+        <ul>
+          <li>
+            Permintaan karir yang tinggi dan berkelanjutan di industri global.
+          </li>
+          <li>
+            Kemampuan untuk membuat aplikasi yang lebih pintar, adaptif, dan
+            efisien.
+          </li>
+          <li>
+            Kontribusi nyata pada inovasi serta pemecahan masalah kompleks
+            dunia modern.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Konten: Gen AI -->
+      <section id="gen-ai-definisi">
+        <h2>
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Apa itu Generative
+          AI (Gen AI)?
+        </h2>
+        <p>
+          Kecerdasan buatan generatif (AI generatif) adalah tipe AI yang dapat
+          membuat konten dan ide baru, termasuk percakapan, cerita, gambar,
+          video, dan musik.
+        </p>
+        <div class="card" style="margin-top: 1rem">
+          <p>
+            Model ini dapat dilatih untuk mempelajari bahasa manusia, bahasa
+            pemrograman, karya seni, kimia, biologi, atau materi pelajaran
+            kompleks apa pun.
+          </p>
+        </div>
+      </section>
+
+      <!-- Konten: Perbedaan AI -->
+      <section id="gen-ai-perbedaan">
+        <h2>
+          <i class="fa-solid fa-code-compare"></i> Apa Bedanya Gen AI dengan
+          AI Lainnya?
+        </h2>
+        <ol>
+          <li>
+            <strong>Tujuan Utama:</strong> Gen AI fokus menciptakan konten
+            baru dan orisinil, sedangkan AI lainnya fokus mengklasifikasikan,
+            mengenali pola, dan membuat prediksi.
+          </li>
+          <li>
+            <strong>Fungsi:</strong> Gen AI digunakan untuk aplikasi kreatif
+            (teks, gambar, musik), sedangkan AI lainnya untuk analisis data
+            besar, sistem rekomendasi, serta pengenalan wajah.
+          </li>
+          <li>
+            <strong>Output:</strong> Gen AI menghasilkan luaran yang
+            benar-benar baru di luar data pelatihan, sedangkan AI lainnya
+            berbasis prediksi/klasifikasi dari data yang telah ada.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Konten: Jenis Output -->
+      <section id="gen-ai-jenis-output">
+        <h2>
+          <i class="fa-solid fa-table-cells"></i> Jenis-Jenis Gen AI
+          Berdasarkan Output
+        </h2>
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Jenis Output</th>
+                <th>Contoh Teknologi</th>
+                <th>Deskripsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Teks (Text)</strong></td>
+                <td>ChatGPT, Bard, Claude</td>
+                <td>
+                  Menghasilkan teks, cerita, artikel, email, hingga baris
+                  kode.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Gambar (Image)</strong></td>
+                <td>DALL-E, Midjourney, Stable Diffusion</td>
+                <td>
+                  Menghasilkan gambar visual baru dari deskripsi teks
+                  (prompt).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Video</strong></td>
+                <td>Sora, Runway, Pika</td>
+                <td>
+                  Membuat aset video pendek berdasarkan skrip teks atau gambar
+                  acuan.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Audio</strong></td>
+                <td>ElevenLabs, Voicemod</td>
+                <td>
+                  Menghasilkan klon atau sintesis suara manusia alami dari
+                  input teks.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Konten: Cara Belajar -->
+      <section id="gen-ai-cara-belajar">
+        <h2>
+          <i class="fa-solid fa-lightbulb"></i> Cara Belajar dan Ikut
+          Mengembangkan
+        </h2>
+        <div class="card">
+          <h3>1. Mulai dari yang Familiar</h3>
+          <p>
+            Gunakan ChatGPT untuk membantu menulis tugas, lalu bahas bersama
+            bagaimana dan kenapa hasilnya bisa begitu?
+          </p>
+        </div>
+        <div class="card" style="margin-top: 1rem">
+          <h3>2. Hands-on Langsung!</h3>
+          <p>
+            Coba bikin puisi via ChatGPT, buat gambar lewat DALL-E, atau buat
+            aransemen lagu lewat Suno AI.
+          </p>
+        </div>
+        <div class="card" style="margin-top: 1rem">
+          <h3>3. Diskusi Etika & Risiko</h3>
+          <p>
+            Selalu pelajari isu krusial seputar plagiarisme, kebenaran
+            informasi (halusinasi AI), maraknya Deepfake, serta privasi data.
+          </p>
+        </div>
+      </section>
+
+      <!-- Konten: Sertifikasi -->
+      <section id="gen-ai-sertifikasi">
+        <h2>
+          <i class="fa-solid fa-certificate"></i> Sertifikasi Resmi AWS di
+          Bidang AI
+        </h2>
+        <div class="card">
+          <h3>
+            AWS Certified AI Practitioner (AIF-C01)
+            <span class="badge">Foundational</span>
+          </h3>
+          <p>
+            Dirancang untuk membangun pengetahuan dasar AI dan ML. Ideal bagi
+            pemula yang ingin memulai karier atau meningkatkan kualifikasi di
+            bidang teknologi AI.
+          </p>
+        </div>
+        <div class="card" style="margin-top: 1.5rem">
+          <h3>
+            AWS Certified Machine Learning Engineer - Associate (MLA-C01)
+          </h3>
+          <p>
+            Ditujukan bagi profesional dengan pengalaman minimal satu tahun
+            dalam rekayasa pembelajaran mesin langsung menggunakan ekosistem
+            infrastruktur layanan cloud AWS.
+          </p>
+        </div>
+      </section>
+
+      <!-- Konten: Komponen -->
+      <section id="gen-ai-komponen">
+        <h2>
+          <i class="fa-solid fa-cubes"></i> Komponen Membangun Aplikasi Gen AI
+        </h2>
+        <p>
+          Untuk membangun arsitektur aplikasi berbasis Generative AI, Anda
+          membutuhkan komponen utama berikut:
+        </p>
+        <ul>
+          <li><strong>Foundation Model / LLM:</strong> Otak mesin utama.</li>
+          <li><strong>LLM Framework:</strong> Penghubung logika aplikasi.</li>
+          <li>
+            <strong>Vector Database:</strong> Tempat penyimpanan memori
+            kontekstual (contoh: Pinecone).
+          </li>
+          <li>
+            <strong>Dataset Tambahan:</strong> Untuk kustomisasi data lokal.
+          </li>
+          <li>
+            <strong>Frontend:</strong> Antarmuka web/mobile (contoh: Next.js
+            atau Streamlit).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Konten: Layanan AWS -->
+      <section id="gen-ai-layanan-aws">
+        <h2>
+          <i class="fa-brands fa-aws"></i> Solusi Layanan Generative AI di AWS
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>AWS SageMaker</h3>
+            <p>
+              Layanan fully-managed untuk membangun, melatih, hingga
+              men-deploy model machine learning langsung di lingkungan
+              produksi cloud.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon Bedrock</h3>
+            <p>
+              Membuat Foundation Model (FM) performa tinggi dari berbagai
+              startup AI terkemuka tersedia praktis hanya lewat integrasi API
+              aman.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon Q</h3>
+            <p>
+              Asisten AI generatif khusus bisnis & developer untuk penulisan
+              *high-quality code* serta pemrosesan data internal instansi
+              secara pintar.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon PartyRock</h3>
+            <p>
+              Layanan taman bermain interaktif berbasis UI/UX terpadu yang
+              mempermudah pemula merancang aplikasi Gen AI tanpa coding.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Manfaat Pelajar -->
+      <section id="gen-ai-manfaat">
+        <h2>
+          <i class="fa-solid fa-graduation-cap"></i> Manfaat Utama AI untuk
+          Pelajar
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Pembelajaran Personal</h3>
+            <p>
+              Menyesuaikan tingkat kesulitan otomatis sesuai kompetensi unik
+              siswa.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Akses Pengetahuan Instan</h3>
+            <p>
+              Mempercepat pencarian informasi multi-disiplin ilmu melampaui
+              buku teks lama.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Mengasah Berpikir Kritis</h3>
+            <p>
+              Mendorong analisis mendalam via simulasi/studi kasus masalah
+              kompleks.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Belajar Lebih Efisien</h3>
+            <p>
+              Menyajikan rangkuman instan, peta konsep, dan visualisasi
+              materi.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Konten: Do & Don't -->
+      <section id="gen-ai-do-dont">
+        <h2>
+          <i class="fa-solid fa-circle-check"></i> Do's and Don'ts Penggunaan AI
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-left-color: #22c55e">
+            <h3 style="color: #15803d">
+              <i class="fa-solid fa-thumbs-up"></i> DO With AI
+            </h3>
+            <ol style="margin-left: 1rem; font-size: 0.9rem">
+              <li>Jadikan alat bantu perluas pemahaman.</li>
+              <li>Verifikasi kebenaran fakta lewat sumber kredibel.</li>
+              <li>Uji pemahaman diri dengan minta sudut pandang baru.</li>
+              <li>Patuhi etika akademik dengan transparan.</li>
+            </ol>
+          </div>
+          <div class="card" style="border-left-color: #ef4444">
+            <h3 style="color: #b91c1c">
+              <i class="fa-solid fa-thumbs-down"></i> DON'T With AI
+            </h3>
+            <ol style="margin-left: 1rem; font-size: 0.9rem">
+              <li>Ketergantungan penuh yang menumpulkan daya kritis.</li>
+              <li>Langsung copy-paste mentah-mentah (plagiarisme).</li>
+              <li>Penyalahgunaan untuk hoaks/ujaran kebencian.</li>
+              <li>Memasukkan data pribadi sensitif (alamat/sandi).</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            Download PDF 
+            <a 
+              rel="noopener noreferrer" 
+              href="https://drive.google.com/file/d/1zfqAYYcvZRNAVZz9O-tXx1nkabWKVKAn/view?usp=sharing" 
+              target="_blank">di sini
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab 4: Introduction to AWS Kiro -->
+    <div id="tab-intro-kiro" class="tab-content">
+      <!-- Daftar Isi :  Introduction to AWS Kiro -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>📑 Daftar Isi — Introduction to AWS Kiro</h3>
+            <ol>
+              <li>
+                <a href="#kiro-apa-itu-kiro">Apa itu Kiro?</a>
+              </li>
+              <li>
+                <a href="#kiro-masalah">Masalah yang Diselesaikan</a>
+              </li>
+              <li>
+                <a href="#kiro-vibe-vs-spec">Vibe Coding vs Spec Dev</a>
+              </li>
+              <li>
+                <a href="#kiro-fitur-utama">Fitur Utama Kiro</a>
+              </li>
+              <li>
+                <a href="#kiro-specs-fase">Specs & 3 Fase Kerja</a>
+              </li>
+              <li>
+                <a href="#kiro-ears-notation">EARS Notation</a>
+              </li>
+              <li>
+                <a href="#kiro-steering">Steering (Aturan Al)</a>
+              </li>
+              <li>
+                <a href="#kiro-agent-hooks">Agent Hooks</a>
+              </li>
+              <li>
+                <a href="#kiro-mcp-autopilot">MCP & Autopilot Mode</a>
+              </li>
+              <li>
+                <a href="#kiro-perbandingan-tools">Kiro vs Al Tools Lain</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Apa itu Kiro -->
+      <section id="kiro-apa-itu-kiro">
+        <h2><i class="fa-solid fa-circle-info"></i> 1. Apa itu Kiro?</h2>
+        <p style="
+              font-style: italic;
+              font-weight: 600;
+              color: var(--primary-color);
+            ">
+          "Bring engineering rigor to agentic development"
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Agentic IDE</h3>
+            <p>
+              IDE berbasis AI yang dapat merencanakan dan menjalankan tugas
+              kompleks secara mandiri.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Dikembangkan AWS</h3>
+            <p>
+              Dibuat resmi oleh Amazon Web Services (AWS) dengan paket Free
+              Tier & paket Berbayar.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon Bedrock</h3>
+            <p>
+              Didukung penuh oleh *foundation models* performa tinggi lewat
+              Amazon Bedrock.
+            </p>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem">
+          <strong>Versi Tersedia:</strong> Desktop IDE, CLI (Terminal), dan
+          Web Browser.
+        </p>
+      </section>
+
+      <!-- Section 2: Masalah -->
+      <section id="kiro-masalah">
+        <h2>
+          <i class="fa-solid fa-triangle-exclamation"></i> 2. Mengapa Kita
+          Perlu Kiro?
+        </h2>
+        <p>
+          Kiro menyelesaikan kendala utama saat membangun sistem perangkat
+          lunak berskala besar menggunakan AI biasa:
+        </p>
+        <ul>
+          <li>
+            <strong>AI Salah Paham Konteks:</strong> Saat proyek membesar, AI
+            biasa cenderung lupa konteks awal bawaan proyek.
+          </li>
+          <li>
+            <strong>Terlahu Banyak Prompt Ulang:</strong> Melelahkan dan tidak
+            efisien jika harus menuntun tugas kompleks satu demi satu.
+          </li>
+          <li>
+            <strong>Tidak Ada Dokumentasi:</strong> Rekam jejak pengambilan
+            keputusan teknis sering kali terlupakan setelah kode jadi.
+          </li>
+          <li>
+            <strong>Sulit Kolaborasi Tim:</strong> Developer lain kehilangan
+            konteks dan harus melakukan eksplorasi manual dari nol.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3: Vibe vs Spec -->
+      <section id="kiro-vibe-vs-spec">
+        <h2>
+          <i class="fa-solid fa-code"></i> 3. Vibe Coding VS Spec-Driven
+          Development
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Vibe Coding</h3>
+            <p>
+              Pendekatan instan langsung tulis *prompt* secara impulsif. AI
+              menulis kode berdasarkan asumsi tanpa spesifikasi matang. Cepat
+              di awal, namun tidak dapat diprediksi untuk skala produksi.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Spec-Driven Development (SDD)</h3>
+            <p>
+              Pendekatan terstruktur yang menetapkan arsitektur, dependensi,
+              dan koridor implementasi secara eksplisit lewat dokumen teknis
+              sebelum AI melakukan penulisan kode.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Vibe Coding</th>
+                <th>Spec-Driven Development</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Titik Awal</strong></td>
+                <td>AI langsung menulis kode</td>
+                <td>Membuat requirement awal terlebih dahulu</td>
+              </tr>
+              <tr>
+                <td><strong>Dokumentasi</strong></td>
+                <td>Tidak ada</td>
+                <td>Dibuat secara otomatis</td>
+              </tr>
+              <tr>
+                <td><strong>Proyek Skala Besar</strong></td>
+                <td>Sulit diatur</td>
+                <td>Terstruktur dengan baik</td>
+              </tr>
+              <tr>
+                <td><strong>Kolaborasi Tim</strong></td>
+                <td>Susah disinkronkan</td>
+                <td>Sangat mudah</td>
+              </tr>
+              <tr>
+                <td><strong>Prediktabilitas Hasil</strong></td>
+                <td>Rendah</td>
+                <td>Tinggi</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4: Fitur Utama -->
+      <section id="kiro-fitur-utama">
+        <h2><i class="fa-solid fa-cubes"></i> 4. Fitur Utama Kiro</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Specs</h3>
+            <p>
+              Mengubah ide abstrak menjadi *requirements*, arsitektur
+              *design*, dan *tasks* berkode detail secara otomatis.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Agentic Chat</h3>
+            <p>
+              Percakapan kontekstual interaktif dengan AI yang mampu
+              mengeksekusi langsung perubahan pada kode.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Steering</h3>
+            <p>
+              Berkas aturan markdown persisten agar gerak AI selalu selaras
+              dengan aturan internal standar tim.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Agent Hooks</h3>
+            <p>
+              Otomatisasi pemicu tugas AI saat peristiwa tertentu terjadi di
+              dalam IDE (misalnya pasca simpan file).
+            </p>
+          </div>
+          <div class="card">
+            <h3>MCP Support</h3>
+            <p>
+              Integrasi lancar ke sumber data luar seperti API, database, atau
+              dokumen via Model Context Protocol.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Autopilot Mode</h3>
+            <p>
+              Mendelegasikan tugas besar secara mandiri ke AI dengan opsi
+              penuh untuk meninjau atau membatalkan (*revert*).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Specs & 3 Fase -->
+      <section id="kiro-specs-fase">
+        <h2>
+          <i class="fa-solid fa-diagram-project"></i> 5. Specs & Siklus Kerja
+          3 Fase
+        </h2>
+        <p>
+          Specs bertindak sebagai cetak biru terstruktur (*blueprint*) yang
+          membagi pengembangan ke dalam 3 jenis file markdown utama:
+        </p>
+        <ol>
+          <li>
+            <strong>requirements.md:</strong> Apa yang ingin dibangun? Berisi
+            kebutuhan fungsional via *user stories* & *acceptance criteria*.
+          </li>
+          <li>
+            <strong>design.md:</strong> Bagaimana cara membangunnya?
+            Dokumentasi arsitektur teknis dan *sequence diagram*.
+          </li>
+          <li>
+            <strong>tasks.md:</strong> Apa saja langkah konkretnya? Daftar
+            terurut dependensi tugas siap eksekusi oleh mesin AI.
+          </li>
+        </ol>
+
+        <div class="card" style="margin-top: 1.5rem; border-left-color: var(--dark-color)">
+          <h3>Alur Siklus Kerja Eksekusi:</h3>
+          <p style="margin-top: 0.5rem">
+            Analisis Narasi Ide ➔ Pembuatan Arsitektur Codebase & Handling
+            Error ➔ Generate Spesifik Teknis Daftar Tugas ➔ Klik "Run" untuk
+            Otomatisasi.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 6: EARS Notation -->
+      <section id="kiro-ears-notation">
+        <h2>
+          <i class="fa-solid fa-spell-check"></i> 6. EARS Notation dalam
+          Requirements
+        </h2>
+        <p>
+          <strong>EARS = Easy Approach to Requirements Syntax</strong>. Format
+          standar penulisan kebutuhan sistem agar jelas, tidak ambigu, dan
+          bisa langsung diuji (*testable*).
+        </p>
+
+        <div class="card" style="
+              background-color: #fffbeb;
+              font-weight: 600;
+              font-size: 1.05rem;
+              text-align: center;
+              margin: 1.5rem 0;
+            ">
+          WHEN
+          <span style="color: var(--primary-color)">[kondisi/event]</span> THE
+          SYSTEM SHALL
+          <span style="color: #059669">[perilaku yang diharapkan]</span>
+        </div>
+
+        <h4>Contoh Implementasi Singkat:</h4>
+        <ul>
+          <li>
+            <strong>Kasus Login:</strong> *WHEN* pengguna memasukkan username
+            dan password yang valid, *THE SYSTEM SHALL* mengarahkan pengguna
+            ke halaman dashboard.
+          </li>
+          <li>
+            <strong>Kasus Validasi Form:</strong> *WHEN* pengguna mengirimkan
+            form dengan data tidak lengkap, *THE SYSTEM SHALL* menampilkan
+            pesan error di sebelah field yang kosong.
+          </li>
+        </ul>
+
+        <h4 style="margin-top: 1.5rem">Mengapa EARS Sangat Penting:</h4>
+        <p>
+          Menjamin kejelasan (*Clarity*), kemudahan pengujian (*Testability*),
+          keterlacakan relasi kode (*Traceability*), serta kelengkapan
+          skenario kasus (*Completeness*).
+        </p>
+      </section>
+
+      <!-- Section 7: Steering -->
+      <section id="kiro-steering">
+        <h2>
+          <i class="fa-solid fa-compass"></i> 7. Steering: Aturan Permanen AI
+        </h2>
+        <p>
+          Steering berupa berkas markdown pada direktori
+          <code>.kiro/steering/</code> yang memberikan Kiro pengetahuan
+          permanen tentang standar proyek, agar tidak perlu dijelaskan
+          berulang-ulang di setiap sesi prompt baru.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>product.md</h3>
+            <p>
+              Mendefinisikan tujuan produk, target profil pengguna, serta
+              objektif bisnis inti.
+            </p>
+          </div>
+          <div class="card">
+            <h3>tech.md</h3>
+            <p>
+              Mendokumentasikan framework, pustaka (*library*), dan perkakas
+              (*tools*) wajib pilihan tim.
+            </p>
+          </div>
+          <div class="card">
+            <h3>structure.md</h3>
+            <p>
+              Menjelaskan konvensi penamaan folder, struktur file, dan aturan
+              impor kode.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Agent Hooks -->
+      <section id="kiro-agent-hooks">
+        <h2>
+          <i class="fa-solid fa-anchor"></i> 8. Agent Hooks: Otomatisasi
+          Berbasis Event
+        </h2>
+        <p>
+          Pemicu otomatis yang menggerakkan AI Agent bertindak secara mandiri
+          tepat ketika ada kejadian (*event*) terdeteksi di lingkungan
+          workspace IDE.
+        </p>
+
+        <div class="card" style="
+              margin-bottom: 1.5rem;
+              text-align: center;
+              background-color: #f3f4f6;
+            ">
+          <strong>EVENT Terjadi</strong> ➔ Hook Terdeteksi ➔ AI Agent Berjalan
+          ➔ Tugas Selesai
+        </div>
+
+        <h4>Contoh Penggunaan Skenario Riil:</h4>
+        <ul>
+          <li>
+            <strong>Berkas Disimpan:</strong> Otomatis memperbarui atau
+            membuat berkas *unit test* baru.
+          </li>
+          <li>
+            <strong>Berkas Baru Dibuat:</strong> Otomatis menyuntikkan dokumen
+            *header* standar tim.
+          </li>
+          <li>
+            <strong>Tugas Selesai:</strong> Otomatis memicu fungsi pemeriksaan
+            *linting* dan *code review*.
+          </li>
+          <li>
+            <strong>Pasca Prompt Selesai:</strong> Otomatis menulis catatan
+            perubahan di file <code>CHANGELOG.md</code>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 9: MCP & Autopilot -->
+      <section id="kiro-mcp-autopilot">
+        <h2>
+          <i class="fa-solid fa-bolt"></i> 9. MCP Integration & Autopilot Mode
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Model Context Protocol (MCP)</h3>
+            <p>
+              Standar terbuka industri untuk menghubungkan AI ke sumber daya
+              pihak ketiga eksternal secara langsung, seperti basis data
+              (MySQL/Postgres), REST API pihak ketiga, Google Drive, Notion,
+              Jira, Figma, serta dokumentasi API kustom.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Autopilot Mode</h3>
+            <p>
+              Mendelegasikan instruksi besar agar Kiro menyusun rencana
+              *sub-tasks* dan mengeksekusinya secara mandiri tanpa interupsi
+              konfirmasi berulang. Anda tetap memegang kendali penuh untuk
+              meninjau (*review*) hasil akhir.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 10: Perbandingan -->
+      <section id="kiro-perbandingan-tools">
+        <h2>
+          <i class="fa-solid fa-sliders"></i> 10. Perbandingan Fitur Kiro vs
+          Tools AI Lain
+        </h2>
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Fitur Utama</th>
+                <th>Kiro</th>
+                <th>GitHub Copilot</th>
+                <th>Cursor</th>
+                <th>ChatGPT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Spec-Driven Development</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> Ya
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+                <td>
+                  <i class="fa-solid fa-minus" style="color: #f59e0b"></i>
+                  Parsial
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+              </tr>
+              <tr>
+                <td><strong>EARS Notation Requirements</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> Ya
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Auto Architectural Design</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> Ya
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Agent Hooks Trigger</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> Ya
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Steering (Persistent Context)</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> Ya
+                </td>
+                <td>
+                  <i class="fa-solid fa-minus" style="color: #f59e0b"></i>
+                  Parsial
+                </td>
+                <td>
+                  <i class="fa-solid fa-minus" style="color: #f59e0b"></i>
+                  Parsial
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  Tidak
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="
+              margin-top: 1.5rem;
+              font-weight: 600;
+              text-align: center;
+              color: var(--dark-color);
+            ">
+          Kiro adalah satu-satunya IDE saat ini yang menawarkan alur utuh
+          *Spec-Driven Development* dari awal ide spesifikasi hingga eksekusi
+          dalam satu ekosistem tunggal.
+        </p>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            Download PDF 
+            <a 
+              rel="noopener noreferrer" 
+              href="https://drive.google.com/file/d/1462-CAkAD_S7fILZ2WEgbjp_88_ZS9f6/view?usp=sharing" 
+              target="_blank">di sini
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab 5: Hands On PartyRock -->
+    <div id="tab-partyrock" class="tab-content">
+      <!-- Daftar Isi : Hands-on Partyrock -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>Daftar Isi — Hands-on Partyrock</h3>
+            <ol>
+              <li><a href="#apa-itu-partyrock">Apa ituPartyRock?</a></li>
+              <li><a href="#registrasi-akun">Alur Registrasi Akun</a></li>
+              <li><a href="#verifikasi-data">Verifikasi OTP & Captcha</a></li>
+              <li><a href="#membuat-app">Membuat Aplikasi Baru</a></li>
+              <li><a href="#fungsi-widgets">Mengenal Fitur Widgets</a></li>
+              <li>
+                <a href="#kustomisasi-prompt">Kustomisasi Parameter & Model</a>
+              </li>
+              <li>
+                <a href="#publikasi-app">Mengubah Proyek Menjadi Publik</a>
+              </li>
+              <li><a href="#ide-proyek">Inspirasi Ide Proyek Kreatif</a></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Apa itu PartyRock -->
+      <section id="apa-itu-partyrock">
+        <h2>
+          <i class="fa-solid fa-circle-question"></i> 1. Apa itu PartyRock?
+        </h2>
+        <p>
+          PartyRock adalah sebuah *tools playground* berbasis kecerdasan
+          buatan (Generative AI) terkelola dari AWS yang memungkinkan Anda
+          membuat dan merancang aplikasi AI kustom dalam hitungan detik secara
+          mudah tanpa keahlian coding.
+        </p>
+
+        <div class="grid-3" style="margin-top: 1.5rem">
+          <div class="card">
+            <h3><i class="fa-solid fa-pen-nib"></i> Content Writing</h3>
+            <p>
+              Mempermudah pembuatan teks kreatif, penulisan artikel, email
+              bisnis, hingga tugas sekolah.
+            </p>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-palette"></i> Art & Design</h3>
+            <p>
+              Membantu memvisualisasikan ide seni lewat perintah deskripsi
+              teks langsung menjadi gambar.
+            </p>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-user-tie"></i> Work & Profession</h3>
+            <p>
+              Meningkatkan produktivitas profesional karir dan efisiensi
+              manajemen operasional harian.
+            </p>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem">
+          Layanan ini juga mencakup kapabilitas untuk ranah *Tools AI
+          Rekomendasi*, *Career Development*, serta *Learning & Education*.
+        </p>
+      </section>
+
+      <!-- Section 2: Alur Registrasi Akun -->
+      <section id="registrasi-akun">
+        <h2>
+          <i class="fa-solid fa-user-plus"></i> 2. Alur Registrasi Akun Baru
+        </h2>
+        <p>
+          Ikuti langkah-langkah di bawah ini untuk mulai mengakses lingkungan
+          *AI Playground* resmi:
+        </p>
+
+        <div class="card">
+          <span class="step-badge">Langkah 01</span>
+          <h3>Akses Portal Utama</h3>
+          <p>
+            Buka peramban internet Anda dan kunjungi tautan situs resmi
+            PartyRock melalui url berikut:
+            <a href="https://partyrock.aws" rel="noopener noreferrer" target="_blank"
+              style="color: var(--primary-color); font-weight: 600">partyrock.aws</a>.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 1rem">
+          <span class="step-badge">Langkah 02</span>
+          <h3>Menu Log In</h3>
+          <p>
+            Klik tombol bertuliskan <strong>"Log In"</strong> atau
+            <strong>"Get started for free"</strong> yang terletak di pojok
+            kanan atas tampilan antarmuka.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 1rem">
+          <span class="step-badge">Langkah 03</span>
+          <h3>Metode Masuk</h3>
+          <p>
+            Pada jendela pilihan metode masuk yang muncul, klik opsi
+            <strong>"Sign in with Amazon"</strong> yang berada di baris pojok
+            bawah menu.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 1rem">
+          <span class="step-badge">Langkah 04</span>
+          <h3>Pembuatan Akun</h3>
+          <p>
+            Jika Anda belum memiliki kredensial akun Amazon sebelumnya, klik
+            tombol bertuliskan
+            <strong>"Create your Amazon account"</strong> di dalam kotak
+            dialog navigasi yang tersedia.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: Verifikasi Data -->
+      <section id="verifikasi-data">
+        <h2>
+          <i class="fa-solid fa-shield-halved"></i> 3. Langkah Verifikasi OTP
+          & Keamanan
+        </h2>
+        <p>
+          Untuk mengamankan validitas hak akses akun, sistem AWS menerapkan
+          beberapa lapis validasi data identitas:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Pengisian Data Diri:</strong> Lengkapi form isian nama
+            lengkap, alamat email aktif (seperti Gmail/iCloud), dan buat kata
+            sandi minimal sepanjang 6 karakter, lalu klik tombol
+            <strong>"Verify email"</strong>.
+          </li>
+          <li>
+            <strong>Verifikasi OTP Email:</strong> Buka folder kotak masuk
+            email Anda, salin kode keamanan One Time Password (OTP) yang
+            dikirimkan sistem, masukkan ke kolom verifikasi, lalu klik
+            <strong>"Verify"</strong>.
+          </li>
+          <li>
+            <strong>Nomor Handphone & OTP SMS:</strong> Cantumkan nomor
+            telepon seluler Anda yang aktif, tunggu pengiriman SMS kode OTP,
+            lalu klik tombol konfirmasi pembuatan akun.
+          </li>
+          <li>
+            <strong>Melewati Validasi Captcha:</strong> Selesaikan tantangan
+            pemastian bot manusia (contoh skenario: *Choose all the hats*),
+            lalu klik tombol kuning <strong>"Confirm"</strong> untuk
+            memvalidasi.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Membuat Aplikasi Baru -->
+      <section id="membuat-app">
+        <h2>
+          <i class="fa-solid fa-square-plus"></i> 4. Membuat Aplikasi Baru
+          Pertama Anda
+        </h2>
+        <p>
+          Setelah berhasil masuk, Anda akan langsung diarahkan menuju halaman
+          beranda (*Home Dashboard*) utama aplikasi.
+        </p>
+
+        <div class="card" style="margin-bottom: 1rem">
+          <h3>
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Tombol Inisiasi
+          </h3>
+          <p>
+            Klik tombol <strong>"Generate app"</strong> berwarna hijau cerah
+            yang terletak di bilah menu navigasi pojok kanan atas.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-sliders"></i> Penentuan Mode Bangun</h3>
+          <p>
+            Akan muncul pop-up pertanyaan mengenai metode pembuatan aplikasi
+            yang diinginkan. Untuk kontrol penuh atas elemen rancangan
+            aplikasi, klik tombol <strong>"Build manually"</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 5: Fitur Widgets -->
+      <section id="fungsi-widgets">
+        <h2>
+          <i class="fa-solid fa-table-cells-large"></i> 5. Mengenal Tipe dan
+          Fungsi Komponen Widgets
+        </h2>
+        <p>
+          Saat berada di kanvas edit proyek, Anda bisa menambahkan beragam
+          blok fungsional menggunakan menu utama
+          <strong>"+ Add widget"</strong>. Berikut adalah rincian
+          fungsionalitas komponen penyusunnya:
+        </p>
+
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Nama Komponen Widget</th>
+                <th>Fungsi Utama Komponen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>User Input</strong></td>
+                <td>
+                  Menyediakan bidang kolom entri teks prompt bagi pengguna
+                  aplikasi untuk memasukkan data variabel secara bebas (misal:
+                  genre film, nama objek).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Select</strong></td>
+                <td>
+                  Menyediakan parameter interaksi berupa serangkaian pilihan
+                  daftar opsi drop-down tetap bagi pengguna.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Document Select</strong></td>
+                <td>
+                  Memungkinkan pengguna mengunggah dokumen teks eksternal
+                  (PDF, DOCX, PPTX, HTML, JSON, CSV) hingga batas kapasitas
+                  800.000 karakter.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Static Text</strong></td>
+                <td>
+                  Menampilkan teks informasi konstan dan permanen yang
+                  ditentukan langsung oleh Anda selaku perancang aplikasi.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Text Generation</strong></td>
+                <td>
+                  Menghasilkan output teks baru secara instan berdasarkan
+                  parameter prompt kecerdasan buatan (AI-powered text).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Chatbot</strong></td>
+                <td>
+                  Menyediakan ruang obrolan interaktif dan dinamis berbasis
+                  kecerdasan buatan antara pengguna dengan aplikasi
+                  (AI-powered chat).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Image Generation</strong></td>
+                <td>
+                  Secara otomatis menghasilkan kreasi visual gambar baru
+                  berdasarkan instruksi deskripsi yang telah dikonfigurasi.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 6: Kustomisasi Parameter & Model -->
+      <section id="kustomisasi-prompt">
+        <h2>
+          <i class="fa-solid fa-sliders"></i> 6. Kustomisasi Parameter & Model
+          AI
+        </h2>
+        <p>
+          Setiap blok widget yang Anda pasang ke kanvas desain dapat
+          dikonfigurasi ulang nama judulnya (*Widget title*), kolom
+          bayangannya (*Placeholder*), maupun nilai bawaan (*Default value*)
+          sesuai studi kasus instansi.
+        </p>
+
+        <div class="card">
+          <h3>
+            <i class="fa-solid fa-terminal"></i> Rekayasa Prompt & Model Otak
+            AI
+          </h3>
+          <p>
+            Pada widget generatif seperti *Profile Summary*, Anda dapat
+            merumuskan instruksi rekayasa prompt secara spesifik dengan
+            memanggil referensi data dari variabel widget lain (contoh
+            pemanggilan: data Age, Gender, Height, Weight, dan Physical
+            Activity).
+          </p>
+          <p style="margin-top: 0.75rem">
+            Anda juga dapat memilih jenis model kecerdasan buatan tingkat
+            lanjut yang andal sebagai motor utama pengolah logika aplikasi,
+            seperti menggunakan model <strong>Claude 3.5 Sonnet v2</strong>,
+            serta mengatur parameter *Temperature* dan *Top P*.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 7: Publikasi Proyek -->
+      <section id="publikasi-app">
+        <h2>
+          <i class="fa-solid fa-globe"></i> 7. Mengubah Akses Proyek Menjadi
+          Publik
+        </h2>
+        <p>
+          Secara bawaan, aplikasi yang Anda rancang pertama kali di kanvas
+          bersifat tertutup (*Private*). Agar kreasi aplikasi Anda dapat
+          dicoba dan digunakan oleh khalayak umum atau rekan kerja, lakukan
+          langkah berikut:
+        </p>
+        <ol>
+          <li>
+            Buka menu ikon hamburger atau pengaturan proyek yang berada di
+            bilah kanan navigasi.
+          </li>
+          <li>
+            Pilih status bertanda gembok terkunci bertuliskan
+            <strong>"App is private"</strong>.
+          </li>
+          <li>
+            Pada kotak dialog konfirmasi akses yang muncul, klik dan pilih
+            opsi menu <strong>"Public"</strong> (Everyone can use your app and
+            it is shared on your playlist).
+          </li>
+        </ol>
+      </section>
+
+      <!-- Section 8: Ide Proyek Kreatif -->
+      <section id="ide-proyek">
+        <h2>
+          <i class="fa-solid fa-lightbulb"></i> 8. Inspirasi Ide Pengembangan
+          Proyek Kreatif
+        </h2>
+        <p>
+          Gunakan kapabilitas *no-code Generative AI* ini untuk
+          mengimplementasikan solusi kreatif terhadap berbagai studi kasus
+          kebutuhan di sekitar Anda:
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Buku Tahunan AI</h3>
+            <p>
+              Aplikasi seru yang mampu menganalisis foto unggahan pengguna dan
+              otomatis memberikan predikat keunikan personal seperti "Paling
+              Mungkin Menjadi Miliarder" atau "Senyum Terbaik".
+            </p>
+          </div>
+          <div class="card">
+            <h3>Pelatih Debat</h3>
+            <p>
+              Asisten interaktif cerdas untuk melatih siswa agar berani
+              mengutarakan argumen, mengasah komunikasi, serta menyusun
+              kerangka berpikir logis yang runtut.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Pencocokan Jurusan</h3>
+            <p>
+              Aplikasi konsultasi edukasi bagi pelajar untuk mencari pilihan
+              program studi jurusan kuliah dan universitas impian yang sesuai
+              dengan bakat dan kemampuan akademis.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="
+              margin-top: 2rem;
+              border-left-color: var(--dark-color);
+              text-align: center;
+              background-color: #f1f5f9;
+            ">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            CONTOH PROJECT LIVE DEMO:
+          </p>
+          <a rel="noopener noreferrer" href="https://s.id/BMICHECK" target="_blank">s.id/BMICHECK</a>
+        </div>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            Download PDF 
+            <a 
+              rel="noopener noreferrer" 
+              href="https://drive.google.com/file/d/1DNvbxxY4Pfkp_RsLkuln-fG8g6tgl26a/view?usp=sharing" 
+              target="_blank">di sini
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Terima Kasih / Thank You</p>
+    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #aab7c4">
+      Email:
+      <a href="mailto:presenter@inspirasips.id">presenter@inspirasips.id</a> |
+      Web:
+      <a href="http://www.inspirasips.id" target="_blank" rel="noopener">www.inspirasips.id</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript Kerja Tab & Slider Menu Navigasi -->
+  <script>
+    // Fungsi untuk Navigasi Perpindahan Tab
+    function openTab(evt, tabId) {
+      // Sembunyikan semua tab konten
+      const tabContents = document.getElementsByClassName('tab-content')
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active')
+      }
+
+      // Hapus class active di semua tombol tab
+      const tabLinks = document.getElementsByClassName('tab-link')
+      for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove('active')
+      }
+
+      // Tampilkan tab yang dipilih & beri class active pada tombol yang diklik
+      document.getElementById(tabId).classList.add('active')
+      evt.currentTarget.classList.add('active')
+
+      // Otomatis menengahkan tab menu yang aktif saat diklik (scroll ramah user)
+      evt.currentTarget.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+
+    // Logic Kontrol Slider Horizontal Menggunakan Tombol Kiri & Kanan
+    const wrapper = document.getElementById('tabs-wrapper')
+    const btnLeft = document.getElementById('slide-left')
+    const btnRight = document.getElementById('slide-right')
+
+    btnLeft.addEventListener('click', () => {
+      wrapper.scrollLeft -= 200 // Geser 200px ke kiri
+    })
+
+    btnRight.addEventListener('click', () => {
+      wrapper.scrollLeft += 200 // Geser 200px ke kanan
+    })
+  </script>
+</body>
+
+</html>
