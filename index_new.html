@@ -8,9 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <!-- Font Awesome untuk Ikon Menarik -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
     <style>
-         :root {
+        :root {
             --bg: #f5f6fa;
             --bg-alt: #edeff6;
             --ink: #14213d;
@@ -22,15 +24,15 @@
             --card: #ffffff;
             --radius: 14px;
         }
-        
+
         * {
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             margin: 0;
             background: var(--bg);
@@ -39,7 +41,7 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-        
+
         h1,
         h2,
         h3,
@@ -48,27 +50,27 @@
             margin: 0 0 0.4em 0;
             letter-spacing: -0.01em;
         }
-        
+
         code,
         .mono {
             font-family: 'IBM Plex Mono', monospace;
         }
-        
+
         a {
             color: inherit;
         }
-        
+
         .wrap {
             max-width: 1120px;
             margin: 0 auto;
             padding: 0 28px;
         }
-        
+
         section {
             position: relative;
             padding: 96px 0;
         }
-        
+
         .eyebrow {
             display: inline-flex;
             align-items: center;
@@ -80,7 +82,7 @@
             color: var(--ink-soft);
             margin-bottom: 18px;
         }
-        
+
         .eyebrow::before {
             content: '';
             width: 22px;
@@ -88,8 +90,9 @@
             background: var(--orange);
             display: inline-block;
         }
+
         /* ---------- NAV ---------- */
-        
+
         nav {
             position: sticky;
             top: 0;
@@ -99,48 +102,49 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--line);
         }
-        
+
         nav .wrap {
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 68px;
         }
-        
+
         .brand {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             font-size: 18px;
         }
-        
+
         .brand span {
             color: var(--orange);
         }
-        
+
         .navlinks {
             display: flex;
             gap: 26px;
             font-size: 14px;
             font-weight: 500;
         }
-        
+
         .navlinks a {
             text-decoration: none;
             color: var(--ink-soft);
             transition: color 0.2s;
         }
-        
+
         .navlinks a:hover {
             color: var(--ink);
         }
-        
+
         @media (max-width: 760px) {
             .navlinks {
                 display: none;
             }
         }
+
         /* ---------- ORBIT SIGNATURE (runs the whole page) ---------- */
-        
+
         .orbit-rail {
             position: absolute;
             left: 50%;
@@ -151,7 +155,7 @@
             transform: translateX(-50%);
             z-index: 0;
         }
-        
+
         .orbit-node {
             position: absolute;
             left: 50%;
@@ -163,19 +167,20 @@
             border: 2px solid var(--orange);
             z-index: 1;
         }
+
         /* ---------- HERO ---------- */
-        
+
         .hero {
             padding: 110px 0 90px;
             overflow: hidden;
             position: relative;
         }
-        
+
         .hero .wrap {
             position: relative;
             z-index: 2;
         }
-        
+
         .hero-deco {
             position: absolute;
             right: -60px;
@@ -186,7 +191,7 @@
             border: 1.5px solid var(--coral);
             opacity: 0.5;
         }
-        
+
         .hero-deco::after {
             content: '';
             position: absolute;
@@ -197,12 +202,12 @@
             background: var(--ink-soft);
             opacity: 0.4;
         }
-        
+
         .dot {
             position: absolute;
             border-radius: 50%;
         }
-        
+
         .hero-tag {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
@@ -212,38 +217,38 @@
             margin-bottom: 22px;
             display: block;
         }
-        
+
         .hero h1 {
             font-size: clamp(38px, 6vw, 64px);
             font-weight: 700;
             max-width: 780px;
             line-height: 1.06;
         }
-        
+
         .hero h1 em {
             font-style: normal;
             color: var(--orange);
         }
-        
+
         .hero p.lead {
             max-width: 560px;
             font-size: 18px;
             color: var(--ink-soft);
             margin-top: 20px;
         }
-        
+
         .hero-meta {
             display: flex;
             gap: 32px;
             margin-top: 44px;
             flex-wrap: wrap;
         }
-        
+
         .hero-meta div {
             font-size: 13px;
             color: var(--ink-soft);
         }
-        
+
         .hero-meta strong {
             display: block;
             font-family: 'Space Grotesk', sans-serif;
@@ -251,18 +256,19 @@
             color: var(--ink);
             font-weight: 600;
         }
+
         /* ---------- MODULE STRIP (agenda) ---------- */
-        
+
         .modstrip {
             padding: 60px 0 40px;
         }
-        
+
         .modgrid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
         }
-        
+
         .modcard {
             background: var(--card);
             border: 1px solid var(--line);
@@ -270,131 +276,136 @@
             padding: 22px 20px;
             transition: transform 0.25s, box-shadow 0.25s;
         }
-        
+
         .modcard:hover {
             transform: translateY(-4px);
             box-shadow: 0 14px 30px -18px rgba(20, 33, 61, 0.35);
         }
-        
+
         .modcard .num {
             font-family: 'IBM Plex Mono', monospace;
             color: var(--orange);
             font-size: 13px;
         }
-        
+
         .modcard h3 {
             font-size: 17px;
             margin: 10px 0 6px;
         }
-        
+
         .modcard p {
             font-size: 13.5px;
             color: var(--ink-soft);
             margin: 0;
         }
-        
+
         @media (max-width: 860px) {
             .modgrid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
         /* ---------- SECTION HEADERS ---------- */
-        
+
         .sec-head {
             max-width: 640px;
             margin-bottom: 48px;
         }
-        
+
         .sec-head h2 {
             font-size: clamp(28px, 4vw, 40px);
         }
-        
+
         .sec-head p {
             color: var(--ink-soft);
             font-size: 16px;
             max-width: 560px;
         }
+
         /* ---------- GRID CARDS ---------- */
-        
+
         .grid {
             display: grid;
             gap: 18px;
         }
-        
+
         .grid.c2 {
             grid-template-columns: repeat(2, 1fr);
         }
-        
+
         .grid.c3 {
             grid-template-columns: repeat(3, 1fr);
         }
-        
+
         .grid.c4 {
             grid-template-columns: repeat(4, 1fr);
         }
-        
+
         @media (max-width: 860px) {
+
             .grid.c2,
             .grid.c3,
             .grid.c4 {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         @media (max-width: 560px) {
+
             .grid.c2,
             .grid.c3,
             .grid.c4 {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         .card {
             background: var(--card);
             border: 1px solid var(--line);
             border-radius: var(--radius);
             padding: 24px;
         }
-        
+
         .card.dark {
             background-color: #14213d;
             color: #dce4f5;
         }
-        
+
         .card h4 {
             font-size: 16px;
             margin-bottom: 8px;
         }
-        
+
         .card p {
             font-size: 14px;
             color: var(--ink-soft);
             margin: 0;
         }
-        
+
         .card.dark p {
             color: #ccccdd;
         }
-        
+
         .card .icon {
             font-size: 22px;
             margin-bottom: 12px;
             display: block;
         }
-        
+
         .tag-orange {
             color: var(--orange);
         }
-        
+
         .tag-coral {
             color: var(--coral);
         }
-        
+
         .tag-teal {
             color: var(--teal);
         }
+
         /* ---------- TIMELINE (AI history) ---------- */
-        
+
         .timeline {
             display: flex;
             flex-direction: column;
@@ -403,17 +414,17 @@
             overflow: hidden;
             background: var(--card);
         }
-        
+
         .tl-row {
             display: grid;
             grid-template-columns: 110px 1fr;
             border-top: 1px solid var(--line);
         }
-        
+
         .tl-row:first-child {
             border-top: none;
         }
-        
+
         .tl-year {
             background: var(--ink);
             color: #fff;
@@ -424,24 +435,25 @@
             justify-content: center;
             padding: 18px 8px;
         }
-        
+
         .tl-body {
             padding: 18px 22px;
         }
-        
+
         .tl-body strong {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 15.5px;
         }
-        
+
         .tl-body span {
             display: block;
             font-size: 13px;
             color: var(--ink-soft);
             margin-top: 2px;
         }
+
         /* ---------- TABLE ---------- */
-        
+
         table.cmp {
             width: 100%;
             border-collapse: collapse;
@@ -451,14 +463,14 @@
             overflow: hidden;
             font-size: 14px;
         }
-        
+
         table.cmp th,
         table.cmp td {
             padding: 13px 16px;
             text-align: left;
             border-bottom: 1px solid var(--line);
         }
-        
+
         table.cmp th {
             background: var(--ink);
             color: #fff;
@@ -466,27 +478,28 @@
             font-weight: 500;
             font-size: 13px;
         }
-        
+
         table.cmp tr:last-child td {
             border-bottom: none;
         }
-        
+
         table.cmp td.yes {
             color: #1f9d55;
             font-weight: 600;
         }
-        
+
         table.cmp td.no {
             color: var(--coral);
             font-weight: 600;
         }
+
         /* ---------- STEP LIST ---------- */
-        
+
         .steps {
             display: grid;
             gap: 14px;
         }
-        
+
         .step {
             display: grid;
             grid-template-columns: 40px 1fr;
@@ -496,7 +509,7 @@
             border-radius: var(--radius);
             padding: 18px 20px;
         }
-        
+
         .step .n {
             width: 36px;
             height: 36px;
@@ -510,19 +523,20 @@
             font-weight: 700;
             font-size: 14px;
         }
-        
+
         .step h4 {
             font-size: 15.5px;
             margin-bottom: 4px;
         }
-        
+
         .step p {
             font-size: 13.5px;
             color: var(--ink-soft);
             margin: 0;
         }
+
         /* ---------- CODE BLOCK ---------- */
-        
+
         .code {
             background: var(--ink);
             color: #dce4f5;
@@ -533,40 +547,41 @@
             line-height: 1.7;
             overflow-x: auto;
         }
-        
+
         .code .kw {
             color: var(--orange);
         }
-        
+
         .code .str {
             color: #7fd3a4;
         }
-        
+
         .code .cm {
             color: #7a88ae;
         }
+
         /* ---------- 2-col split ---------- */
-        
+
         .split {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: start;
         }
-        
+
         @media (max-width: 860px) {
             .split {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         footer {
             padding: 70px 0 46px;
             border-top: 1px solid var(--line);
             background: var(--ink);
             color: #eaf0ff;
         }
-        
+
         footer .wrap {
             display: flex;
             justify-content: space-between;
@@ -574,38 +589,38 @@
             flex-wrap: wrap;
             gap: 24px;
         }
-        
+
         footer h3 {
             color: #fff;
         }
-        
+
         footer p {
             color: #a9b4d6;
             font-size: 13.5px;
         }
-        
+
         footer a {
             text-decoration: none;
             color: #eaf0ff;
         }
-        
+
         .reveal {
             opacity: 0;
             transform: translateY(18px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        
+
         .reveal.show {
             opacity: 1;
             transform: none;
         }
-        
+
         .section-title-row {
             display: flex;
             align-items: baseline;
             gap: 14px;
         }
-        
+
         .section-index {
             font-family: 'IBM Plex Mono', monospace;
             color: var(--line);
@@ -613,7 +628,7 @@
             font-weight: 600;
             line-height: 1;
         }
-        
+
         .shot {
             border: 1px solid var(--line);
             border-radius: var(--radius);
@@ -621,13 +636,13 @@
             background: var(--card);
             box-shadow: 0 20px 40px -28px rgba(20, 33, 61, .35);
         }
-        
+
         .shot img {
             width: 100%;
             height: auto;
             display: block;
         }
-        
+
         .card-icon {
             width: 60px;
             height: 60px;
@@ -638,20 +653,94 @@
             border-radius: 20%;
             margin-bottom: 20px;
         }
-        
+
         .card-icon.brain {
             color: #60a5fa;
             background-color: rgba(96, 165, 250, 0.4);
         }
-        
+
         .card-icon.toolbox {
             color: #34d399;
             background-color: rgba(52, 211, 153, 0.4);
         }
-        
+
         .card-icon.bullseye {
             color: #f472b6;
             background-color: rgba(244, 114, 181, 0.4);
+        }
+
+        /* ================= LANGUAGE SWITCHER ================= */
+        /* สไตล์ของปุ่ม */
+        .lang-toggle-btn {
+            background: var(--orange);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s, transform 0.2s;
+            margin-left: 10px;
+        }
+
+        /* ================= LANGUAGE SWITCHER ================= */
+        /* Button styling for ID | TH */
+        .lang-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--line);
+            color: var(--ink-soft);
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            margin-left: 10px;
+        }
+
+        .lang-toggle-btn:hover {
+            border-color: var(--orange);
+            color: var(--ink);
+        }
+
+        /* Dim text opacity when unselected */
+        .lang-label {
+            opacity: 0.4;
+            transition: all 0.2s;
+        }
+
+        .divider {
+            opacity: 0.3;
+            font-weight: 400;
+        }
+
+        /* Highlight ID in orange when in Indonesian mode (default) */
+        html:not([lang="th"]) .id-label {
+            opacity: 1;
+            color: var(--orange);
+        }
+
+        /* Highlight TH in orange when switched to Thai mode */
+        html[lang="th"] .th-label {
+            opacity: 1;
+            color: var(--orange);
+        }
+
+        /* ================= SMART MULTI-LANGUAGE SYSTEM ================= */
+        /* Hide Thai content when page is in Indonesian mode (default) */
+        html:not([lang="th"]) .lang-th {
+            display: none !important;
+        }
+
+        /* Hide Indonesian content when page is switched to Thai mode */
+        html[lang="th"] .lang-id {
+            display: none !important;
         }
     </style>
 </head>
@@ -659,13 +748,38 @@
 <body>
     <nav>
         <div class="wrap">
-            <div class="brand">Pintar Dengan AI · by <span>PindAI</span> — Indonesia </div>
+            <div class="brand">
+                <span class="lang-id">Pintar Dengan AI · by <span>PindAI</span> — Indonesia</span>
+                <span class="lang-th">เก่ง AI ได้ง่ายๆ · by <span>PindAI</span> — อินโดนีเซีย</span>
+            </div>
             <div class="navlinks">
-                <a href="#cloud">Cloud</a>
-                <a href="#genai">Gen AI</a>
-                <a href="#kiro">Kiro</a>
-                <a href="#handson">Hands-On</a>
-                <a href="#lanjut">Lanjutan</a>
+                <a href="#cloud">
+                    <span class="lang-id">Cloud</span>
+                    <span class="lang-th">คลาวด์</span>
+                </a>
+                <a href="#genai">
+                    <span class="lang-id">Gen AI</span>
+                    <span class="lang-th">Gen AI</span>
+                </a>
+                <a href="#kiro">
+                    <span class="lang-id">Kiro</span>
+                    <span class="lang-th">Kiro</span>
+                </a>
+                <a href="#handson">
+                    <span class="lang-id">Hands-On</span>
+                    <span class="lang-th">เวิร์กชอป</span>
+                </a>
+                <a href="#lanjut">
+                    <span class="lang-id">Lanjutan</span>
+                    <span class="lang-th">ต่อยอด</span>
+                </a>
+
+                <!-- ปุ่มสลับภาษา ID | TH -->
+                <button id="lang-toggle" class="lang-toggle-btn">
+                    <span class="lang-label id-label">ID</span>
+                    <span class="divider">|</span>
+                    <span class="lang-label th-label">TH</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -675,20 +789,41 @@
         <div class="hero-deco"></div>
         <div class="wrap">
             <span class="hero-tag">
-        Rangkaian Workshop · Juli 2026 · Jakarta, Indonesia
-      </span>
+                <span class="lang-id">Rangkaian Workshop · Juli 2026 · Jakarta, Indonesia</span>
+                <span class="lang-th">ชุดเวิร์กชอป · กรกฎาคม 2026 · จาการ์ตา, อินโดนีเซีย</span>
+            </span>
             <h1>
-                Tanpa perlu skill koding untuk mulai
-                <em>bikin sesuatu dengan AI</em>.
+                <span class="lang-id">Tanpa perlu skill koding untuk mulai <em>bikin sesuatu dengan AI</em>.</span>
+                <span class="lang-th">ไม่ต้องมีทักษะเขียนโค้ด ก็เริ่ม <em>สร้างสรรค์สิ่งใหม่ด้วย AI</em> ได้</span>
             </h1>
             <p class="lead">
-                Satu jalur belajar santai untuk pemula: kenalan dulu dengan cloud dan generative AI, lalu langsung coba bikin aplikasi sendiri pakai AWS PartyRock — tanpa menulis satu baris kode pun.
+                <span class="lang-id">Satu jalur belajar santai untuk pemula: kenalan dulu dengan cloud dan generative
+                    AI, lalu langsung coba bikin aplikasi sendiri pakai AWS PartyRock — tanpa menulis satu baris kode
+                    pun.</span>
+                <span class="lang-th">เส้นทางการเรียนรู้สบายๆ สำหรับมือใหม่: เริ่มจากการรู้จัก คลาวด์ และ Generative AI
+                    แล้วลองสร้างแอปของตัวเองทันทีด้วย AWS PartyRock — โดยไม่ต้องเขียนโค้ดแม้แต่บรรทัดเดียว</span>
             </p>
             <div class="hero-meta">
-                <div><strong>5</strong>Modul berurutan</div>
-                <div><strong>0 Kode</strong>Tidak perlu bisa coding</div>
-                <div><strong>Gratis</strong>Coba langsung di PartyRock</div>
-                <div><strong>0 → 1</strong>Dari ide sampai aplikasi jadi</div>
+                <div>
+                    <strong>5</strong>
+                    <span class="lang-id">Modul berurutan</span>
+                    <span class="lang-th">มอดูลเรียนตามลำดับ</span>
+                </div>
+                <div>
+                    <strong>0 Kode</strong>
+                    <span class="lang-id">Tidak perlu bisa coding</span>
+                    <span class="lang-th">ไม่ต้องเขียนโค้ดเป็น</span>
+                </div>
+                <div>
+                    <strong>Gratis</strong>
+                    <span class="lang-id">Coba langsung di PartyRock</span>
+                    <span class="lang-th">ทดลองใช้ฟรีบน PartyRock</span>
+                </div>
+                <div>
+                    <strong>0 → 1</strong>
+                    <span class="lang-id">Dari ide sampai aplikasi jadi</span>
+                    <span class="lang-th">จากไอเดียสู่แอปที่ใช้งานได้จริง</span>
+                </div>
             </div>
         </div>
     </section>
@@ -700,27 +835,42 @@
                 <div class="modcard reveal">
                     <span class="num">Modul 01</span>
                     <h3>Cloud Computing</h3>
-                    <p>Konsep dasar, AWS, dan peran kerja di industri cloud.</p>
+                    <p>
+                        <span class="lang-id">Konsep dasar, AWS, dan peran kerja di industri cloud.</span>
+                        <span class="lang-th">แนวคิดพื้นฐาน, AWS และสายงานในอุตสาหกรรมคลาวด์</span>
+                    </p>
                 </div>
                 <div class="modcard reveal">
                     <span class="num">Modul 02</span>
                     <h3>AWS Skill Builder</h3>
-                    <p>Daftar AWS Skill Builder, belajar dan mengasah skill kamu.</p>
+                    <p>
+                        <span class="lang-id">Daftar AWS Skill Builder, belajar dan mengasah skill kamu.</span>
+                        <span class="lang-th">สมัคร AWS Skill Builder เรียนรู้และอัปสเกลทักษะของคุณ</span>
+                    </p>
                 </div>
                 <div class="modcard reveal">
                     <span class="num">Modul 03</span>
                     <h3>Generative AI</h3>
-                    <p>Dari AI klasik ke Gen AI, jenis output, dan layanan AWS.</p>
+                    <p>
+                        <span class="lang-id">Dari AI klasik ke Gen AI, jenis output, dan layanan AWS.</span>
+                        <span class="lang-th">จาก AI ดั้งเดิมสู่ Gen AI, ประเภทผลลัพธ์ และบริการของ AWS</span>
+                    </p>
                 </div>
                 <div class="modcard reveal">
                     <span class="num">Modul 04</span>
-                    <h3>Pengenalan Kiro</h3>
+                    <h3>
+                        <span class="lang-id">Pengenalan Kiro</span>
+                        <span class="lang-th">ทำความรู้จัก Kiro</span>
+                    </h3>
                     <p>Agentic IDE, Spec-Driven Development, EARS Notation.</p>
                 </div>
                 <div class="modcard reveal">
                     <span class="num">Modul 05</span>
                     <h3>Hands On AWS Partyrock</h3>
-                    <p>Membuat aplikasi AI dengan Partyrock.</p>
+                    <p>
+                        <span class="lang-id">Membuat aplikasi AI dengan Partyrock.</span>
+                        <span class="lang-th">สร้างแอป AI ง่ายๆ ด้วย Partyrock</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -730,30 +880,53 @@
     <section id="cloud" style="background: var(--bg-alt)">
         <div class="wrap">
             <div class="sec-head reveal">
-                <div class="eyebrow">Dasar</div>
+                <div class="eyebrow">
+                    <span class="lang-id">Dasar</span>
+                    <span class="lang-th">พื้นฐาน</span>
+                </div>
                 <div class="section-title-row">
-                    <!-- <span class="section-index">01</span> -->
-                    <h2>Pengenalan Dasar-Dasar Cloud Computing</h2>
+                    <h2>
+                        <span class="lang-id">Pengenalan Dasar-Dasar Cloud Computing</span>
+                        <span class="lang-th">ปูพื้นฐาน Cloud Computing</span>
+                    </h2>
                 </div>
                 <p>
-                    Sebelum bicara AI, kita mulai dari pahami konsep dasar cloud computing, bagaimana komputasi modern bekerja.
+                    <span class="lang-id">Sebelum bicara AI, kita mulai dari pahami konsep dasar cloud computing,
+                        bagaimana komputasi modern bekerja.</span>
+                    <span class="lang-th">ก่อนจะเริ่มเรื่อง AI เรามาทำความเข้าใจแนวคิดพื้นฐานของคลาวด์
+                        และการทำงานของระบบคอมพิวเตอร์ยุคใหม่กันก่อน</span>
                 </p>
             </div>
 
             <div class="split reveal" style="margin-bottom: 56px">
                 <div class="card">
                     <div class="icon">☁️</div>
-                    <h4>Apa itu Cloud Computing?</h4>
+                    <h4>
+                        <span class="lang-id">Apa itu Cloud Computing?</span>
+                        <span class="lang-th">Cloud Computing คืออะไร?</span>
+                    </h4>
                     <p>
-                        Menurut definisi Amazon Web Services: layanan komponen IT secara
-                        <em>on-demand</em> yang dapat diakses di mana pun melalui internet, dengan biaya <em>pay-as-you-go</em> — bayar sesuai pemakaian.
+                        <span class="lang-id">Menurut definisi Amazon Web Services: layanan komponen IT secara
+                            <em>on-demand</em> yang dapat diakses di mana pun melalui internet, dengan biaya
+                            <em>pay-as-you-go</em> — bayar sesuai pemakaian.</span>
+                        <span class="lang-th">คำจำกัดความจาก AWS: บริการโครงสร้างพื้นฐานไอทีแบบตามสั่ง
+                            (<em>on-demand</em>) ที่เข้าถึงได้ทุกที่ผ่านอินเทอร์เน็ต โดยจ่ายเงินเท่าที่ใช้งานจริง
+                            (<em>pay-as-you-go</em>)</span>
                     </p>
                 </div>
                 <div class="card">
                     <div class="icon">🟠</div>
-                    <h4>Apa itu AWS?</h4>
+                    <h4>
+                        <span class="lang-id">Apa itu AWS?</span>
+                        <span class="lang-th">AWS คืออะไร?</span>
+                    </h4>
                     <p>
-                        Platform cloud computing dengan market share terbesar di dunia — sekitar 32%. Digunakan perusahaan besar seperti Airbnb, Netflix, Twitch, dan Twitter. Berada di bawah Amazon (didirikan 1994), AWS lahir tahun 2006.
+                        <span class="lang-id">Platform cloud computing dengan market share terbesar di dunia — sekitar
+                            32%. Digunakan perusahaan besar seperti Airbnb, Netflix, Twitch, dan Twitter. Berada di
+                            bawah Amazon (didirikan 1994), AWS lahir tahun 2006.</span>
+                        <span class="lang-th">แพลตฟอร์มคลาวด์ที่มีส่วนแบ่งการตลาดสูงที่สุดในโลก (ประมาณ 32%)
+                            ซึ่งบริษัทชั้นนำอย่าง Airbnb, Netflix, Twitch และ Twitter เลือกระบบนี้ โดย AWS อยู่ในเครือ
+                            Amazon และเปิดตัวมาตั้งแต่ปี 2006</span>
                     </p>
                 </div>
             </div>
@@ -769,7 +942,10 @@
                     <h2>Introduction to Generative Artificial Intelligence</h2>
                 </div>
                 <p>
-                    AI sudah ada sejak 1950-an. Generative AI adalah babak terbarunya — dan yang menjadi dasar bagi Kiro.
+                    <span class="lang-id">AI sudah ada sejak 1950-an. Generative AI adalah babak terbarunya — dan yang
+                        menjadi dasar bagi Kiro.</span>
+                    <span class="lang-th">AI มีมาตั้งแต่ยุค 1950 แต่ Generative AI คือยุคใหม่ล่าสุด —
+                        และเป็นหัวใจสำคัญของ Kiro</span>
                 </p>
             </div>
 
@@ -777,107 +953,184 @@
                 <div class="tl-row">
                     <div class="tl-year">1950s</div>
                     <div class="tl-body">
-                        <strong>Artificial Intelligence</strong><span>Human intelligence exhibited by machines</span>
+                        <strong>Artificial Intelligence</strong>
+                        <span>
+                            <span class="lang-id">Human intelligence exhibited by machines</span>
+                            <span class="lang-th">ปัญญาประดิษฐ์ที่แสดงความสามารถในการคิดเหมือนมนุษย์</span>
+                        </span>
                     </div>
                 </div>
                 <div class="tl-row">
                     <div class="tl-year">1980s</div>
                     <div class="tl-body">
-                        <strong>Machine Learning</strong><span>AI systems that learn from historical data</span>
+                        <strong>Machine Learning</strong>
+                        <span>
+                            <span class="lang-id">AI systems that learn from historical data</span>
+                            <span class="lang-th">ระบบ AI ที่เรียนรู้และจดจำจากข้อมูลในอดีต</span>
+                        </span>
                     </div>
                 </div>
                 <div class="tl-row">
                     <div class="tl-year">2010s</div>
                     <div class="tl-body">
-                        <strong>Deep Learning</stron>
-              <span>
-                Machine learning models that mimic human brain function
-              </span>
-          </div>
-        </div>
-        <div class="tl-row">
-          <div class="tl-year">2020s</div>
-          <div class="tl-body">
-            <strong>Generative AI</strong><span>Foundation models yang menciptakan konten orisinal</span>
+                        <strong>Deep Learning</strong>
+                        <span>
+                            <span class="lang-id">Machine learning models that mimic human brain function</span>
+                            <span class="lang-th">โมเดลการเรียนรู้ที่จำลองการทำงานของสมองมนุษย์</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="tl-row">
+                    <div class="tl-year">2020s</div>
+                    <div class="tl-body">
+                        <strong>Generative AI</strong>
+                        <span>
+                            <span class="lang-id">Foundation models yang menciptakan konten orisinal</span>
+                            <span class="lang-th">โมเดลพื้นฐานที่สามารถสร้างสรรค์คอนเทนต์ใหม่ขึ้นมาได้เอง</span>
+                        </span>
                     </div>
                 </div>
             </div>
 
             <h3 class="reveal" style="margin-bottom: 20px">
-                Gen AI vs AI pada Umumnya
+                <span class="lang-id">Gen AI vs AI pada Umumnya</span>
+                <span class="lang-th">เปรียบเทียบ Gen AI กับ AI ทั่วไป</span>
             </h3>
             <table class="cmp reveal" style="margin-bottom: 60px">
                 <tr>
                     <th></th>
                     <th>Generative AI</th>
-                    <th>AI Lainnya</th>
+                    <th>
+                        <span class="lang-id">AI Lainnya</span>
+                        <span class="lang-th">AI ทั่วไป</span>
+                    </th>
                 </tr>
                 <tr>
-                    <td>Tujuan Utama</td>
-                    <td>Menciptakan konten baru &amp; orisinal</td>
-                    <td>Klasifikasi, pengenalan pola, prediksi</td>
+                    <td>
+                        <span class="lang-id">Tujuan Utama</span>
+                        <span class="lang-th">เป้าหมายหลัก</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Menciptakan konten baru &amp; orisinal</span>
+                        <span class="lang-th">สร้างสรรค์คอนเทนต์ใหม่ที่ไม่เคยมีมาก่อน</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Klasifikasi, pengenalan pola, prediksi</span>
+                        <span class="lang-th">จัดหมวดหมู่ ตรวจจับรูปแบบ และคาดการณ์</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Fungsi</td>
-                    <td>Teks, gambar, musik — butuh kreativitas</td>
-                    <td>Analisis data, rekomendasi, deteksi wajah</td>
+                    <td>
+                        <span class="lang-id">Fungsi</span>
+                        <span class="lang-th">การใช้งาน</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Teks, gambar, musik — butuh kreativitas</span>
+                        <span class="lang-th">ข้อความ รูปภาพ เสียง — เน้นงานสร้างสรรค์</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Analisis data, rekomendasi, deteksi wajah</span>
+                        <span class="lang-th">วิเคราะห์ข้อมูล ระบบแนะนำ สแกนใบหน้า</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Output</td>
-                    <td>Benar-benar baru, tidak ada di data latih</td>
-                    <td>Berdasar klasifikasi/prediksi dari data lama</td>
+                    <td>
+                        <span class="lang-id">Output</span>
+                        <span class="lang-th">ผลลัพธ์ที่ได้</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Benar-benar baru, tidak ada di data latih</span>
+                        <span class="lang-th">สิ่งใหม่ทั้งหมด ไม่ได้มีอยู่เดิมในชุดข้อมูล</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Berdasar klasifikasi/prediksi dari data lama</span>
+                        <span class="lang-th">อิงตามการจำแนกหรือข้อมูลเดิมที่มีอยู่</span>
+                    </td>
                 </tr>
             </table>
 
             <div class="grid c4 reveal" style="margin-bottom: 60px">
                 <div class="card">
                     <span class="icon">📝</span>
-                    <h4>Teks</h4>
-                    <p>ChatGPT, Claude — cerita, artikel, kode.</p>
+                    <h4>
+                        <span class="lang-id">Teks</span>
+                        <span class="lang-th">ข้อความ</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">ChatGPT, Claude — cerita, artikel, kode.</span>
+                        <span class="lang-th">ChatGPT, Claude — แต่งเรื่อง เขียนบทความ เจนโค้ด</span>
+                    </p>
                 </div>
                 <div class="card">
                     <span class="icon">🖼️</span>
-                    <h4>Gambar</h4>
-                    <p>DALL·E, Midjourney — dari deskripsi teks.</p>
+                    <h4>
+                        <span class="lang-id">Gambar</span>
+                        <span class="lang-th">รูปภาพ</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">DALL·E, Midjourney — dari deskripsi teks.</span>
+                        <span class="lang-th">DALL·E, Midjourney — เปลี่ยนข้อความให้เป็นภาพ</span>
+                    </p>
                 </div>
                 <div class="card">
                     <span class="icon">🎬</span>
-                    <h4>Video</h4>
-                    <p>Sora, Runway — dari skrip atau gambar.</p>
+                    <h4>
+                        <span class="lang-id">Video</span>
+                        <span class="lang-th">วิดีโอ</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">Sora, Runway — dari skrip atau gambar.</span>
+                        <span class="lang-th">Sora, Runway — สร้างวิดีโอจากสคริปต์หรือรูป</span>
+                    </p>
                 </div>
                 <div class="card">
                     <span class="icon">🔊</span>
-                    <h4>Audio</h4>
-                    <p>ElevenLabs — suara manusia dari teks.</p>
+                    <h4>
+                        <span class="lang-id">Audio</span>
+                        <span class="lang-th">เสียง</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">ElevenLabs — suara manusia dari teks.</span>
+                        <span class="lang-th">ElevenLabs — แปลงตัวหนังสือให้เป็นเสียงคน</span>
+                    </p>
                 </div>
             </div>
 
             <h3 class="reveal" style="margin-bottom: 20px">
-                Layanan AWS di Bidang Generative AI
+                <span class="lang-id">Layanan AWS di Bidang Generative AI</span>
+                <span class="lang-th">บริการด้าน Gen AI จาก AWS</span>
             </h3>
             <div class="grid c4 reveal" style="margin-bottom: 60px">
                 <div class="card">
                     <h4 class="tag-orange">Amazon SageMaker</h4>
                     <p>
-                        Layanan terkelola penuh untuk membangun &amp; melatih model AI, siap produksi.
+                        <span class="lang-id">Layanan terkelola penuh untuk membangun &amp; melatih model AI, siap
+                            produksi.</span>
+                        <span class="lang-th">บริการแบบครบวงจรสำหรับสร้างและเทรนโมเดล AI พร้อมใช้งานจริง</span>
                     </p>
                 </div>
                 <div class="card">
                     <h4 class="tag-orange">Amazon Bedrock</h4>
                     <p>
-                        Akses foundation model performa tinggi lewat satu API — fondasi Kiro.
+                        <span class="lang-id">Akses foundation model performa tinggi lewat satu API — fondasi
+                            Kiro.</span>
+                        <span class="lang-th">เข้าถึงโมเดล AI ระดับท็อปผ่าน API เดียว — เบื้องหลังของ Kiro</span>
                     </p>
                 </div>
                 <div class="card">
                     <h4 class="tag-orange">Amazon Q</h4>
                     <p>
-                        Asisten generatif untuk bisnis &amp; developer, termasuk code creation.
+                        <span class="lang-id">Asisten generatif untuk bisnis &amp; developer, termasuk code
+                            creation.</span>
+                        <span class="lang-th">ผู้ช่วย AI สำหรับธุรกิจและนักพัฒนา ช่วยเขียนโค้ดและทำงาน</span>
                     </p>
                 </div>
                 <div class="card">
                     <h4 class="tag-orange">Amazon PartyRock</h4>
                     <p>
-                        Playground interaktif untuk belajar &amp; membuat aplikasi Gen AI tanpa ribet.
+                        <span class="lang-id">Playground interaktif untuk belajar &amp; membuat aplikasi Gen AI tanpa
+                            ribet.</span>
+                        <span class="lang-th">พื้นที่ทดลองสร้างแอป Gen AI ได้ง่ายๆ โดยไม่ต้องเขียนโค้ด</span>
                     </p>
                 </div>
             </div>
@@ -888,42 +1141,73 @@
     <section id="kiro" style="background: var(--bg-alt)">
         <div class="wrap">
             <div class="sec-head reveal">
-                <div class="eyebrow">Dasar Kiro</div>
+                <div class="eyebrow">
+                    <span class="lang-id">Dasar Kiro</span>
+                    <span class="lang-th">พื้นฐาน Kiro</span>
+                </div>
                 <div class="section-title-row">
-                    <h2>Pengenalan Kiro</h2>
+                    <h2>
+                        <span class="lang-id">Pengenalan Kiro</span>
+                        <span class="lang-th">ทำความรู้จักกับ Kiro</span>
+                    </h2>
                 </div>
                 <p>
-                    "Bring engineering rigor to agentic development." Kiro adalah agentic IDE dari AWS, ditenagai Amazon Bedrock.
+                    <span class="lang-id">"Bring engineering rigor to agentic development." Kiro adalah agentic IDE dari
+                        AWS, ditenagai Amazon Bedrock.</span>
+                    <span class="lang-th">"ยกระดับการพัฒนา Agentic AI ให้มีมาตรฐานเชิงวิศวกรรม" Kiro คือ Agentic IDE จาก
+                        AWS ขับเคลื่อนด้วย Amazon Bedrock</span>
                 </p>
             </div>
 
             <div class="card dark reveal" style="margin-bottom: 60px;">
-                <h3 class="reveal" style="margin-bottom: 20px">🧠 Apa itu Agentic AI?</h3>
+                <h3 class="reveal" style="margin-bottom: 20px">
+                    <span class="lang-id">🧠 Apa itu Agentic AI?</span>
+                    <span class="lang-th">🧠 Agentic AI คืออะไร?</span>
+                </h3>
                 <p class="reveal" style="margin-bottom: 40px">
-                    Sebelum masuk ke Kiro, kenalan dulu dengan konsep di baliknya. Kiro adalah contoh dari Agentic AI — AI yang tidak cuma menjawab pertanyaan, tapi bisa bertindak untuk mencapai tujuan Anda, langkah demi langkah, secara mandiri.
+                    <span class="lang-id">Sebelum masuk ke Kiro, kenalan dulu dengan konsep di baliknya. Kiro adalah
+                        contoh dari Agentic AI — AI yang tidak cuma menjawab pertanyaan, tapi bisa bertindak untuk
+                        mencapai tujuan Anda, langkah demi langkah, secara mandiri.</span>
+                    <span class="lang-th">ก่อนเริ่มใช้ Kiro มาทำความเข้าใจแนวคิดนี้กันก่อน Kiro คือตัวอย่างของ Agentic
+                        AI — AI ที่ไม่ได้ทำแค่ตอบคำถาม
+                        แต่สามารถลงมือทำเพื่อบรรลุเป้าหมายที่คุณตั้งไว้ได้เองทีละขั้นตอน</span>
                 </p>
 
                 <div class="grid c3 reveal">
                     <div class="card dark">
                         <span class="card-icon brain"><i class="fa-solid fa-brain"></i></span>
-                        <h4>🧠 LLM</h3>
-                            <p>Large Language Model — bagian yang <strong>berpikir</strong>. Memahami permintaan Anda, menyusun rencana, dan memutuskan langkah apa yang perlu diambil selanjutnya.</p>
+                        <h4>🧠 LLM</h4>
+                        <p>
+                            <span class="lang-id">Large Language Model — bagian yang <strong>berpikir</strong>. Memahami
+                                permintaan Anda, menyusun rencana, dan memutuskan langkah apa yang perlu diambil
+                                selanjutnya.</span>
+                            <span class="lang-th">Large Language Model — ส่วนที่ทำหน้าที่ <strong>"คิด"</strong>
+                                เข้าใจสิ่งที่คุณต้องการ วางแผน และตัดสินใจขั้นตอนถัดไป</span>
+                        </p>
                     </div>
                     <div class="card dark">
                         <span class="card-icon toolbox"><i class="fa-solid fa-toolbox"></i></span>
                         <h4>🛠️ Tools</h4>
-                        <p>Kemampuan nyata untuk <strong>bertindak</strong> — menulis file, menjalankan terminal, browsing web. Tanpa tools, AI hanya bisa "berbicara", tidak bisa "mengerjakan".</p>
+                        <p>
+                            <span class="lang-id">Kemampuan nyata untuk <strong>bertindak</strong> — menulis file,
+                                menjalankan terminal, browsing web. Tanpa tools, AI hanya bisa "berbicara", tidak bisa
+                                "mengerjakan".</span>
+                            <span class="lang-th">เครื่องมือในการ <strong>"ลงมือทำ"</strong> — เขียนไฟล์ รันคำสั่ง
+                                ค้นเว็บ หากไม่มีเครื่องมือ AI จะทำได้แค่พูดคุย แต่ทำงานจริงไม่ได้</span>
+                        </p>
                     </div>
                     <div class="card dark">
                         <span class="card-icon bullseye"><i class="fa-solid fa-bullseye"></i></span>
                         <h4>🎯 Goal</h4>
                         <p>
-                            Hasil akhir yang ingin dicapai — misalnya "buat website toko online". Goal inilah yang menuntun setiap keputusan LLM dan penggunaan tools.
+                            <span class="lang-id">Hasil akhir yang ingin dicapai — misalnya "buat website toko online".
+                                Goal inilah yang menuntun setiap keputusan LLM dan penggunaan tools.</span>
+                            <span class="lang-th">เป้าหมายที่ต้องการ — เช่น "สร้างเว็บร้านค้าออนไลน์"
+                                เป้าหมายนี้จะคอยนำทางให้ AI เลือกใช้เครื่องมือได้อย่างถูกต้อง</span>
                         </p>
                     </div>
                 </div>
             </div>
-
 
             <h3 class="reveal" style="margin-bottom: 20px">
                 Vibe Coding vs Spec-Driven Development
@@ -935,29 +1219,74 @@
                     <th>Spec-Driven Development</th>
                 </tr>
                 <tr>
-                    <td>Titik awal</td>
-                    <td>AI langsung menulis kode</td>
-                    <td>Membuat requirement lebih dulu</td>
+                    <td>
+                        <span class="lang-id">Titik awal</span>
+                        <span class="lang-th">จุดเริ่มต้น</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">AI langsung menulis kode</span>
+                        <span class="lang-th">ให้ AI เริ่มเขียนโค้ดทันที</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Membuat requirement lebih dulu</span>
+                        <span class="lang-th">เขียนความต้องการก่อนเริ่ม</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Dokumentasi</td>
-                    <td>Tidak ada</td>
-                    <td>Dibuat secara otomatis</td>
+                    <td>
+                        <span class="lang-id">Dokumentasi</span>
+                        <span class="lang-th">เอกสารประกอบ</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Tidak ada</span>
+                        <span class="lang-th">ไม่มี</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Dibuat secara otomatis</span>
+                        <span class="lang-th">สร้างให้อัตโนมัติ</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Proyek skala besar</td>
-                    <td>Sulit</td>
-                    <td>Terstruktur</td>
+                    <td>
+                        <span class="lang-id">Proyek skala besar</span>
+                        <span class="lang-th">โปรเจกต์ขนาดใหญ่</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Sulit</span>
+                        <span class="lang-th">ดูแลยาก</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Terstruktur</span>
+                        <span class="lang-th">เป็นระบบชัดเจน</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Kolaborasi tim</td>
-                    <td>Susah</td>
-                    <td>Mudah</td>
+                    <td>
+                        <span class="lang-id">Kolaborasi tim</span>
+                        <span class="lang-th">การทำงานเป็นทีม</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Susah</span>
+                        <span class="lang-th">ทำร่วมกันยาก</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Mudah</span>
+                        <span class="lang-th">ทำร่วมกันง่าย</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Prediktabilitas hasil</td>
-                    <td>Rendah</td>
-                    <td>Tinggi</td>
+                    <td>
+                        <span class="lang-id">Prediktabilitas hasil</span>
+                        <span class="lang-th">ความแม่นยำของผลลัพธ์</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Rendah</span>
+                        <span class="lang-th">ต่ำ</span>
+                    </td>
+                    <td>
+                        <span class="lang-id">Tinggi</span>
+                        <span class="lang-th">สูง</span>
+                    </td>
                 </tr>
             </table>
 
@@ -966,31 +1295,43 @@
                     <span class="icon">📋</span>
                     <h4>Specs</h4>
                     <p>
-                        Mengubah ide jadi requirements, design, dan tasks — inti dari Spec-Driven Development.
+                        <span class="lang-id">Mengubah ide jadi requirements, design, dan tasks — inti dari Spec-Driven
+                            Development.</span>
+                        <span class="lang-th">แปลงไอเดียให้เป็นข้อกำหนด ดีไซน์ และงานย่อย — หัวใจของ Spec-Driven
+                            Development</span>
                     </p>
                 </div>
                 <div class="card reveal">
                     <span class="icon">🧭</span>
                     <h4>Steering</h4>
                     <p>
-                        File panduan agar AI konsisten dengan standar tim dan proyek yang dikerjakan.
+                        <span class="lang-id">File panduan agar AI konsisten dengan standar tim dan proyek yang
+                            dikerjakan.</span>
+                        <span class="lang-th">ไฟล์คู่มือที่ช่วยให้ AI ทำงานได้ตรงตามมาตรฐานของทีมและโปรเจกต์</span>
                     </p>
                 </div>
                 <div class="card reveal">
                     <span class="icon">🪝</span>
                     <h4>Agent Hooks</h4>
                     <p>
-                        Otomatisasi yang berjalan sendiri saat peristiwa tertentu terjadi, misalnya file disimpan.
+                        <span class="lang-id">Otomatisasi yang berjalan sendiri saat peristiwa tertentu terjadi,
+                            misalnya file disimpan.</span>
+                        <span class="lang-th">ระบบอัตโนมัติที่ทำงานทันทีเมื่อมีเหตุการณ์ที่กำหนด เช่น
+                            เมื่อกดบันทึกไฟล์</span>
                     </p>
                 </div>
             </div>
 
             <h3 class="reveal" style="margin-bottom: 20px">
-                Kiro vs Tools AI Coding Lainnya
+                <span class="lang-id">Kiro vs Tools AI Coding Lainnya</span>
+                <span class="lang-th">เปรียบเทียบ Kiro กับเครื่องมือ AI Coding อื่นๆ</span>
             </h3>
             <table class="cmp reveal" style="margin-bottom: 30px">
                 <tr>
-                    <th>Fitur</th>
+                    <th>
+                        <span class="lang-id">Fitur</span>
+                        <span class="lang-th">ฟีเจอร์</span>
+                    </th>
                     <th>Kiro</th>
                     <th>GitHub Copilot</th>
                     <th>Cursor</th>
@@ -1018,7 +1359,10 @@
                     <td class="no">✘</td>
                 </tr>
                 <tr>
-                    <td>Gratis untuk pemakaian dasar</td>
+                    <td>
+                        <span class="lang-id">Gratis untuk pemakaian dasar</span>
+                        <span class="lang-th">ฟรีสำหรับการใช้งานเริ่มต้น</span>
+                    </td>
                     <td class="yes">✔</td>
                     <td class="no">✘</td>
                     <td>Partial</td>
@@ -1027,19 +1371,32 @@
             </table>
 
             <h3 class="reveal" style="margin-bottom: 20px">
-                Kapan Pakai Specs vs Vibe Coding?
+                <span class="lang-id">Kapan Pakai Specs vs Vibe Coding?</span>
+                <span class="lang-th">ควรเลือกใช้ Specs หรือ Vibe Coding ตอนไหน?</span>
             </h3>
             <div class="split reveal">
                 <div class="card">
-                    <h4 class="tag-teal">Gunakan Specs ✅</h4>
+                    <h4 class="tag-teal">
+                        <span class="lang-id">Gunakan Specs ✅</span>
+                        <span class="lang-th">ใช้ Specs เมื่อ ✅</span>
+                    </h4>
                     <p>
-                        Fitur kompleks banyak komponen, risiko tinggi, butuh dokumentasi tim, proyek jangka panjang, multi-developer.
+                        <span class="lang-id">Fitur kompleks banyak komponen, risiko tinggi, butuh dokumentasi tim,
+                            proyek jangka panjang, multi-developer.</span>
+                        <span class="lang-th">ทำฟีเจอร์ซับซ้อน มีความเสี่ยงสูง ต้องมีเอกสารให้ทีม
+                            หรือทำโปรเจกต์ระยะยาวที่มีนักพัฒนาหลายคน</span>
                     </p>
                 </div>
                 <div class="card">
-                    <h4 class="tag-coral">Gunakan Vibe Coding ✅</h4>
+                    <h4 class="tag-coral">
+                        <span class="lang-id">Gunakan Vibe Coding ✅</span>
+                        <span class="lang-th">ใช้ Vibe Coding เมื่อ ✅</span>
+                    </h4>
                     <p>
-                        Eksplorasi cepat, script 1–2 file, bug fix yang jelas penyebabnya, tugas one-off, belajar sambil main.
+                        <span class="lang-id">Eksplorasi cepat, script 1–2 file, bug fix yang jelas penyebabnya, tugas
+                            one-off, belajar sambil main.</span>
+                        <span class="lang-th">ต้องการทดลองไวๆ เขียนสคริปต์สั้นๆ แก้บั๊กจุดเล็กๆ
+                            หรือทำโปรเจกต์เล่นสนุกๆ</span>
                     </p>
                 </div>
             </div>
@@ -1051,11 +1408,23 @@
         <div class="wrap">
             <div class="split reveal" style="align-items:center;margin-bottom:24px;">
                 <div class="sec-head reveal" style="margin-bottom:0;">
-                    <div class="eyebrow">Hands-On PartyRock</div>
-                    <div class="section-title-row">
-                        <h2>Hands-On: Bikin Aplikasi AI Pertamamu di PartyRock</h2>
+                    <div class="eyebrow">
+                        <span class="lang-id">Hands-On PartyRock</span>
+                        <span class="lang-th">เวิร์กชอป PartyRock</span>
                     </div>
-                    <p>Playground Generative AI dari AWS, ditenagai Amazon Bedrock. Rancang aplikasi AI kustom dalam hitungan detik — tanpa keahlian coding sama sekali. Ini yang akan langsung kita praktikkan bareng-bareng di event ini.
+                    <div class="section-title-row">
+                        <h2>
+                            <span class="lang-id">Hands-On: Bikin Aplikasi AI Pertamamu di PartyRock</span>
+                            <span class="lang-th">ลงมือทำ: สร้างแอป AI ตัวแรกของคุณด้วย PartyRock</span>
+                        </h2>
+                    </div>
+                    <p>
+                        <span class="lang-id">Playground Generative AI dari AWS, ditenagai Amazon Bedrock. Rancang
+                            aplikasi AI kustom dalam hitungan detik — tanpa keahlian coding sama sekali. Ini yang akan
+                            langsung kita praktikkan bareng-bareng di event ini.</span>
+                        <span class="lang-th">พื้นที่ทดลอง Gen AI จาก AWS ขับเคลื่อนด้วย Amazon Bedrock ออกแบบแอป AI
+                            ได้ในไม่กี่วินาที โดยไม่ต้องเขียนโค้ดแม้แต่น้อย ซึ่งเราจะได้ลงมือทำไปพร้อมๆ
+                            กันในงานนี้</span>
                     </p>
                 </div>
                 <div class="shot">
@@ -1063,42 +1432,82 @@
                 </div>
             </div>
 
-
-            <h3 class="reveal" style="margin-bottom:20px;">Apa itu PartyRock?</h3>
+            <h3 class="reveal" style="margin-bottom:20px;">
+                <span class="lang-id">Apa itu PartyRock?</span>
+                <span class="lang-th">PartyRock ทำอะไรได้บ้าง?</span>
+            </h3>
             <div class="grid c3 reveal" style="margin-bottom:60px;">
                 <div class="card"><span class="icon">✍️</span>
                     <h4>Content Writing</h4>
-                    <p>Mempermudah pembuatan teks kreatif, artikel, email bisnis, hingga tugas sekolah.</p>
+                    <p>
+                        <span class="lang-id">Mempermudah pembuatan teks kreatif, artikel, email bisnis, hingga tugas
+                            sekolah.</span>
+                        <span class="lang-th">ช่วยเขียนข้อความสร้างสรรค์ บทความ อีเมลธุรกิจ หรือรายงาน</span>
+                    </p>
                 </div>
                 <div class="card"><span class="icon">🎨</span>
-                    <h4>Art & Design</h4>
-                    <p>Memvisualisasikan ide lewat deskripsi teks yang langsung jadi gambar.</p>
+                    <h4>Art &amp; Design</h4>
+                    <p>
+                        <span class="lang-id">Memvisualisasikan ide lewat deskripsi teks yang langsung jadi
+                            gambar.</span>
+                        <span class="lang-th">เนรมิตไอเดียให้กลายเป็นรูปภาพง่ายๆ เพียงพิมพ์คำอธิบาย</span>
+                    </p>
                 </div>
                 <div class="card"><span class="icon">💼</span>
-                    <h4>Work & Profession</h4>
-                    <p>Meningkatkan produktivitas karir dan efisiensi manajemen operasional harian.</p>
+                    <h4>Work &amp; Profession</h4>
+                    <p>
+                        <span class="lang-id">Meningkatkan produktivitas karir dan efisiensi manajemen operasional
+                            harian.</span>
+                        <span class="lang-th">เพิ่มประสิทธิภาพการทำงานและจัดการงานประจำวันได้รวดเร็วขึ้น</span>
+                    </p>
                 </div>
             </div>
 
-            <h3 class="reveal" style="margin-bottom:20px;">Inspirasi Ide Proyek</h3>
+            <h3 class="reveal" style="margin-bottom:20px;">
+                <span class="lang-id">Inspirasi Ide Proyek</span>
+                <span class="lang-th">ไอเดียโปรเจกต์น่าลอง</span>
+            </h3>
             <div class="grid c3 reveal">
                 <div class="card">
-                    <h4>Buku Tahunan AI</h4>
-                    <p>Menganalisis foto unggahan dan memberi predikat unik seperti "Senyum Terbaik".</p>
+                    <h4>
+                        <span class="lang-id">Buku Tahunan AI</span>
+                        <span class="lang-th">หนังสือรุ่น AI</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">Menganalisis foto unggahan dan memberi predikat unik seperti "Senyum
+                            Terbaik".</span>
+                        <span class="lang-th">วิเคราะห์รูปถ่ายเพื่อแจกฉายาสุดฮา เช่น "ยิ้มมีเสน่ห์แห่งปี"</span>
+                    </p>
                 </div>
                 <div class="card">
-                    <h4>Pelatih Debat</h4>
-                    <p>Asisten interaktif untuk melatih argumentasi dan komunikasi.</p>
+                    <h4>
+                        <span class="lang-id">Pelatih Debat</span>
+                        <span class="lang-th">โค้ชซ้อมโต้วาที</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">Asisten interaktif untuk melatih argumentasi dan komunikasi.</span>
+                        <span class="lang-th">ผู้ช่วยโต้ตอบเพื่อฝึกการตั้งข้ออภิปรายและทักษะการสื่อสาร</span>
+                    </p>
                 </div>
                 <div class="card">
-                    <h4>Pencocokan Jurusan</h4>
-                    <p>Konsultasi memilih jurusan kuliah sesuai bakat dan kemampuan.</p>
+                    <h4>
+                        <span class="lang-id">Pencocokan Jurusan</span>
+                        <span class="lang-th">ระบบช่วยเลือกสาขาวิชา</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">Konsultasi memilih jurusan kuliah sesuai bakat dan kemampuan.</span>
+                        <span class="lang-th">ผู้ช่วยแนะนำคณะและสาขาวิชาที่เหมาะกับพรสวรรค์ของคุณ</span>
+                    </p>
                 </div>
             </div>
 
             <div class="card reveal" style="margin-top:4em;text-align:center;background:var(--bg-alt);">
-                <p style="font-size:13px;color:var(--ink-soft);margin-bottom:4px;">CONTOH PROJECT LIVE DEMO</p>
-                <a href="https://s.id/BMICHECK" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--orange);text-decoration:underline;font-size:17px;">s.id/BMICHECK</a>
+                <p style="font-size:13px;color:var(--ink-soft);margin-bottom:4px;">
+                    <span class="lang-id">CONTOH PROJECT LIVE DEMO</span>
+                    <span class="lang-th">ตัวอย่างโปรเจกต์ LIVE DEMO</span>
+                </p>
+                <a href="https://s.id/BMICHECK" target="_blank"
+                    style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--orange);text-decoration:underline;font-size:17px;">s.id/BMICHECK</a>
             </div>
         </div>
     </section>
@@ -1107,34 +1516,65 @@
     <section id="lanjut" style="background: var(--bg-alt)">
         <div class="wrap">
             <div class="sec-head reveal">
-                <div class="eyebrow">Langkah Selanjutnya</div>
-                <h2>Habis Coba PartyRock, Mau Lanjut ke Mana?</h2>
-                <p>Aplikasi pertamamu di PartyRock sudah jadi. Kalau mau lebih dalam lagi ke dunia agentic AI, dua arah ini bisa kamu ambil.</p>
+                <div class="eyebrow">
+                    <span class="lang-id">Langkah Selanjutnya</span>
+                    <span class="lang-th">ขั้นตอนถัดไป</span>
+                </div>
+                <h2>
+                    <span class="lang-id">Habis Coba PartyRock, Mau Lanjut ke Mana?</span>
+                    <span class="lang-th">ลอง PartyRock แล้ว อยากต่อยอดทางไหนดี?</span>
+                </h2>
+                <p>
+                    <span class="lang-id">Aplikasi pertamamu di PartyRock sudah jadi. Kalau mau lebih dalam lagi ke
+                        dunia agentic AI, dua arah ini bisa kamu ambil.</span>
+                    <span class="lang-th">พอสร้างแอปแรกบน PartyRock เสร็จแล้ว หากอยากลุยต่อในสาย Agentic AI นี่คือ 2
+                        เส้นทางที่คุณเลือกได้</span>
+                </p>
             </div>
             <div class="split reveal">
                 <div class="card">
                     <span class="icon">🎈</span>
-                    <h4>Terus eksplorasi di PartyRock</h4>
+                    <h4>
+                        <span class="lang-id">Terus eksplorasi di PartyRock</span>
+                        <span class="lang-th">สนุกกับการทดลองบน PartyRock ต่อ</span>
+                    </h4>
                     <p>
-                        Coba bikin ide lain, gabungkan beberapa widget, atau remix aplikasi teman kamu. Tidak ada batas jumlah aplikasi yang bisa kamu buat.
+                        <span class="lang-id">Coba bikin ide lain, gabungkan beberapa widget, atau remix aplikasi teman
+                            kamu. Tidak ada batas jumlah aplikasi yang bisa kamu buat.</span>
+                        <span class="lang-th">ลองสร้างไอเดียใหม่ รวมหลายวิดเจ็ตเข้าด้วยกัน หรือนำแอปของเพื่อนมาผสมใหม่
+                            สร้างได้ไม่จำกัดจำนวน</span>
                     </p>
                 </div>
                 <div class="card">
                     <span class="icon">🚀</span>
-                    <h4>Naik level ke Kiro</h4>
-                    <p>Kalau sudah nyaman dengan konsep prompting dan mulai penasaran menulis kode sungguhan, cobalah dengan Kiro untuk membangun aplikasi lengkap dari spec sampai jalan.</p>
+                    <h4>
+                        <span class="lang-id">Naik level ke Kiro</span>
+                        <span class="lang-th">อัปเลเวลไปลอง Kiro</span>
+                    </h4>
+                    <p>
+                        <span class="lang-id">Kalau sudah nyaman dengan konsep prompting dan mulai penasaran menulis
+                            kode sungguhan, cobalah dengan Kiro untuk membangun aplikasi lengkap dari spec sampai
+                            jalan.</span>
+                        <span class="lang-th">เมื่อคุ้นเคยกับการเขียน Prompt แล้วอยากลองเขียนโค้ดจริง ลองขยับไปใช้ Kiro
+                            เพื่อพัฒนาแอปอย่างเป็นระบบตั้งแต่เริ่มจนใช้งานได้</span>
+                    </p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <footer>
         <div class="wrap">
             <div>
-                <h3>Terima Kasih</h3>
+                <h3>
+                    <span class="lang-id">Terima Kasih</span>
+                    <span class="lang-th">ขอบคุณทุกคน</span>
+                </h3>
                 <p>
-                    Cloud Computing → Generative AI → PartyRock → (lanjut) Kiro. Satu jalur, mulai dari yang paling gampang.
+                    <span class="lang-id">Cloud Computing → Generative AI → PartyRock → (lanjut) Kiro. Satu jalur, mulai
+                        dari yang paling gampang.</span>
+                    <span class="lang-th">Cloud Computing → Generative AI → PartyRock → (ต่อยอด) Kiro เส้นทางเดียว
+                        เริ่มต้นจากเรื่องง่ายที่สุด</span>
                 </p>
             </div>
             <div>
@@ -1154,10 +1594,28 @@
                     }
                 })
             }, {
-                threshold: 0.12
-            }
+            threshold: 0.12
+        }
         )
         els.forEach((el) => io.observe(el))
+
+        // ================= LANGUAGE TOGGLE LOGIC =================
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const htmlTag = document.documentElement;
+
+        // Check user's saved language preference (retrieved from Local Storage)
+        const currentLang = localStorage.getItem('preferredLanguage') || 'id';
+        htmlTag.setAttribute('lang', currentLang);
+
+        // On language toggle button click
+        langToggleBtn.addEventListener('click', () => {
+            const currentLang = htmlTag.getAttribute('lang');
+            const newLang = currentLang === 'id' ? 'th' : 'id';
+
+            // Update language attribute on <html> tag and save to Local Storage
+            htmlTag.setAttribute('lang', newLang);
+            localStorage.setItem('preferredLanguage', newLang);
+        });
     </script>
 </body>
 
