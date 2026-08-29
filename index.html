@@ -6,6 +6,27 @@
     <title>Pintar dengan AI - by PindAI</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- ====== (lang-th) ====== -->
+    <style>
+        :root{
+            --display-th: none;
+            --display-inline-th: none;
+        }
+        body.show-th{
+            --display-id: none;
+            --display-en: none;
+            --display-th: block;
+            --display-inline-id: none;
+            --display-inline-en: none;
+            --display-inline-th: inline-block;
+        }
+        .lang-th{ display: var(--display-th); }
+        span.lang-th, a.lang-th{ display: var(--display-inline-th); }
+        body.show-th, body.show-th .lang-th {
+            font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+        }
+    </style>
 </head>
 <body>
 
@@ -31,12 +52,20 @@
                 <a href="#cara-mengajar" class="lang-en">How It Works</a>
                 <a href="#hasil" class="lang-en">Outcomes</a>
                 <a href="workshop.html" class="lang-en">Workshop Material</a>
+
+                <a href="#tentang" class="lang-th">เกี่ยวกับ</a>
+                <a href="#materi" class="lang-th">โปรแกรม</a>
+                <a href="#untuk-siapa" class="lang-th">เหมาะกับใคร</a>
+                <a href="#cara-mengajar" class="lang-th">วิธีเรียน</a>
+                <a href="#hasil" class="lang-th">ผลลัพธ์</a>
+                <a href="workshop.html" class="lang-th">เอกสารเวิร์กช็อป</a>
             </div>
 
             <div class="nav-actions">
-                <button id="lang-toggle" class="lang-toggle-btn">ID | EN</button>
+                <button id="lang-toggle" class="lang-toggle-btn">ID | EN | TH</button>
                 <a href="#cta" class="btn-primary lang-id">Mulai</a>
                 <a href="#cta" class="btn-primary lang-en">Start</a>
+                <a href="#cta" class="btn-primary lang-th">เริ่มเลย</a>
             </div>
         </div>
     </nav>
@@ -46,18 +75,23 @@
         <div class="container hero-content">
             <div class="eyebrow lang-id">Program Belajar AI · Asia Tenggara</div>
             <div class="eyebrow lang-en">AI Learning Program · Southeast Asia</div>
+            <div class="eyebrow lang-th">โปรแกรมเรียนรู้ AI · เอเชียตะวันออกเฉียงใต้</div>
             
             <h1 class="lang-id">Pintar dengan AI, mulai dari sini.</h1>
             <h1 class="lang-en">Get smart with AI, starting here.</h1>
+            <h1 class="lang-th">ฉลาดใช้ AI เริ่มต้นที่นี่</h1>
             
             <p class="subheadline lang-id">Program belajar AI yang membumi — dari cara kerja internet sampai membangun proyek Gen AI pertamamu. Dimulai dari Indonesia, dibangun untuk Asia Tenggara.</p>
             <p class="subheadline lang-en">A grounded, practical AI learning program — from how the internet works to building your first Gen AI project. Starting in Indonesia, built for Southeast Asia.</p>
+            <p class="subheadline lang-th">โปรแกรมเรียนรู้ AI ที่เข้าใจง่ายและใช้ได้จริง — ตั้งแต่หลักการทำงานของอินเทอร์เน็ต ไปจนถึงการสร้างโปรเจกต์ Gen AI ชิ้นแรกของคุณ เริ่มต้นจากอินโดนีเซีย สร้างขึ้นเพื่อเอเชียตะวันออกเฉียงใต้</p>
             
             <div class="hero-cta">
                 <a href="#cta" class="btn-primary lang-id">Mulai Belajar</a>
                 <a href="#cta" class="btn-primary lang-en">Start Learning</a>
+                <a href="#cta" class="btn-primary lang-th">เริ่มเรียนเลย</a>
                 <a href="#materi" class="btn-secondary lang-id">Lihat Program</a>
                 <a href="#materi" class="btn-secondary lang-en">See the Program</a>
+                <a href="#materi" class="btn-secondary lang-th">ดูโปรแกรม</a>
             </div>
 
             <!-- Stat Strip -->
@@ -66,21 +100,25 @@
                     <span class="stat-number">2</span>
                     <span class="stat-label lang-id">NEGARA TARGET</span>
                     <span class="stat-label lang-en">TARGET COUNTRIES</span>
+                    <span class="stat-label lang-th">ประเทศเป้าหมาย</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">4</span>
                     <span class="stat-label lang-id">FONDASI MATERI</span>
                     <span class="stat-label lang-en">CORE TOPICS</span>
+                    <span class="stat-label lang-th">หมวดเนื้อหาหลัก</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">3</span>
                     <span class="stat-label lang-id">LAYANAN AWS</span>
                     <span class="stat-label lang-en">AWS SERVICES</span>
+                    <span class="stat-label lang-th">บริการ AWS</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">1:1</span>
                     <span class="stat-label lang-id">MENTORING PROYEK</span>
                     <span class="stat-label lang-en">PROJECT MENTORING</span>
+                    <span class="stat-label lang-th">พี่เลี้ยงโปรเจกต์</span>
                 </div>
             </div>
         </div>
@@ -91,8 +129,10 @@
         <div class="container text-center section-header">
             <div class="eyebrow lang-id">Tentang Kami</div>
             <div class="eyebrow lang-en">About Us</div>
+            <div class="eyebrow lang-th">เกี่ยวกับเรา</div>
             <h2 class="lang-id">Bagian dari PindAI</h2>
             <h2 class="lang-en">Part of PindAI</h2>
+            <h2 class="lang-th">ส่วนหนึ่งของ PindAI</h2>
             
             <div class="region-pill">
                 <span class="active">Indonesia</span>
@@ -103,6 +143,7 @@
             <div class="about-body">
                 <p class="lang-id">Pintar dengan AI adalah program belajar dari PindAI, inisiatif yang fokus membekali masyarakat Asia Tenggara dengan keterampilan yang relevan untuk masa kini. Kami memulai perjalanan ini di Indonesia, dan akan segera hadir di Thailand. AI di sini bukan cuma topik yang kami ajarkan — AI juga menjadi salah satu cara kami membantu orang belajar lebih cepat dan lebih dalam. Untuk saat ini, fokus kami adalah memperkenalkan AI sebagai subjek belajar: dasar-dasar yang kokoh, dengan praktik nyata.</p>
                 <p class="lang-en">Pintar dengan AI is a learning program by PindAI, an initiative focused on equipping people across Southeast Asia with skills that matter today. We're starting this journey in Indonesia, with Thailand next. AI isn't just our subject here — it's also one of the ways we help people learn faster and go deeper. For now, our focus is introducing AI as a learning subject: solid fundamentals, paired with real practice.</p>
+                <p class="lang-th">Pintar dengan AI คือโปรแกรมเรียนรู้จาก PindAI ซึ่งเป็นโครงการที่มุ่งเน้นการเสริมทักษะที่จำเป็นในยุคปัจจุบันให้กับผู้คนทั่วเอเชียตะวันออกเฉียงใต้ เราเริ่มต้นการเดินทางนี้ที่อินโดนีเซีย และกำลังจะขยายมาสู่ประเทศไทยในเร็วๆ นี้ AI ในที่นี้ไม่ใช่แค่หัวข้อที่เราสอน แต่ยังเป็นหนึ่งในเครื่องมือที่เราใช้ช่วยให้ผู้คนเรียนรู้ได้เร็วขึ้นและลึกซึ้งขึ้นด้วย สำหรับตอนนี้ เราตั้งใจแนะนำ AI ในฐานะวิชาที่ต้องเรียนรู้: <br>พื้นฐานที่แน่น พร้อมการฝึกปฏิบัติจริง</p>
             </div>
         </div>
     </section>
@@ -113,10 +154,13 @@
             <div class="section-header text-center">
                 <div class="eyebrow lang-id">Materi Belajar</div>
                 <div class="eyebrow lang-en">What We Teach</div>
+                <div class="eyebrow lang-th">เนื้อหาที่เราสอน</div>
                 <h2 class="lang-id">Empat fondasi yang kami ajarkan</h2>
                 <h2 class="lang-en">Four foundations we teach</h2>
+                <h2 class="lang-th">สี่หมวดพื้นฐานที่เราสอน</h2>
                 <p class="lede lang-id">Disusun bertahap — supaya siapa pun bisa mulai dari titik yang tepat.</p>
                 <p class="lede lang-en">Structured step by step — so anyone can start from the right point.</p>
+                <p class="lede lang-th">จัดเรียงเป็นขั้นตอน — เพื่อให้ทุกคนเริ่มต้นได้ตรงจุดที่เหมาะกับตัวเอง</p>
             </div>
 
             <div class="mobile-grid-2 desktop-grid-4">
@@ -124,29 +168,37 @@
                 <div class="card card-dark">
                     <h3 class="lang-id">Cloud Computing Dasar</h3>
                     <h3 class="lang-en">Cloud Computing Basics</h3>
+                    <h3 class="lang-th">พื้นฐาน Cloud Computing</h3>
                     <p class="lang-id">Memahami apa itu komputasi awan, kenapa penting, dan bagaimana layanan cloud bekerja di balik layar.</p>
                     <p class="lang-en">Understanding what cloud computing is, why it matters, and how cloud services work behind the scenes.</p>
+                    <p class="lang-th">ทำความเข้าใจว่าคลาวด์คอมพิวติ้งคืออะไร ทำไมถึงสำคัญ และบริการคลาวด์ทำงานอย่างไรเบื้องหลัง</p>
                 </div>
                 <!-- Card 2 -->
                 <div class="card card-dark">
                     <h3 class="lang-id">Cara Kerja Internet</h3>
                     <h3 class="lang-en">How the Internet Works</h3>
+                    <h3 class="lang-th">อินเทอร์เน็ตทำงานอย่างไร</h3>
                     <p class="lang-id">Dari permintaan di browser sampai data sampai ke server — fondasi yang menopang semua teknologi digital.</p>
                     <p class="lang-en">From a browser request to data reaching a server — the foundation beneath every digital technology.</p>
+                    <p class="lang-th">ตั้งแต่การร้องขอในเบราว์เซอร์จนถึงข้อมูลไปถึงเซิร์ฟเวอร์ — รากฐานที่รองรับเทคโนโลยีดิจิทัลทั้งหมด</p>
                 </div>
                 <!-- Card 3 -->
                 <div class="card card-dark">
                     <h3 class="lang-id">Dasar Gen AI</h3>
                     <h3 class="lang-en">Gen AI Fundamentals</h3>
+                    <h3 class="lang-th">พื้นฐาน Gen AI</h3>
                     <p class="lang-id">Apa itu generative AI, bagaimana model bekerja, dan kemampuan apa saja yang bisa dimanfaatkan.</p>
                     <p class="lang-en">What generative AI is, how models work, and what capabilities you can put to use.</p>
+                    <p class="lang-th">Generative AI คืออะไร โมเดลทำงานอย่างไร และมีความสามารถใดบ้างที่นำไปใช้ประโยชน์ได้</p>
                 </div>
                 <!-- Card 4 -->
                 <div class="card card-dark">
                     <h3 class="lang-id">Membangun Proyek Gen AI</h3>
                     <h3 class="lang-en">Building Gen AI Projects</h3>
+                    <h3 class="lang-th">สร้างโปรเจกต์ Gen AI</h3>
                     <p class="lang-id">Praktik langsung membangun proyek menggunakan PartyRock, Kiro, dan Amazon Bedrock dari AWS.</p>
                     <p class="lang-en">Hands-on practice building projects with AWS PartyRock, Kiro, and Amazon Bedrock.</p>
+                    <p class="lang-th">ฝึกปฏิบัติจริงในการสร้างโปรเจกต์ด้วย AWS PartyRock, Kiro และ Amazon Bedrock</p>
                 </div>
             </div>
 
@@ -154,8 +206,10 @@
                 <div>
                     <span class="tech-prefix lang-id" style="margin-bottom:0.5rem;">🎋 Baru: Materi Workshop "Vibe Coding dengan Kiro AI"</span>
                     <span class="tech-prefix lang-en" style="margin-bottom:0.5rem;">🎋 New: "Vibe Coding with Kiro AI" Workshop Material</span>
+                    <span class="tech-prefix lang-th" style="margin-bottom:0.5rem;">🎋 ใหม่: เอกสารเวิร์กช็อป "Vibe Coding กับ Kiro AI"</span>
                     <p class="lang-id" style="margin:0; color: var(--text-muted); font-size:0.9rem;">Panduan lengkap belajar Agentic AI dan membangun aplikasi web dari nol bersama Kiro — dari komunitas Shevibes.</p>
                     <p class="lang-en" style="margin:0; color: var(--text-muted); font-size:0.9rem;">A full guide to Agentic AI and building a web app from scratch with Kiro — from the Shevibes community.</p>
+                    <p class="lang-th" style="margin:0; color: var(--text-muted); font-size:0.9rem;">คู่มือฉบับเต็มเรื่อง Agentic AI และการสร้างเว็บแอปตั้งแต่ต้นด้วย Kiro — จากชุมชน Shevibes</p>
                 </div>
                 
                 <!-- Wrapper untuk tombol agar sejajar -->
@@ -169,6 +223,11 @@
                     <a href="workshop.html" class="btn-primary lang-en">Open Workshop Material</a>
                     <a href="cloud-computing-en.html" class="btn-primary lang-en">Open Workshop Material 2</a>
                     <a href="pelatihanAI/" class="btn-primary lang-en">AI Training</a>
+
+                    <!-- Tombol Bahasa Thai -->
+                    <a href="workshop.html" class="btn-primary lang-th">เปิดเอกสารเวิร์กช็อป</a>
+                    <a href="cloud-computing-en.html" class="btn-primary lang-th">เปิดเอกสารเวิร์กช็อป 2</a>
+                    <a href="pelatihanAI/" class="btn-primary lang-th">การฝึกอบรม AI</a>
                 </div>
             </div>
         </div>
@@ -180,36 +239,47 @@
             <div class="section-header text-center">
                 <div class="eyebrow lang-id">Untuk Siapa</div>
                 <div class="eyebrow lang-en">Who It's For</div>
+                <div class="eyebrow lang-th">เหมาะกับใคร</div>
                 <h2 class="lang-id">Belajar AI tidak mengenal latar belakang</h2>
                 <h2 class="lang-en">Learning AI has no prerequisites</h2>
+                <h2 class="lang-th">เรียนรู้ AI ได้ไม่ว่าคุณจะมีพื้นฐานแบบไหน</h2>
                 <p class="lede lang-id">Peserta kami datang dari berbagai latar belakang dan jalan hidup. Materi kami dirancang untuk bisa disesuaikan, apa pun titik awal kamu.</p>
                 <p class="lede lang-en">Our learners come from many backgrounds and walks of life. Our materials are built to adapt, wherever you're starting from.</p>
+                <p class="lede lang-th">ผู้เรียนของเรามาจากหลากหลายภูมิหลังและเส้นทางชีวิต เนื้อหาของเราออกแบบให้ปรับใช้ได้ ไม่ว่าคุณจะเริ่มต้นจากจุดไหน</p>
             </div>
 
             <div class="mobile-grid-2 desktop-grid-4">
                 <div class="card card-light border-accent">
                     <h3 class="lang-id">Pelajar & Mahasiswa</h3>
                     <h3 class="lang-en">Students</h3>
+                    <h3 class="lang-th">นักเรียนและนักศึกษา</h3>
                     <p class="lang-id">Membangun fondasi sejak dini untuk masa depan yang digerakkan AI.</p>
                     <p class="lang-en">Building early foundations for an AI-driven future.</p>
+                    <p class="lang-th">สร้างพื้นฐานตั้งแต่เนิ่นๆ เพื่ออนาคตที่ขับเคลื่อนด้วย AI</p>
                 </div>
                 <div class="card card-light border-accent">
                     <h3 class="lang-id">Pendidik</h3>
                     <h3 class="lang-en">Educators</h3>
+                    <h3 class="lang-th">ครูและผู้สอน</h3>
                     <p class="lang-id">Memperlengkapi pengajar untuk membawa AI ke ruang kelas.</p>
                     <p class="lang-en">Equipping teachers to bring AI into the classroom.</p>
+                    <p class="lang-th">เตรียมความพร้อมให้ครูสามารถนำ AI เข้าสู่ห้องเรียนได้</p>
                 </div>
                 <div class="card card-light border-accent">
                     <h3 class="lang-id">Developer Pemula</h3>
                     <h3 class="lang-en">Early-Stage Developers</h3>
+                    <h3 class="lang-th">นักพัฒนามือใหม่</h3>
                     <p class="lang-id">Menambah kemampuan membangun aplikasi bertenaga Gen AI.</p>
                     <p class="lang-en">Leveling up to build Gen AI–powered applications.</p>
+                    <p class="lang-th">ยกระดับความสามารถในการสร้างแอปพลิเคชันที่ขับเคลื่อนด้วย Gen AI</p>
                 </div>
                 <div class="card card-light border-accent">
                     <h3 class="lang-id">Siapa Pun yang Penasaran</h3>
                     <h3 class="lang-en">Anyone Curious</h3>
+                    <h3 class="lang-th">ใครก็ตามที่อยากรู้อยากเห็น</h3>
                     <p class="lang-id">Tidak perlu latar belakang teknis untuk mulai memahami AI.</p>
                     <p class="lang-en">No technical background needed to start understanding AI.</p>
+                    <p class="lang-th">ไม่จำเป็นต้องมีพื้นฐานด้านเทคนิคก็เริ่มทำความเข้าใจ AI ได้</p>
                 </div>
             </div>
         </div>
@@ -221,10 +291,13 @@
             <div class="section-header text-center">
                 <div class="eyebrow lang-id">Cara Kami Mengajar</div>
                 <div class="eyebrow lang-en">How We Teach</div>
+                <div class="eyebrow lang-th">วิธีที่เราสอน</div>
                 <h2 class="lang-id">Perjalanan belajar yang terstruktur</h2>
                 <h2 class="lang-en">A structured learning journey</h2>
+                <h2 class="lang-th">เส้นทางการเรียนรู้ที่เป็นระบบ</h2>
                 <p class="lede lang-id">Empat langkah yang saling menyambung, dari materi sampai pendampingan proyek.</p>
                 <p class="lede lang-en">Four connected steps, from materials to project mentoring.</p>
+                <p class="lede lang-th">สี่ขั้นตอนที่เชื่อมโยงกัน ตั้งแต่เนื้อหาไปจนถึงการดูแลโปรเจกต์</p>
             </div>
 
             <!-- Strict 1 Column layout -->
@@ -234,8 +307,10 @@
                     <div class="step-content">
                         <h3 class="lang-id">Materi yang Disesuaikan</h3>
                         <h3 class="lang-en">Customized Materials</h3>
+                        <h3 class="lang-th">เนื้อหาที่ปรับให้เหมาะกับคุณ</h3>
                         <p class="lang-id">Konten belajar disesuaikan dengan kebutuhan dan level peserta.</p>
                         <p class="lang-en">Learning content tailored to each learner's needs and level.</p>
+                        <p class="lang-th">เนื้อหาการเรียนถูกปรับให้เหมาะกับความต้องการและระดับของผู้เรียนแต่ละคน</p>
                     </div>
                 </div>
                 <div class="step-connector"></div>
@@ -244,8 +319,10 @@
                     <div class="step-content">
                         <h3 class="lang-id">Pelatihan</h3>
                         <h3 class="lang-en">Training</h3>
+                        <h3 class="lang-th">การฝึกอบรม</h3>
                         <p class="lang-id">Sesi pelatihan terbimbing untuk membangun pemahaman yang kuat.</p>
                         <p class="lang-en">Guided training sessions to build a solid understanding.</p>
+                        <p class="lang-th">เซสชันฝึกอบรมแบบมีผู้ดูแล เพื่อสร้างความเข้าใจที่แน่น</p>
                     </div>
                 </div>
                 <div class="step-connector"></div>
@@ -254,8 +331,10 @@
                     <div class="step-content">
                         <h3 class="lang-id">LMS — Belajar Mandiri</h3>
                         <h3 class="lang-en">Self-Paced LMS</h3>
+                        <h3 class="lang-th">LMS — เรียนรู้ด้วยตนเอง</h3>
                         <p class="lang-id">Akses platform belajar untuk mengulang materi kapan saja.</p>
                         <p class="lang-en">Access to a learning platform to revisit material anytime.</p>
+                        <p class="lang-th">เข้าถึงแพลตฟอร์มเรียนรู้เพื่อทบทวนเนื้อหาได้ทุกเมื่อ</p>
                     </div>
                 </div>
                 <div class="step-connector"></div>
@@ -264,8 +343,10 @@
                     <div class="step-content">
                         <h3 class="lang-id">Mentoring Proyek</h3>
                         <h3 class="lang-en">Project Mentoring</h3>
+                        <h3 class="lang-th">พี่เลี้ยงโปรเจกต์</h3>
                         <p class="lang-id">Pendampingan langsung saat mengerjakan proyek AI nyata.</p>
                         <p class="lang-en">Direct guidance while working on real AI projects.</p>
+                        <p class="lang-th">คำแนะนำแบบตัวต่อตัวขณะลงมือทำโปรเจกต์ AI จริง</p>
                     </div>
                 </div>
             </div>
@@ -278,8 +359,10 @@
             <div class="section-header text-center">
                 <div class="eyebrow lang-id">Hasil yang Diharapkan</div>
                 <div class="eyebrow lang-en">Expected Outcomes</div>
+                <div class="eyebrow lang-th">ผลลัพธ์ที่คาดหวัง</div>
                 <h2 class="lang-id">Dari memahami sampai berkarya</h2>
                 <h2 class="lang-en">From understanding to building</h2>
+                <h2 class="lang-th">จากความเข้าใจสู่การลงมือสร้าง</h2>
             </div>
 
             <div class="mobile-grid-2 desktop-grid-4">
@@ -287,29 +370,37 @@
                     <div class="outcome-number">01</div>
                     <h3 class="lang-id">Pemahaman Materi</h3>
                     <h3 class="lang-en">Material Understanding</h3>
+                    <h3 class="lang-th">ความเข้าใจในเนื้อหา</h3>
                     <p class="lang-id">Penguasaan konsep cloud, internet, dan Gen AI secara solid.</p>
                     <p class="lang-en">A solid grasp of cloud, internet, and Gen AI concepts.</p>
+                    <p class="lang-th">เข้าใจแนวคิดเรื่องคลาวด์ อินเทอร์เน็ต และ Gen AI อย่างแน่น</p>
                 </div>
                 <div class="card card-light outcome-card">
                     <div class="outcome-number">02</div>
                     <h3 class="lang-id">Proyek AI Nyata</h3>
                     <h3 class="lang-en">Real AI Projects</h3>
+                    <h3 class="lang-th">โปรเจกต์ AI จริง</h3>
                     <p class="lang-id">Portofolio proyek yang dibangun langsung dengan layanan AWS.</p>
                     <p class="lang-en">A project portfolio built hands-on with AWS services.</p>
+                    <p class="lang-th">พอร์ตโฟลิโอโปรเจกต์ที่ลงมือสร้างจริงด้วยบริการของ AWS</p>
                 </div>
                 <div class="card card-light outcome-card">
                     <div class="outcome-number">03</div>
                     <h3 class="lang-id">Sertifikasi</h3>
                     <h3 class="lang-en">Certification</h3>
+                    <h3 class="lang-th">ใบรับรอง</h3>
                     <p class="lang-id">Bukti kompetensi yang diakui untuk melangkah lebih jauh.</p>
                     <p class="lang-en">Recognized proof of competency to take the next step.</p>
+                    <p class="lang-th">หลักฐานความสามารถที่ได้รับการยอมรับ เพื่อก้าวต่อไป</p>
                 </div>
                 <div class="card card-light outcome-card">
                     <div class="outcome-number">04</div>
                     <h3 class="lang-id">Peluang Karier</h3>
                     <h3 class="lang-en">Employment Opportunities</h3>
+                    <h3 class="lang-th">โอกาสทางอาชีพ</h3>
                     <p class="lang-id">Jalan menuju peluang kerja di bidang yang terus bertumbuh.</p>
                     <p class="lang-en">A path toward employment in a fast-growing field.</p>
+                    <p class="lang-th">เส้นทางสู่โอกาสการทำงานในสายงานที่กำลังเติบโตอย่างต่อเนื่อง</p>
                 </div>
             </div>
         </div>
@@ -320,25 +411,30 @@
         <div class="container text-center">
             <div class="eyebrow lang-id">Teknologi yang Kami Gunakan</div>
             <div class="eyebrow lang-en">Technology We Use</div>
+            <div class="eyebrow lang-th">เทคโนโลยีที่เราใช้</div>
             <div class="tech-strip-container">
                 <span class="tech-prefix lang-id">Didukung layanan AWS:</span>
                 <span class="tech-prefix lang-en">Powered by AWS services:</span>
+                <span class="tech-prefix lang-th">ขับเคลื่อนด้วยบริการ AWS:</span>
                 
                 <div class="tech-strip">
                     <div class="tech-badge">
                         <strong>AWS PartyRock</strong>
                         <span class="lang-id">Eksperimen cepat membuat aplikasi Gen AI tanpa coding.</span>
                         <span class="lang-en">Fast, no-code experimentation building Gen AI apps.</span>
+                        <span class="lang-th">ทดลองสร้างแอป Gen AI ได้อย่างรวดเร็วโดยไม่ต้องเขียนโค้ด</span>
                     </div>
                     <div class="tech-badge">
                         <strong>Kiro</strong>
                         <span class="lang-id">Pengembangan berbasis AI untuk mempercepat proses membangun.</span>
                         <span class="lang-en">AI-assisted development to speed up the building process.</span>
+                        <span class="lang-th">การพัฒนาโดยมี AI ช่วย เพื่อเร่งกระบวนการสร้างให้เร็วขึ้น</span>
                     </div>
                     <div class="tech-badge">
                         <strong>Amazon Bedrock</strong>
                         <span class="lang-id">Membangun aplikasi Gen AI yang lebih matang dan siap produksi.</span>
                         <span class="lang-en">Building more advanced, production-ready Gen AI applications.</span>
+                        <span class="lang-th">สร้างแอปพลิเคชัน Gen AI ที่สมบูรณ์และพร้อมใช้งานจริงมากขึ้น</span>
                     </div>
                 </div>
             </div>
@@ -351,16 +447,21 @@
             <div class="cta-box">
                 <div class="eyebrow text-accent lang-id">Gabung</div>
                 <div class="eyebrow text-accent lang-en">Join Us</div>
+                <div class="eyebrow text-accent lang-th">เข้าร่วมกับเรา</div>
                 <h2 class="lang-id">Siap mulai belajar?</h2>
                 <h2 class="lang-en">Ready to start learning?</h2>
+                <h2 class="lang-th">พร้อมเริ่มเรียนแล้วหรือยัง?</h2>
                 <p class="lang-id">Daftarkan minatmu, dan tim kami akan menghubungimu untuk langkah selanjutnya.</p>
                 <p class="lang-en">Register your interest, and our team will reach out with next steps.</p>
+                <p class="lang-th">ลงทะเบียนแจ้งความสนใจ แล้วทีมของเราจะติดต่อกลับเพื่อแจ้งขั้นตอนถัดไป</p>
                 
                 <div class="cta-actions">
                     <a href="mailto:halo@pindai.id" class="btn-primary lang-id">Daftar Minat</a>
                     <a href="mailto:halo@pindai.id" class="btn-primary lang-en">Register Interest</a>
+                    <a href="mailto:halo@pindai.id" class="btn-primary lang-th">ลงทะเบียนความสนใจ</a>
                     <a href="#materi" class="btn-secondary lang-id">Lihat Program Lagi</a>
                     <a href="#materi" class="btn-secondary lang-en">Review the Program</a>
+                    <a href="#materi" class="btn-secondary lang-th">ดูโปรแกรมอีกครั้ง</a>
                 </div>
             </div>
 
@@ -369,27 +470,64 @@
                     <div class="logo-text">Pintar dengan AI</div>
                     <p class="brand-line lang-id">Program belajar AI oleh PindAI — membekali Asia Tenggara dengan keterampilan yang relevan, dimulai dari Indonesia.</p>
                     <p class="brand-line lang-en">An AI learning program by PindAI — equipping Southeast Asia with relevant skills, starting in Indonesia.</p>
+                    <p class="brand-line lang-th">โปรแกรมเรียนรู้ AI โดย PindAI — เสริมทักษะที่จำเป็นให้เอเชียตะวันออกเฉียงใต้ เริ่มต้นจากอินโดนีเซีย</p>
                 </div>
                 
                 <div class="footer-links">
                     <a href="#tentang" class="lang-id">Tentang</a>
                     <a href="#tentang" class="lang-en">About</a>
+                    <a href="#tentang" class="lang-th">เกี่ยวกับ</a>
                     <a href="#materi">Program</a>
                     <a href="#cta" class="lang-id">Gabung</a>
                     <a href="#cta" class="lang-en">Join</a>
+                    <a href="#cta" class="lang-th">เข้าร่วม</a>
                     <a href="workshop.html" class="lang-id">Materi Workshop</a>
                     <a href="workshop.html" class="lang-en">Workshop Material</a>
+                    <a href="workshop.html" class="lang-th">เอกสารเวิร์กช็อป</a>
                 </div>
                 
                 <div class="footer-meta">
                     <span class="copyright">© 2026 PindAI · Pintar dengan AI</span>
                     <span class="region-note lang-id">Indonesia · Thailand (segera)</span>
                     <span class="region-note lang-en">Indonesia · Thailand (coming soon)</span>
+                    <span class="region-note lang-th">อินโดนีเซีย · ไทย (เร็วๆ นี้)</span>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <!-- ====== (ID / EN / TH) ====== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const oldBtn = document.getElementById('lang-toggle');
+            if (!oldBtn) return;
+
+            // Hilangkan listener lama dari script.js dengan clone node
+            const btn = oldBtn.cloneNode(true);
+            oldBtn.parentNode.replaceChild(btn, oldBtn);
+
+            const langs = ['id', 'en', 'th'];
+            let currentLang = localStorage.getItem('pindai_lang') || 'id';
+            if (!langs.includes(currentLang)) currentLang = 'id';
+
+            function applyLang(lang) {
+                body.classList.remove('show-en', 'show-th');
+                if (lang === 'en') body.classList.add('show-en');
+                if (lang === 'th') body.classList.add('show-th');
+                localStorage.setItem('pindai_lang', lang);
+                localStorage.setItem('pindai_lang_en', lang === 'en'); // kompatibilitas dgn script.js lama
+            }
+
+            applyLang(currentLang);
+
+            btn.addEventListener('click', () => {
+                const idx = langs.indexOf(currentLang);
+                currentLang = langs[(idx + 1) % langs.length];
+                applyLang(currentLang);
+            });
+        });
+    </script>
 </body>
 </html>

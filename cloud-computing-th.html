@@ -1,0 +1,2512 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Computing Workshop</title>
+  <!-- Font Awesome for eye-catching icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts for a modern look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&family=Space+Grotesk:wght@400;500;600;700&"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #ff9900;
+      /* AWS Orange */
+      --dark-color: #232f3e;
+      /* AWS Dark Blue */
+      --card-border: #e9e9e9;
+      /* AWS Dark Blue */
+      --light-bg: #f4f6f9;
+      --text-color: #333;
+      --card-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    header {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 4px solid var(--primary-color);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #aab7c4;
+      font-size: 1rem;
+    }
+
+    .text-white {
+      color: #ffffff;
+    }
+
+    /* Main Horizontal Tab Container */
+
+    .tabs-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 0 0.5rem;
+    }
+
+    .nav-btn {
+      background: white;
+      border: none;
+      font-size: 1.2rem;
+      padding: 1rem;
+      cursor: pointer;
+      color: var(--dark-color);
+      transition: color 0.2s;
+    }
+
+    .nav-btn:hover {
+      color: var(--primary-color);
+    }
+
+    @media (min-width: 1024px) {
+      .nav-btn {
+        display: none;
+      }
+    }
+
+    .tabs-wrapper {
+      display: flex;
+      /* justify-content: center; */
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      white-space: nowrap;
+      flex-grow: 1;
+      scrollbar-width: none;
+      /* Hide scrollbar Firefox */
+    }
+
+    .tabs-wrapper::after,
+    .tabs-wrapper::before {
+      content: '';
+      flex-grow: 1;
+    }
+
+    .tabs-wrapper::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar Chrome/Safari */
+    }
+
+    .tab-link {
+      padding: 1rem 1.5rem;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-link:hover {
+      color: var(--dark-color);
+      background-color: #f9f9f9;
+    }
+
+    .tab-link.active {
+      color: var(--primary-color);
+      border-bottom-color: var(--primary-color);
+    }
+
+    /* Content Area */
+
+    .content-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 2rem;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-content.active {
+      display: flex;
+      flex-direction: column;
+      gap: 5em;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Typography & Internal Content Grid */
+
+    h2 {
+      color: var(--dark-color);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    h2 i {
+      color: var(--primary-color);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .col-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.25rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .card.normal {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      padding: 1.25rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark-color);
+    }
+
+    .badge {
+      background-color: #fff3cd;
+      color: #856404;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .badge-header {
+      background-color: rgb(205 203 196 / 25%);
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      padding: 0.25rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+
+    .content-spacer-sm {
+      margin-top: 2em;
+    }
+
+    .content-spacer {
+      margin-top: 5em;
+    }
+
+    .container ol {
+      padding-top: 1rem;
+      margin: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: var(--dark-color);
+      color: white;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 600px) {
+      .tab-content {
+        padding: 1.5rem;
+      }
+    }
+
+    ol>li {
+      margin-left: 35px;
+    }
+
+    li>a {
+      color: #3471c0;
+      text-decoration: none;
+    }
+
+    li>a:hover {
+      color: #478fec;
+      text-decoration: underline;
+    }
+
+    .warning-box {
+      background: #fff0df;
+      border: none;
+      border-left: 4px solid var(--primary-color);
+      padding: 1.25rem;
+      border-radius: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      color: #8f4c00;
+    }
+
+    .text-warning-box {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .step-card {
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0.75rem;
+      border-width: 1px;
+      border: 1px solid #e5e7eb;
+      background-color: #ffffff;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .text-mono-quote {
+      padding-top: 0.125rem;
+      padding-bottom: 0.125rem;
+      padding-left: 0.375rem;
+      padding-right: 0.375rem;
+      border-radius: 0.25rem;
+      font-family:
+        Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      color: #dc2626;
+      background-color: #f3f4f6;
+    }
+
+    .step-card-title {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .step-card-text {
+      font-size: 1rem;
+    }
+
+    .semibold {
+      font-weight: 600;
+    }
+
+    .inline-orange-button {
+      background: #f59e0b;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: 600;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      white-space: nowrap;
+    }
+
+    .footnote-box {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      background-color: #f1f5f9;
+      padding: 0.75rem;
+      border-radius: 0.25rem;
+      color: #475569;
+      border-left-width: 2px;
+      border-left-color: #94a3b8;
+      border-left-style: solid;
+    }
+
+    .info-box {
+      background-color: #ecfeff;
+      border-left-width: 4px;
+      border-left-color: #06b6d4;
+      border-left-style: solid;
+      padding: 1.25rem;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+
+    .white-box {
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      border-width: 1px;
+      border-color: #fef3c7;
+      border-style: solid;
+    }
+
+    .green-box {
+      background-color: #ecfdf5;
+      border-width: 1px;
+      border-color: #a7f3d0;
+      border-style: solid;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+    }
+
+    .rose-box {
+      background-color: #fff1f2;
+      border-width: 1px;
+      border-color: #fecdd3;
+      border-style: solid;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+    }
+
+    .table-responsive-wrapper {
+      /* Wrapper to keep the table responsive on mobile screens */
+      width: 100%;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    .custom-table {
+      /* Base table style */
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #334155;
+      /* Slate 700 */
+      min-width: 600px;
+      /* Keeps column structure on small screens */
+    }
+
+    .custom-table thead tr {
+      /* Table header styling */
+      background-color: #0f172a;
+      /* Deep Slate Blue */
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .custom-table th {
+      padding: 1rem 1.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      border: none;
+    }
+
+    .custom-table td {
+      /* Row and body cell styling */
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+      /* Slate 200 */
+      transition: background-color 0.2s ease;
+    }
+
+    .custom-table tbody tr:nth-of-type(even) {
+      /* Zebra striping */
+      background-color: #f8fafc;
+      /* Slate 50 */
+    }
+
+    .custom-table tbody tr:hover {
+      /* Hover effect on highlighted row */
+      background-color: #f1f5f9;
+      /* Slate 100 */
+    }
+
+    .custom-table tbody tr:last-of-type td {
+      /* Last row has no bottom border, for a clean finish */
+      border-bottom: 2px solid #0f172a;
+    }
+
+    .custom-table td strong {
+      /* Additional styling for bold text in the first column */
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .step-badge {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-italic {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1rem;
+      color: #0e7490;
+      font-style: italic;
+    }
+
+    .lang-switch-btn {
+      background-color: rgb(205 203 196);
+      color: #0f172a;
+      border: 1px solid #ffffff;
+      padding: 0.25rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .lang-switch-btn a {
+      color: #3b42a1;
+      text-decoration: none;
+    }
+
+    .divider {
+      padding: 0 10px;
+    }
+
+    a.selected-lang {
+      color: #0f172a;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <span class="badge-header">✨เรียนรู้ AI อย่างชาญฉลาด · <strong>ด้วย PindAI</strong></span>
+    <span class="lang-switch-btn">
+      <a href="cloud-computing-en.html" title="Switch to English"> EN </a>
+      <span class="divider">|</span>
+      <a href="cloud-computing-id.html" title="Switch to Indonesia"> ID </a>
+      <span class="divider">|</span>
+      <a href="#" class="selected-lang" title="Selected Thai"> TH </a>
+    </span>
+    <h1 class="content-spacer-sm">เจาะลึก AWS Cloud & Generative AI</h1>
+    <p class="content-spacer-sm">
+      สำรวจ AWS Skill Builder, PartyRock และ Kiro สำหรับผู้เริ่มต้น
+    </p>
+    <p class="text-white">กรกฎาคม 2026 | จาการ์ตา, อินโดนีเซีย</p>
+  </header>
+
+  <!-- Horizontal Tabs Menu with Slider -->
+  <div class="tabs-container">
+    <button class="nav-btn" id="slide-left" title="chevron-left">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <div class="tabs-wrapper" id="tabs-wrapper">
+      <button class="tab-link active" onclick="openTab(event, 'tab-cloud')">
+        <i class="fa-solid fa-cloud"></i> คลาวด์คอมพิวติ้ง
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-skillbuilder')">
+        <i class="fa-brands fa-aws"></i> AWS Skill Builder
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-gen-ai')">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Generative AI
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-partyrock')">
+        <i class="fa-solid fa-briefcase"></i> ลงมือทำจริงกับ PartyRock
+      </button>
+      <button class="tab-link" onclick="openTab(event, 'tab-intro-kiro')">
+        <i class="fa-solid fa-star"></i> ปฐมบทสู่ AWS Kiro
+      </button>
+    </div>
+    <button class="nav-btn" id="slide-right" title="chevron-right">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Main Tab Content -->
+  <div class="content-container">
+    <!-- Tab 1: Cloud Computing -->
+    <div id="tab-cloud" class="tab-content active">
+      <!-- Table of Contents: Cloud Computing -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>📑 Table of Contents — Cloud Computing</h3>
+            <ol>
+              <li>
+                <a href="#app-cloud">คลาวด์คอมพิวติ้ง คืออะไร?</a>
+              </li>
+              <li>
+                <a href="#app-why-cloud">ทำไมต้องเรียนรู้เรื่อง คลาวด์คอมพิวติ้ง?</a>
+              </li>
+              <li>
+                <a href="#app-aws">AWS (Amazon Web Services) คืออะไร?</a>
+              </li>
+              <li>
+                <a href="#app-benefit">ประโยชน์ของคลาวด์คอมพิวติ้ง/a>
+              </li>
+              <li>
+                <a href="#app-job">สายงานยอดนิยมในด้านคลาวด์คอมพิวติ้ง</a>
+              </li>
+              <li><a href="#app-skillbuilder">AWS Skill Builder</a></li>
+              <li>
+                <a href="#app-badge">ใบประกาศดิจิทัล AWS Knowledge: Cloud Essentials</a>
+              </li>
+              <li>
+                <a href="#app-core-service">ภาพรวมบริการหลักของ AWS</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: What is Cloud Computing -->
+      <section id="app-cloud">
+        <section id="app-cloud">
+          <h2><i class="fa-solid fa-cloud"></i> คลาวด์คอมพิวติ้ง คืออะไร?</h2>
+          <div class="card">
+            <p>
+              <strong>คำนิยามตาม Amazon Web Services (AWS):</strong>
+            </p>
+            <p class="wrap">
+              Cloud Computing คือการส่งมอบทรัพยากรด้าน IT ตามคำขอ (On-demand)
+              ที่สามารถเข้าถึงได้จากทุกที่ผ่านอินเทอร์เน็ต โดยคิดค่าบริการตามการใช้งานจริง (Pay-as-you-go).
+            </p>
+            <p style="font-size: 0.85rem; color: #666; margin-top: 1rem">
+              ที่มา:
+              <a rel="noopener" href="https://aws.amazon.com/what-is-cloud-computing/"
+                target="_blank">aws.amazon.com/what-is-cloud-computing/</a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Content: Why Learn Cloud Computing -->
+        <section id="app-why-cloud">
+          <h2>
+            <i class="fa-solid fa-circle-question"></i> ทำไมต้องเรียนรู้เรื่อง คลาวด์คอมพิวติ้ง?
+          </h2>
+          <ul>
+            <li>เป็นเทรนด์หลักของอุตสาหกรรมทั้งวันนี้และอนาคต.</li>
+            <li>
+              ความต้องการทักษะ Cloud Computing ในสายงาน IT เติบโตขึ้นต่อเนื่องไม่หยุด.
+            </li>
+            <li>เปิดประตูสู่โอกาสแข่งขันและทำงานในระดับสากล.</li>
+          </ul>
+          <div class="card" style="margin-top: 1rem">
+            <h4><i class="fa-solid fa-globe"></i> คลาวด์ที่อยู่รอบตัวเรา:</h4>
+            <p style="margin-top: 0.5rem">
+              โซเชียลมีเดีย อีคอมเมิร์ซ ความบันเทิงและเกม แอปเพิ่มประสิทธิภาพการทำงาน การประชุมออนไลน์
+              ไปจนถึงแอปทำงานร่วมกัน ล้วนขับเคลื่อนอยู่บนคลาวด์ทั้งสิ้น.
+            </p>
+          </div>
+        </section>
+
+        <!-- Content: What is AWS -->
+        <section id="app-aws">
+          <h2>
+            <i class="fa-brands fa-aws"></i> AWS (Amazon Web Services) คืออะไร?
+          </h2>
+          <ul>
+            <li>
+              แพลตฟอร์มที่ให้บริการโซลูชันคลาวด์คอมพิวติ้งอย่างเป็นระบบและคุ้มค่า (ก่อตั้งขึ้นในปี 2006).
+            </li>
+            <li>
+              ผู้ให้บริการคลาวด์คอมพิวติ้งรายใหญ่ที่สุดในโลก ครองส่วนแบ่งตลาดราว. <strong>32%</strong>
+            </li>
+            <li>
+              ได้รับความไว้วางใจจากบริษัทยักษ์ใหญ่ระดับโลก เช่น Airbnb, Netflix, Twitch และ Twitter เป็นต้น.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Content: Advantages of Cloud Computing -->
+        <section id="app-benefit">
+          <h2>
+            <i class="fa-solid fa-star"></i> ประโยชน์ของคลาวด์คอมพิวติ้ง
+          </h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>1. จ่ายตามที่ใช้จริง</h3>
+              <p>ใช้ระบบคิดราคาตามความต้องการและการใช้งานจริง ไม่จ่ายเกินความจำเป็น.</p>
+            </div>
+            <div class="card">
+              <h3>2. ประหยัดต้นทุนโครงสร้างพื้นฐาน</h3>
+              <p>ไม่ต้องแบกรับค่าดูแลรักษาเซิร์ฟเวอร์ (Data Center) อีกต่อไป.</p>
+            </div>
+            <div class="card">
+              <h3>3. ไม่ต้องเดาความจุระบบ</h3>
+              <p>ปรับขนาดทรัพยากรได้อัตโนมัติทุกเวลาที่ต้องการ.</p>
+            </div>
+            <div class="card">
+              <h3>4. ขนาดการผลิตที่ประหยัด </h3>
+              <p>ยิ่งมีการใช้งานทั่วโลกมากเท่าไร ต้นทุนต่อหน่วยยิ่งถูกลงเท่านั้น.</p>
+            </div>
+            <div class="card">
+              <h3>5. รวดเร็วทันใจ</h3>
+              <p>ติดตั้งและเปิดใช้งานโครงสร้างพื้นฐานใหม่ได้ภายในไม่กี่นาที.</p>
+            </div>
+            <div class="card">
+              <h3>6. ก้าวสู่ระดับโลกได้อย่างรวดเร็ว</h3>
+              <p>เข้าถึงผู้ใช้งานทั่วโลกด้วยความหน่วง (Latency) ที่ต่ำที่สุด.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Content: Cloud Job Roles -->
+        <section id="app-job">
+          <h2>
+            <i class="fa-solid fa-briefcase"></i> สายงานยอดนิยมด้านคลาวด์
+          </h2>
+          <p>
+            จากผลสำรวจ Future of Jobs Survey ของ World Economic Forum คลาวด์คอมพิวติ้งครองอันดับ 1 (17%)
+            ของเทรนด์การนำเทคโนโลยีมาใช้งาน.
+          </p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Big Data Analytics</h3>
+              <p>ระบุ รวบรวม วิเคราะห์ และนำเสนอข้อมูลในรูปแบบที่เข้าใจง่าย.</p>
+              <p>
+                <span class="badge">เงินเดือนโดยประมาณ: 8-25 ล้านรูเปีย / เดือน</span>
+              </p>
+            </div>
+            <div class="card">
+              <h3>Machine Learning Engineer</h3>
+              <p>ออกแบบระบบ AI เพื่อสร้างโมเดลทำนายผลแบบอัตโนมัติ.</p>
+              <p>
+                <span class="badge">เงินเดือนโดยประมาณ: 9-31 ล้านรูเปีย / เดือน</span>
+              </p>
+            </div>
+            <div class="card">
+              <h3>Data Engineer</h3>
+              <p>
+                ออกแบบ สร้าง และดูแลโครงสร้างพื้นฐานของ data pipeline.
+              </p>
+              <p>
+                <span class="badge">เงินเดือนโดยประมาณ: 10-28 ล้านรูเปีย / เดือน</span>
+              </p>
+            </div>
+            <div class="card">
+              <h3>Cloud Solution Architect</h3>
+              <p>ออกแบบโครงสร้างสถาปัตยกรรมคลาวด์ให้กับองค์กร.</p>
+              <p>
+                <span class="badge">เงินเดือนโดยประมาณ: 27-115 ล้านรูเปีย / เดือน</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Content: AWS Skill Builder -->
+        <section id="app-skillbuilder">
+          <h2><i class="fa-solid fa-graduation-cap"></i> AWS Skill Builder</h2>
+          <p>
+            ศูนย์การเรียนรู้ดิจิทัลอย่างเป็นทางการ เพื่อสร้างทักษะคลาวด์ที่ตรงกับความต้องการของอุตสาหกรรม:
+          </p>
+          <ul>
+            <li>คอร์สเรียนดิจิทัลฟรีกว่า 500 คอร์ส.</li>
+            <li>สิทธิ์เข้าถึงข้อสอบจำลอง AWS Certification อย่างเป็นทางการ.</li>
+            <li>
+              <strong>AWS Cloud Quest:</strong> เรียนรู้ AWS ผ่านรูปแบบเกมที่สนุกและเข้าใจง่าย.
+            </li>
+            <li>
+              <strong>AWS Jam & Builder Labs:</strong> ฝึกปฏิบัติจริงผ่านสถานการณ์จำลองใกล้เคียงงานจริง.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Content: AWS Badge -->
+        <section id="app-badge">
+          <h2>
+            <i class="fa-solid fa-id-badge"></i> ใบประกาศดิจิทัล AWS Knowledge: Cloud Essentials
+          </h2>
+          <p>
+            ใบประกาศดิจิทัลอย่างเป็นทางการที่ยืนยันความเข้าใจพื้นฐานด้านคลาวด์คอมพิวติ้ง ครอบคลุมทั้ง Compute, Storage,
+            Networking และ Database.
+          </p>
+          <div class="card" style="margin-top: 1rem">
+            <h4>ทำไมควรเริ่มต้นด้วยแบดจ์นี้?</h4>
+            <ul style="margin-top: 0.5rem; margin-bottom: 0">
+              <li>เหมาะสำหรับผู้เริ่มต้นอย่างแท้จริง.</li>
+              <li>มีบทเรียนฟรีให้เรียนเป็นภาษาอินโดนีเซีย.</li>
+              <li>นำไปแสดงบนโปรไฟล์ LinkedIn ได้ทันที.</li>
+            </ul>
+          </div>
+
+          <h2 class="content-spacer">
+            <i class="fa-solid fa-book-open"></i> เส้นทางการเรียนสู่ Cloud Essentials
+          </h2>
+          <p>มีทั้งหมด 5 โมดูลหลัก + 1 assessment เพื่อรับใบประกาศ:</p>
+          <ol style="margin-left: 1.5rem">
+            <li>บทบาทของสายงานในคลาวด์</li>
+            <li>AWS Cloud Practitioner Essentials</li>
+            <li>เริ่มต้นกับการจัดหาระบบคลาวด์</li>
+            <li>การจัดการบิลและค่าใช้จ่ายของ AWS</li>
+            <li>
+              AWS Foundations: ก้าวแรกสู่ AWS Cloud Essentials
+            </li>
+            <li>ข้อสอบวัดความรู้ Cloud Essentials Badge (Final exam)</li>
+          </ol>
+        </section>
+
+        <!-- Content: AWS Core Services -->
+        <section id="app-core-service">
+          <h2><i class="fa-solid fa-server"></i> ภาพรวมบริการหลักของ AWS</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3><i class="fa-solid fa-microchip"></i> Compute</h3>
+              <p>
+                เครื่องเสมือน (EC2) คอนเทนเนอร์ (ECS, EKS) และ Serverless (AWS Lambda).
+              </p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-network-wired"></i> Networking</h3>
+              <p>
+                VPC สำหรับเครือข่ายส่วนตัว Route 53 สำหรับ DNS และ CloudFront สำหรับ Content Delivery Network (CDN).
+              </p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-database"></i> Database</h3>
+              <p>
+                ฐานข้อมูลเชิงสัมพันธ์ (Amazon RDS/Aurora) NoSQL แบบ Key-Value (DynamoDB) และ DocumentDB.
+              </p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-floppy-disk"></i> Storage</h3>
+              <p>
+                EBS (พื้นที่จัดเก็บแบบบล็อกความหน่วงต่ำ) Amazon S3 (พื้นที่จัดเก็บ ออบเจกต์ระดับโลก) และ EFS
+                (ระบบไฟล์).
+              </p>
+            </div>
+          </div>
+          <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+            <p style="font-weight: 600; margin-bottom: 0.25rem">
+              ดาวน์โหลด PDF
+              <a rel="noopener noreferrer"
+                href="https://drive.google.com/drive/folders/106mmgrukflL6QmOOO4XWcKa7YhOOsmFL"
+                target="_blank">คลิกที่นี่
+              </a>
+            </p>
+          </div>
+        </section>
+    </div>
+
+    <!-- Tab 2: AWS Skill Builder -->
+    <div id="tab-skillbuilder" class="tab-content">
+      <!-- Table of Contents: AWS Skill Builder -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>📑 Table of Contents — AWS Skill Builder</h3>
+            <ol>
+              <li>
+                <a href="#aws-sb-persiapan">เตรียมตัวและอุปกรณ์ที่ต้องมี</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah1">ขั้นตอนที่ 1: สร้างบัญชี AWS Builder ID</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah2">ขั้นตอนที่ 2: ข้อมูลส่วนตัวและ Time Zone</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah3">ขั้นตอนที่ 3: วิธีเข้าถึงคอร์สเรียน</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah4">ขั้นตอนที่ 4: โครงสร้างการเรียนแต่ละโมดูล</a>
+              </li>
+              <li>
+                <a href="#aws-sb-langkah5">ขั้นตอนที่ 5: การสอบ Final Exam และเกณฑ์ผ่าน</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Preparation -->
+      <section id="aws-sb-persiapan">
+        <h2>เตรียมตัวและอุปกรณ์ที่ต้องมี</h2>
+        <p>
+          Before you start registering for an
+          <strong>AWS Skill Builder</strong>
+          ก่อนเริ่มสมัครบัญชี AWS Skill Builder ตรวจสอบให้แน่ใจว่าคุณเตรียมอุปกรณ์ตามข้อกำหนดด้านล่างพร้อมแล้ว
+          เพื่อให้กระบวนการสมัครเป็นไปอย่างราบรื่น.
+        </p>
+        <div class="grid-2">
+          <div class="card normal">
+            <h4 class="step-card-title">💻 อุปกรณ์หลัก
+            </h4>
+            <p class="step-card-text">
+              แนะนำให้ใช้ <strong>โน้ตบุ๊ก / พีซี</strong> เพื่อให้แสดงผลหน้าจอได้ดีที่สุด.
+            </p>
+          </div>
+          <div class="card normal">
+            <h4 class="step-card-title">🌐 เบราว์เซอร์</h4>
+            <p class="step-card-text">
+              แนะนำให้ใช้ <strong>Google Chrome</strong> เวอร์ชันล่าสุด.
+            </p>
+          </div>
+        </div>
+        <div class="warning-box content-spacer-sm">
+          <h5 class="text-warning-box">ข้อควรระวัง:</h5>
+          <p>
+            แนะนำให้ใช้โน้ตบุ๊กเพื่อการแสดงผลที่ดีที่สุด หากใช้สมาร์ตโฟน กรุณาสลับไปที่
+            <strong>โหมดเดสก์ท็อป</strong> เพื่อให้ปุ่มนำทางของ AWS แสดงผลและกดใช้งานได้อย่างถูกต้อง.
+          </p>
+        </div>
+      </section>
+
+      <!-- Content: Step 1 -->
+      <section id="aws-sb-langkah1">
+        <h2 class="">ขั้นตอนที่ 1: สร้างบัญชี AWS Builder ID</h2>
+        <div class="space-y-6">
+          <div class="step-card">
+            <h3 class="step-card-title">
+              1. ค้นหาและเข้าสู่แพลตฟอร์ม
+            </h3>
+            <p class="step-card-text">
+              พิมพ์
+              <code class="text-mono-quote">aws skill builder</code> ในช่องค้นหา Google แล้วคลิกผลการค้นหาลำดับแรก
+              หรือเข้าลิงก์ทางการด้านล่างได้โดยตรง:
+              <a href="https://skillbuilder.aws" target="_blank" rel="noopener noreferrer" style="
+                    display: block;
+                    margin-top: 0.25rem;
+                    font-weight: 500;
+                    color: #2563eb;
+                    text-decoration: underline;
+                  ">https://skillbuilder.aws</a>
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">2. เริ่มต้นการสมัคร</h3>
+            <p class="step-card-text">
+              เมื่อแดชบอร์ดของ AWS Skill Builder ปรากฏขึ้น คลิกปุ่ม
+              <span class="semibold">"Create free account"</span>.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">3. เลือกวิธีเข้าสู่ระบบ</h3>
+            <p class="step-card-text">
+              ในหน้าจอเลือกวิธีเข้าสู่ระบบ คลิกปุ่ม
+              <span class="inline-orange-button">Create or Sign In</span>
+              ใต้ตัวเลือก **AWS Builder ID**.
+            </p>
+            <div class="footnote-box">
+              <strong>หมายเหตุ:</strong> หากหน้าจอที่เห็นไม่ตรงกับด้านบน ให้คลิก <em>"Sign in with a different
+                option"</em> แล้วเลือก <em>AWS Builder ID</em>.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">
+              4. กรอกอีเมลและชื่อ-นามสกุล
+            </h3>
+            <ul>
+              <li>
+                กรอก <strong>อีเมลที่ใช้งานอยู่</strong> (อีเมลที่เช็คบ่อยๆ), แล้วคลิก <span
+                  class="semibold">"Next"</span>.
+              </li>
+              <li>
+                กรอก <strong>ชื่อ-นามสกุลเต็ม</strong> ให้ชัดเจนโดยไม่ย่อ, แล้วคลิก
+                <span class="semibold">"Next"</span>.
+              </li>
+            </ul>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-card-title">5. ยืนยันตัวตนและตั้งรหัสผ่าน</h3>
+            <p class="step-card-text">
+              หน้า <strong>"Email Verification"</strong> จะปรากฏขึ้น ตรวจสอบกล่องข้อความอีเมลที่คุณสมัคร, คัดลอก
+              <em>verification code</em> ที่ได้รับ นำไปวางในช่องที่กำหนด, แล้วคลิก <span
+                class="semibold">"Verify"</span>.
+            </p>
+            <p class="step-card-text">
+              ต่อไป, ในหน้า create-password , กรอกรหัสผ่านที่ผสมผสาน
+              <strong>ตัวอักษรพิมพ์ใหญ่, ตัวพิมพ์เล็ก, ตัวเลข, numbers, และอักขระพิเศษ </strong>
+              (ตัวอย่าง:
+              <code class="text-mono-quote">ATsn2368#@</code>). กรอกรหัสผ่านซ้ำอีกครั้ง, พิมพ์ตัวอักษรตามภาพให้ถูกต้อง,
+              แล้วคลิก <span class="semibold">"Create AWS Builder ID"</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Step 2 -->
+      <section id="aws-sb-langkah2">
+        <h2 class="">ขั้นตอนที่ 2: ข้อมูลส่วนตัวและ Time Zone</h2>
+
+        <div class="step-card">
+          <h3 class="step-card-title">หน้า Terms & Conditions </h3>
+          <p class="step-card-text">
+            ในหน้า
+            <em>Terms and conditions</em> ของ AWS Training and Certification, เพียงคลิกปุ่ม
+            <span class="inline-orange-button">Accept terms</span> .
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3 class="step-card-title">อัปเดตข้อมูลส่วนตัว</h3>
+          <ol>
+            <li>กรอก <em>ชื่อจริง</em> และ <em>นามสกุล</em>.</li>
+            <li>
+              ในส่วน <strong>Additional Fields</strong> กรอกเฉพาะช่อง
+              <span class="semibold">Country/Region</span> , โดยเลือก
+              <strong>Indonesia</strong>.
+            </li>
+            <li>
+              ติ๊กช่องยินยอมแชร์ข้อมูล (ถ้ามี), แล้วคลิกปุ่ม
+              <span class="semibold">"CONTINUE / Create Profile"</span>.
+            </li>
+          </ol>
+        </div>
+
+        <div class="info-box content-spacer-sm">
+          <h3 class="step-card-title">
+            อัปเดต Time Zone (*New Time Zone Detected*)
+          </h3>
+          <p class="text-sm text-cyan-800">
+            หากระบบตรวจพบว่า time zone ไม่ตรงกัน และแสดงข้อความให้สลับไปใช้ time zone
+            <strong class="text-cyan-950">(GMT +07:00) Asia/Jakarta</strong>,
+            ให้คลิกปุ่ม
+            <span class="font-bold underline">"UPDATE"</span>.
+          </p>
+          <div class="note-italic">
+            *กรณีพิเศษ: หากไม่มีข้อความ "new time zone detected" ปรากฏขึ้น, ไม่ต้องกังวล — ข้ามไปขั้นตอนถัดไปได้เลย.
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Step 3 -->
+      <section id="aws-sb-langkah3">
+        <h2>ขั้นตอนที่ 3: วิธีเข้าถึงคอร์สเรียน</h2>
+        <p>
+          เมื่อสมัครบัญชีเสร็จสมบูรณ์และเข้าสู่แดชบอร์ดผู้ใช้หลักแล้ว ทำตามคำแนะนำนี้เพื่อค้นหาเนื้อหาคอร์สเรียน:
+        </p>
+        <div>
+          <div class="step-card">
+            <h4 class="step-card-title">1. หาส่วน Featured Section</h4>
+            <p class="text-xs text-slate-600">
+              บนแดชบอร์ดผู้เรียน เลื่อนลงจนกว่าจะพบ
+              <strong>Featured content</strong> section.
+            </p>
+          </div>
+          <div class="step-card">
+            <h4 class="step-card-title">2. เลื่อนดูเมนูเนื้อหา</h4>
+            <p class="text-xs text-slate-600">
+              คลิกไอคอนลูกศรขวา (<span class="font-mono">&gt;</span>)
+              บนแถบนำทางเพื่อเลื่อนไปหน้าถัดไป
+              (Page 2/2).
+            </p>
+          </div>
+          <div class="step-card">
+            <h4 class="step-card-title">
+              3. เปิดเส้นทางการเรียน (Learning Path) ที่ต้องการ
+            </h4>
+            <p class="text-xs text-slate-600">
+              มองหาคอร์สที่ชื่อว่า:
+              <strong class="text-slate-900">Cloud Essentials Knowledge Badge Readiness Path</strong>, แล้วคลิกเข้าไป.
+            </p>
+          </div>
+          <div class="step-card">
+            <h4 class="step-card-title">4. ลงทะเบียนเรียน</h4>
+            <p class="text-xs text-slate-600">
+              คลิกปุ่มสีส้ม
+              <span class="inline-orange-button">ENROLL</span>. หากมีกล่องข้อความยืนยันความสำเร็จปรากฏขึ้น, คลิกปุ่ม
+              <span class="font-bold text-amber-600">"START LEARNING NOW"</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Step 4 -->
+      <section id="aws-sb-langkah4">
+        <h2 class="">ขั้นตอนที่ 4: โครงสร้างการเรียนแต่ละโมดูล</h2>
+        <p class="step-card-text">
+          คอร์สนี้ประกอบด้วย
+          <strong>5 โมดูลหลัก</strong> และ
+          <strong>1 assessment</strong> (final exam เพื่อรับใบประกาศ Knowledge
+          Badge).
+        </p>
+
+        <div class="warning-box">
+          <h4>หมายเหตุ: เลือกวิธีเรียนได้ตามใจคุณ</h4>
+          <div class="grid-2">
+            <div class="white-box" style="color: #2c2c2c">
+              <span class="semibold" style="color: #ffa500">ตัวเลือกที่ #1</span><br />
+              เรียนให้ครบ 5 โมดูลตามลำดับก่อน, แล้วค่อยไปสอบ
+              assessment.
+            </div>
+            <div class="white-box" style="color: #2c2c2c">
+              <span class="semibold" style="color: #00c9c9">ตัวเลือกที่ #2</span><br />
+              ข้ามไปมุ่งทำส่วน Assessment ที่ท้ายหน้าให้เสร็จก่อนเลย.
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card content-spacer-sm">
+          <h3 class="step-card-title">วิธีเรียนเนื้อหาคอร์ส:</h3>
+          <p class="step-card-text">
+            เลือกคอร์สที่ต้องการเรียน (ไม่จำเป็นต้องเรียงลำดับ) แล้วคลิกเข้าไปที่คอร์ส. คลิกปุ่ม
+            <strong>"START LEARNING NOW"</strong> .
+          </p>
+          <p class="step-card-text">
+            เนื้อหาคอร์สมีทั้งบทความให้อ่านและวิดีโอสอน ท้ายแต่ละโมดูลจะมีแบบประเมินสั้นๆ เรียกว่า
+            <em>"Knowledge Check"</em> และ <em>"feedback"</em>, กรุณาทำให้ครบทุกครั้ง.
+          </p>
+        </div>
+      </section>
+
+      <!-- Content: Step 5 -->
+      <section id="aws-sb-langkah5">
+        <h2 class="">ขั้นตอนที่ 5: Final Exam และเกณฑ์ผ่าน</h2>
+
+        <div class="step-card">
+          <h3 class="step-card-title">เริ่มการสอบ</h3>
+          <p class="step-card-text">
+            เลือก
+            <strong class="text-slate-950">Cloud Essentials Knowledge Badge Assessment</strong>
+            ที่ต้องการสอบ, คลิกเข้าไปที่คลาส ,แล้วคลิกปุ่ม
+            <span class="bg-amber-500 text-slate-900 font-bold px-3 py-1 rounded text-xs shadow-sm">BEGIN THE
+              TEST</span>.
+          </p>
+          <div class="grid-3 col-3" style="background-color: #f8fafc; padding: 20px">
+            <div>
+              <span class="block semibold">เกณฑ์ผ่าน</span> <br>ตอบถูก 80%
+            </div>
+            <div>
+              <span class="block semibold">จำกัดเวลา</span> <br> ไม่จำกัดเวลา
+            </div>
+            <div>
+              <span class="block semibold">จำนวนข้อ</span> <br> 50 ข้อ
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <h3 class="step-card-title">กติกาการสอบ:</h3>
+          <ul>
+            <li>
+              ก่อนไปข้อถัดไป, ต้องตอบคำถามทุกข้อในหน้าปัจจุบันให้ครบก่อน. แล้วคลิกปุ่ม
+              <strong>"NEXT PAGE"</strong> เพื่อไปต่อ.
+            </li>
+            <li>
+              หากต้องการทำต่อในภายหลัง, สามารถคลิกปุ่ม
+              <span class="text-amber-600 font-bold">"SAVE TEST, YOU CAN RESUME LATER"</span>.
+              ฟีเจอร์นี้จะให้คุณกลับมาทำต่อจากข้อสุดท้ายที่ตอบไว้เมื่อเข้าสู่ระบบใหม่ โดยใช้ปุ่ม
+              <span class="text-cyan-600 font-bold">"RESUME THE TEST"</span>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid-2">
+          <div class="green-box step-card">
+            <h3 class="step-card-title">สอบผ่าน</h3>
+            <p class="step-card-text">
+              หากคุณได้คะแนนตั้งแต่
+              <strong>83%</strong> ขึ้นไปตามเกณฑ์ที่กำหนด,
+              ยินดีด้วย, คุณสอบผ่านแล้ว! กรุณาสละเวลากรอกแบบสอบถามประเมินผล ( <em>Survey/Feedback</em>).
+              จากนั้นสามารถดาวน์โหลดใบประกาศได้โดยคลิกปุ่ม
+              <strong style="color: #0e9958">DOWNLOAD YOUR CERTIFICATE</strong>.
+              ส่วนแบดจ์ดิจิทัลตัวจริงจะถูกส่งไปยังอีเมลที่ลงทะเบียนไว้ (กรุณารอ 2-5 วันทำการ).
+            </p>
+          </div>
+          <div class="rose-box step-card">
+            <h3 class="step-card-title">สอบไม่ผ่าน</h3>
+            <p class="step-card-text">
+              หากคะแนนสุดท้ายต่ำกว่าเกณฑ์ที่กำหนด แสดงว่าคุณยังสอบไม่ผ่าน. แล้วต่อไปทำอย่างไร? คุณสามารถสอบใหม่ได้
+              แต่โปรดทราบว่าต้องรอ
+              <strong>ระยะเวลา 24 ชั่วโมง (1 วัน)</strong> ก่อนสอบใหม่อีกครั้ง.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            ดาวน์โหลด PDF
+            <a rel="noopener noreferrer"
+              href="https://drive.google.com/drive/folders/106mmgrukflL6QmOOO4XWcKa7YhOOsmFL"
+              target="_blank">คลิกที่นี่
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab 3: Intro to Generative AI -->
+    <div id="tab-gen-ai" class="tab-content">
+      <!-- Table of Contents — Intro to Generative AI -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>
+              📑 Table of Contents — ปฐมบทสู่ Generative Artificial
+              Intelligence
+            </h3>
+            <ol>
+              <li>
+                <a href="#gen-ai-intro">ปัญญาประดิษฐ์คืออะไร?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-sejarah-ai">ประวัติศาสตร์การพัฒนา AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-kenapa-ai">ทำไมต้องเรียนรู้ปัญญาประดิษฐ์?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-definisi">Generative AI (Gen AI) คืออะไร?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-perbedaan">Gen AI ต่างจาก AI แบบอื่นอย่างไร?</a>
+              </li>
+              <li>
+                <a href="#gen-ai-jenis-output">ประเภทของ Gen AI แบ่งตาม Output</a>
+              </li>
+              <li>
+                <a href="#gen-ai-cara-belajar">วิธีเรียนรู้และเริ่มลงมือทำ</a>
+              </li>
+              <li>
+                <a href="#gen-ai-sertifikasi">ใบรับรองอย่างเป็นทางการของ AWS ด้าน AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-komponen">องค์ประกอบสำหรับสร้างแอปพลิเคชัน Gen AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-layanan-aws">โซลูชันบริการ Generative AI ของ AWS</a>
+              </li>
+              <li>
+                <a href="#gen-ai-manfaat">ประโยชน์สำคัญของ AI</a>
+              </li>
+              <li>
+                <a href="#gen-ai-do-dont">สิ่งที่ควรทำและไม่ควรทำเมื่อใช้ AI</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Gen AI Intro -->
+      <section id="gen-ai-intro">
+        <h2>
+          <i class="fa-solid fa-brain"></i> ปัญญาประดิษฐ์คืออะไร?
+        </h2>
+        <p>
+          ปัญญาประดิษฐ์ (AI) เป็นสาขาหนึ่งของวิทยาการคอมพิวเตอร์ที่มุ่งแก้ปัญหา
+          เชิงพุทธิปัญญาซึ่งมักเกี่ยวข้องกับความสามารถของมนุษย์ เช่น การเรียนรู้ การสร้างสรรค์ และการจดจำภาพ.
+        </p>
+        <div class="card" style="margin-top: 1.5rem">
+          <h3>ประโยชน์สำคัญของการนำ AI มาใช้:</h3>
+          <ul>
+            <li>แก้ปัญหาที่ซับซ้อนได้.</li>
+            <li>ทำให้กระบวนการทางธุรกิจเป็นอัตโนมัติ.</li>
+            <li>ตัดสินใจได้อย่างชาญฉลาดยิ่งขึ้น.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Content: History -->
+      <section id="gen-ai-sejarah-ai">
+        <h2>
+          <i class="fa-solid fa-clock-rotate-left"></i> ประวัติศาสตร์การพัฒนา AI
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>1950s: Artificial Intelligence (AI)</h3>
+            <p>ความฉลาดของมนุษย์ที่แสดงออกผ่านเครื่องจักร.</p>
+          </div>
+          <div class="card">
+            <h3>1980s: Machine Learning</h3>
+            <p>ระบบ AI ที่เรียนรู้จากข้อมูลในอดีต.</p>
+          </div>
+          <div class="card">
+            <h3>2010s: Deep Learning</h3>
+            <p>โมเดล Machine Learning ที่เลียนแบบการทำงานของสมองมนุษย์.</p>
+          </div>
+          <div class="card">
+            <h3>2020s: Generative AI (Gen AI)</h3>
+            <p>
+              โมเดล Deep Learning (foundation models) ที่สามารถสร้างสรรค์เนื้อหาใหม่ได้เอง.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Why Learn -->
+      <section id="gen-ai-kenapa-ai">
+        <h2>
+          <i class="fa-solid fa-arrow-up-right-dots"></i> ทำไมต้องเรียนรู้ปัญญาประดิษฐ์?
+        </h2>
+        <ul>
+          <li>ความต้องการในสายอาชีพสูงและเติบโตต่อเนื่องในอุตสาหกรรมทั่วโลก.</li>
+          <li>
+            ความสามารถในการสร้างแอปพลิเคชันที่ฉลาดขึ้น ปรับตัวได้ดีขึ้น และมีประสิทธิภาพมากขึ้น.
+          </li>
+          <li>
+            มีส่วนร่วมจริงในการสร้างนวัตกรรมและแก้ปัญหาที่ซับซ้อนของโลกยุคใหม่.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Content: Gen AI -->
+      <section id="gen-ai-definisi">
+        <h2>
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Generative AI (Gen AI) คืออะไร?
+        </h2>
+        <p>
+          ปัญญาประดิษฐ์เชิงสร้างสรรค์ (Generative AI) คือ AI ประเภทหนึ่งที่สามารถ สร้างเนื้อหาและไอเดียใหม่ๆ ได้
+          ไม่ว่าจะเป็นบทสนทนา เรื่องราว รูปภาพ วิดีโอ และเพลง.
+        </p>
+        <div class="card" style="margin-top: 1rem">
+          <p>
+            โมเดลเหล่านี้สามารถฝึกให้เรียนรู้ภาษามนุษย์ ภาษาโปรแกรม งานศิลปะ เคมี ชีววิทยา หรือหัวข้อซับซ้อนอื่นๆ ได้.
+          </p>
+        </div>
+      </section>
+
+      <!-- Content: Difference in AI -->
+      <section id="gen-ai-perbedaan">
+        <h2>
+          <i class="fa-solid fa-code-compare"></i> Gen AI ต่างจาก AI แบบอื่นอย่างไร?
+        </h2>
+        <ol>
+          <li>
+            <strong>ดประสงค์หลัก:</strong> Gen AI มุ่งเน้นการสร้างเนื้อหาใหม่ที่เป็นต้นฉบับ ในขณะที่ AI
+            แบบอื่นเน้นการจำแนกประเภท การจดจำรูปแบบ และการทำนายผล.
+          </li>
+          <li>
+            <strong>หน้าที่การทำงาน:</strong> Gen AI ใช้สำหรับงานสร้างสรรค์ (ข้อความ รูปภาพ เพลง) ส่วน AI
+            แบบอื่นใช้สำหรับวิเคราะห์ข้อมูลขนาดใหญ่ ระบบแนะนำสินค้า และการจดจำใบหน้า.
+          </li>
+          <li>
+            <strong>ผลลัพธ์:</strong> Gen AI สร้างผลลัพธ์ที่เป็นสิ่งใหม่จริงๆ เกินกว่าขอบเขตข้อมูลที่ใช้ฝึก ในขณะที่ AI
+            แบบอื่นอิงจากการทำนาย/จำแนก ข้อมูลที่มีอยู่แล้ว.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Content: Types of Output -->
+      <section id="gen-ai-jenis-output">
+        <h2>
+          <i class="fa-solid fa-table-cells"></i> ประเภทของ Gen AI แบ่งตาม Output
+        </h2>
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>ประเภท Output</th>
+                <th>เทคโนโลยีตัวอย่าง</th>
+                <th>คำอธิบาย</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ข้อความ</strong></td>
+                <td>ChatGPT, Bard, Claude</td>
+                <td>
+                  สร้างข้อความ เรื่องราว บทความ อีเมล และแม้แต่โค้ดโปรแกรม.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>รูปภาพ</strong></td>
+                <td>DALL-E, Midjourney, Stable Diffusion</td>
+                <td>
+                  สร้างภาพวิชวลใหม่จากคำอธิบายที่เป็นข้อความ (prompt).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>วิดีโอ</strong></td>
+                <td>Sora, Runway, Pika</td>
+                <td>
+                  สร้างวิดีโอสั้นๆ จากบทหรือภาพอ้างอิงที่กำหนด.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>เสียง</strong></td>
+                <td>ElevenLabs, Voicemod</td>
+                <td>
+                  สร้างเสียงมนุษย์ที่โคลนหรือสังเคราะห์จากข้อความอินพุต.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Content: How to Learn -->
+      <section id="gen-ai-cara-belajar">
+        <h2>
+          <i class="fa-solid fa-lightbulb"></i> วิธีเรียนรู้และเริ่มลงมือทำ
+        </h2>
+        <div class="card">
+          <h3>1. เริ่มจากสิ่งที่คุ้นเคย</h3>
+          <p>
+            ลองใช้ ChatGPT ช่วยเขียนงาน แล้วศึกษาว่าทำไมผลลัพธ์ถึงออกมาแบบนั้น.
+          </p>
+        </div>
+        <div class="card" style="margin-top: 1rem">
+          <h3>2. ลงมือทำจริง!</h3>
+          <p>
+            ลองแต่งกลอนกับ ChatGPT สร้างภาพด้วย DALL-E หรือเรียบเรียงเพลงด้วย Suno AI.
+          </p>
+        </div>
+        <div class="card" style="margin-top: 1rem">
+          <h3>3. พูดคุยเรื่องจริยธรรมและความเสี่ยง</h3>
+          <p>
+            เรียนรู้ประเด็นสำคัญเสมอ ทั้งการลอกเลียนงาน ความถูกต้องของข้อมูล (AI hallucination) การเพิ่มขึ้นของ deepfake
+            และความเป็นส่วนตัวของข้อมูล.
+          </p>
+        </div>
+      </section>
+
+      <!-- Content: Certification -->
+      <section id="gen-ai-sertifikasi">
+        <h2>
+          <i class="fa-solid fa-certificate"></i> ใบรับรองอย่างเป็นทางการของ AWS ด้าน AI
+        </h2>
+        <div class="card">
+          <h3>
+            AWS Certified AI Practitioner (AIF-C01)
+            <span class="badge">Foundational</span>
+          </h3>
+          <p>
+            ออกแบบมาเพื่อสร้างความรู้พื้นฐานด้าน AI และ ML เหมาะสำหรับผู้เริ่มต้น
+            ที่ต้องการเริ่มต้นสายอาชีพหรือยกระดับคุณสมบัติด้านเทคโนโลยี AI.
+          </p>
+        </div>
+        <div class="card" style="margin-top: 1.5rem">
+          <h3>
+            AWS Certified Machine Learning Engineer - Associate (MLA-C01)
+          </h3>
+          <p>
+            เหมาะสำหรับผู้ที่มีประสบการณ์อย่างน้อย 1 ปีในงานวิศวกรรม machine learning
+            โดยใช้ระบบนิเวศโครงสร้างพื้นฐานคลาวด์ของ AWS โดยตรง.
+          </p>
+        </div>
+      </section>
+
+      <!-- Content: Components -->
+      <section id="gen-ai-komponen">
+        <h2>
+          <i class="fa-solid fa-cubes"></i> องค์ประกอบสำหรับสร้างแอปพลิเคชัน Gen AI
+        </h2>
+        <p>
+          ในการสร้างสถาปัตยกรรมแอปพลิเคชันที่ใช้ Generative AI คุณจะต้องมี องค์ประกอบหลักดังต่อไปนี้:
+        </p>
+        <ul>
+          <li>
+            <strong>Foundation Model / LLM:</strong> สมองหลักของระบบ.
+          </li>
+          <li>
+            <strong>LLM Framework:</strong> ตัวเชื่อมโยงตรรกะของแอปพลิเคชัน.
+          </li>
+          <li>
+            <strong>Vector Database:</strong> ที่จัดเก็บหน่วยความจำเชิงบริบท (ตัวอย่าง: Pinecone).
+          </li>
+          <li>
+            <strong>Additional Dataset:</strong> สำหรับปรับแต่งข้อมูลเฉพาะทาง.
+          </li>
+          <li>
+            <strong>Frontend:</strong> อินเทอร์เฟซเว็บ/มือถือ (ตัวอย่าง: Next.js หรือ Streamlit).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Content: AWS Services -->
+      <section id="gen-ai-layanan-aws">
+        <h2>
+          <i class="fa-brands fa-aws"></i> โซลูชันบริการ Generative AI ของ AWS
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>AWS SageMaker</h3>
+            <p>
+              บริการแบบ fully-managed สำหรับสร้าง ฝึกฝน และนำโมเดล machine learning ไปใช้งานจริงบนระบบคลาวด์ในระดับ
+              production.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon Bedrock</h3>
+            <p>
+              ทำให้ Foundation Models (FMs) ประสิทธิภาพสูงจากสตาร์ทอัพชั้นนำด้าน AI
+              หลากหลายรายเข้าถึงได้ง่ายผ่านการเชื่อมต่อ API ที่ปลอดภัย.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon Q</h3>
+            <p>
+              ผู้ช่วย Generative AI สำหรับธุรกิจและนักพัฒนา ใช้เขียน *โค้ดคุณภาพสูง*
+              และประมวลผลข้อมูลภายในองค์กรได้อย่างชาญฉลาด.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon PartyRock</h3>
+            <p>
+              บริการ playground ด้าน UI/UX แบบครบวงจร ที่ช่วยให้ผู้เริ่มต้น ออกแบบแอปพลิเคชัน Gen AI ได้ง่ายๆ
+              โดยไม่ต้องเขียนโค้ด.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Student Benefits -->
+      <section id="gen-ai-manfaat">
+        <h2>
+          <i class="fa-solid fa-graduation-cap"></i> ประโยชน์สำคัญของ AI สำหรับผู้เรียน
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>การเรียนรู้ที่ปรับให้เหมาะกับแต่ละคน</h3>
+            <p>
+              ปรับระดับความยากได้อัตโนมัติตามความสามารถเฉพาะตัวของผู้เรียนแต่ละคน.
+            </p>
+          </div>
+          <div class="card">
+            <h3>เข้าถึงความรู้ได้ทันที</h3>
+            <p>
+              เร่งความเร็วในการค้นหาข้อมูลข้ามศาสตร์ ก้าวข้ามตำราเรียนแบบเดิม.
+            </p>
+          </div>
+          <div class="card">
+            <h3>ลับคม Critical Thinking</h3>
+            <p>
+              กระตุ้นการวิเคราะห์เชิงลึกผ่านการจำลองสถานการณ์/กรณีศึกษาที่ซับซ้อน.
+            </p>
+          </div>
+          <div class="card">
+            <h3>เรียนรู้ได้อย่างมีประสิทธิภาพมากขึ้น</h3>
+            <p>
+              ให้บทสรุป แผนผังความคิด และการแสดงภาพเนื้อหาได้ในทันที.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content: Do & Don't -->
+      <section id="gen-ai-do-dont">
+        <h2>
+          <i class="fa-solid fa-circle-check"></i> สิ่งที่ควรทำและไม่ควรทำเมื่อใช้ AI
+        </h2>
+        <div class="grid-2">
+          <div class="card" style="border-left-color: #22c55e">
+            <h3 style="color: #15803d">
+              <i class="fa-solid fa-thumbs-up"></i> สิ่งที่ควรทำ
+            </h3>
+            <ol style="margin-left: 1rem; font-size: 0.9rem">
+              <li>ใช้เป็นเครื่องมือขยายความเข้าใจ.</li>
+              <li>ตรวจสอบข้อเท็จจริงผ่านแหล่งข้อมูลที่น่าเชื่อถือ.</li>
+              <li>
+                ทดสอบความเข้าใจของตัวเองด้วยการขอมุมมองใหม่ๆ.
+              </li>
+              <li>ปฏิบัติตามจริยธรรมทางวิชาการอย่างโปร่งใส.</li>
+            </ol>
+          </div>
+          <div class="card" style="border-left-color: #ef4444">
+            <h3 style="color: #b91c1c">
+              <i class="fa-solid fa-thumbs-down"></i> DON'T With AI
+            </h3>
+            <ol style="margin-left: 1rem; font-size: 0.9rem">
+              <li>พึ่งพา AI ทั้งหมดจน critical thinking เสื่อมลง.</li>
+              <li>คัดลอกวางแบบตรงๆ (การลอกเลียนงาน).</li>
+              <li>ใช้ในทางที่ผิดเพื่อสร้างข่าวลวง/คำพูดสร้างความเกลียดชัง.</li>
+              <li>กรอกข้อมูลส่วนตัวที่ละเอียดอ่อน (ที่อยู่/รหัสผ่าน).</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            ดาวน์โหลด PDF
+            <a rel="noopener noreferrer"
+              href="https://drive.google.com/drive/folders/106mmgrukflL6QmOOO4XWcKa7YhOOsmFL"
+              target="_blank">คลิกที่นี่
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab 4: Introduction to AWS Kiro -->
+    <div id="tab-intro-kiro" class="tab-content">
+      <!-- Table of Contents: Introduction to AWS Kiro -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>📑 Table of Contents — ปฐมบทสู่ AWS Kiro</h3>
+            <ol>
+              <li>
+                <a href="#kiro-apa-itu-kiro">Kiro คืออะไร?</a>
+              </li>
+              <li>
+                <a href="#kiro-masalah">ปัญหาที่ Kiro ช่วยแก้ไข</a>
+              </li>
+              <li>
+                <a href="#kiro-vibe-vs-spec">Vibe Coding เทียบกับ Spec Dev</a>
+              </li>
+              <li>
+                <a href="#kiro-fitur-utama">ฟีเจอร์เด่นของ Kiro</a>
+              </li>
+              <li>
+                <a href="#kiro-specs-fase">Specs และ 3 ขั้นตอนการทำงาน</a>
+              </li>
+              <li>
+                <a href="#kiro-ears-notation">EARS Notation</a>
+              </li>
+              <li>
+                <a href="#kiro-steering">Steering (AI Rules)</a>
+              </li>
+              <li>
+                <a href="#kiro-agent-hooks">Agent Hooks</a>
+              </li>
+              <li>
+                <a href="#kiro-mcp-autopilot">MCP & Autopilot Mode</a>
+              </li>
+              <li>
+                <a href="#kiro-perbandingan-tools">Kiro เทียบกับเครื่องมือ AI อื่นๆ</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: What is Kiro -->
+      <section id="kiro-apa-itu-kiro">
+        <h2><i class="fa-solid fa-circle-info"></i> 1. Kiro คืออะไร?</h2>
+        <p style="
+              font-style: italic;
+              font-weight: 600;
+              color: var(--primary-color);
+            ">
+          "นำความเข้มงวดเชิงวิศวกรรมมาสู่การพัฒนาแบบ agentic"
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Agentic IDE</h3>
+            <p>
+              IDE ที่ขับเคลื่อนด้วย AI ซึ่งสามารถวางแผนและลงมือทำงานที่ซับซ้อนได้ด้วยตัวเอง.
+            </p>
+          </div>
+          <div class="card">
+            <h3>สร้างโดย AWS</h3>
+            <p>
+              พัฒนาอย่างเป็นทางการโดย Amazon Web Services (AWS) มีทั้งแผนฟรีและแบบเสียเงิน.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Amazon Bedrock</h3>
+            <p>
+              ขับเคลื่อนเต็มรูปแบบด้วย *foundation models* ประสิทธิภาพสูง ผ่าน Amazon Bedrock.
+            </p>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem">
+          <strong>เวอร์ชันที่พร้อมใช้งาน:</strong> Desktop IDE, CLI (Terminal) และเว็บเบราว์เซอร์.
+        </p>
+      </section>
+
+      <!-- Section 2: The Problem -->
+      <section id="kiro-masalah">
+        <h2>
+          <i class="fa-solid fa-triangle-exclamation"></i> 2. ทำไมเราถึงต้องการ Kiro?
+        </h2>
+        <p>
+          Kiro ช่วยแก้ปัญหาหลักของการสร้างระบบซอฟต์แวร์ขนาดใหญ่ด้วย AI ทั่วไป:
+        </p>
+        <ul>
+          <li>
+            <strong>AI เข้าใจบริบทผิดพลาด:</strong> เมื่อโปรเจกต์ขยายใหญ่ขึ้น AI ทั่วไปมักลืมบริบทดั้งเดิมของโปรเจกต์.
+          </li>
+          <li>
+            <strong>ต้องพิมพ์คำสั่งซ้ำมากเกินไป:</strong> เหนื่อยและไม่มีประสิทธิภาพ
+            หากต้องคอยกำกับงานซับซ้อนทีละขั้นตอน.
+          </li>
+          <li>
+            <strong>ไม่มีเอกสารบันทึกไว้:</strong> บันทึกการตัดสินใจเชิงเทคนิค มักหายไปทันทีที่เขียนโค้ดเสร็จ.
+          </li>
+          <li>
+            <strong>ทำงานร่วมกันเป็นทีมได้ยาก:</strong> นักพัฒนาคนอื่นเสียบริบท
+            และต้องมาสำรวจโค้ดเบสด้วยตัวเองใหม่ตั้งแต่ต้น.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3: Vibe vs Spec -->
+      <section id="kiro-vibe-vs-spec">
+        <h2>
+          <i class="fa-solid fa-code"></i> 3. Vibe Coding เทียบกับ Spec-Driven Development
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Vibe Coding</h3>
+            <p>
+              วิธีแบบฉับพลัน: เขียน *prompt* ตามอารมณ์ AI เขียนโค้ดตามสมมติฐาน โดยไม่มี spec ที่แน่นอน
+              เร็วในช่วงเริ่มต้น แต่คาดเดาผลลัพธ์ไม่ได้ เมื่อขึ้นระดับ production.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Spec-Driven Development (SDD)</h3>
+            <p>
+              วิธีที่มีโครงสร้างชัดเจน กำหนดสถาปัตยกรรม dependency และขอบเขตการทำงาน
+              ไว้ในเอกสารเทคนิคอย่างชัดแจ้งก่อนที่ AI จะเริ่มเขียนโค้ดใดๆ.
+            </p>
+          </div>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>ตัวแปร</th>
+                <th>Vibe Coding</th>
+                <th>Spec-Driven Development</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>จุดเริ่มต้น</strong></td>
+                <td>AI เขียนโค้ดทันที</td>
+                <td>สร้าง Requirements ก่อน</td>
+              </tr>
+              <tr>
+                <td><strong>เอกสารประกอบ</strong></td>
+                <td>ไม่มี</td>
+                <td>สร้างขึ้นโดยอัตโนมัติ</td>
+              </tr>
+              <tr>
+                <td><strong>โปรเจกต์ขนาดใหญ่</strong></td>
+                <td>จัดการยาก</td>
+                <td>มีโครงสร้างที่ดี</td>
+              </tr>
+              <tr>
+                <td><strong>การทำงานร่วมกันเป็นทีม</strong></td>
+                <td>ซิงก์กันยาก</td>
+                <td>ง่ายมาก</td>
+              </tr>
+              <tr>
+                <td><strong>ความสามารถในการคาดเดาผลลัพธ์</strong></td>
+                <td>ต่ำ</td>
+                <td>สูง</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4: Key Features -->
+      <section id="kiro-fitur-utama">
+        <h2><i class="fa-solid fa-cubes"></i> 4. ฟีเจอร์เด่นของ Kiro</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Specs</h3>
+            <p>
+              เปลี่ยนไอเดียนามธรรมให้กลายเป็น *requirements* การออกแบบ สถาปัตยกรรม (*design*) และ *tasks*
+              โค้ดโดยละเอียดอย่างอัตโนมัติ.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Agentic Chat</h3>
+            <p>
+              บทสนทนาแบบโต้ตอบที่รับรู้บริบทกับ AI ซึ่งสามารถ ลงมือแก้ไขโค้ดได้โดยตรง.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Steering</h3>
+            <p>
+              ไฟล์กฎ markdown แบบถาวร ที่ทำให้พฤติกรรมของ AI สอดคล้อง กับมาตรฐานภายในของทีมเสมอ.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Agent Hooks</h3>
+            <p>
+              สั่งงาน AI โดยอัตโนมัติเมื่อมีเหตุการณ์บางอย่างเกิดขึ้นใน IDE (เช่น หลังจากบันทึกไฟล์).
+            </p>
+          </div>
+          <div class="card">
+            <h3>MCP Support</h3>
+            <p>
+              เชื่อมต่อกับแหล่งข้อมูลภายนอกได้อย่างราบรื่น เช่น API ฐานข้อมูล หรือเอกสาร ผ่าน Model Context Protocol.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Autopilot Mode</h3>
+            <p>
+              มอบหมายงานขนาดใหญ่ให้ AI ทำ พร้อมตัวเลือกให้ตรวจสอบหรือย้อนกลับผลลัพธ์ได้เต็มที่.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Specs & 3 Phases -->
+      <section id="kiro-specs-fase">
+        <h2>
+          <i class="fa-solid fa-diagram-project"></i> 5. Specs และวงจรการทำงาน 3 ขั้นตอน
+        </h2>
+        <p>
+          pecs ทำหน้าที่เป็น *blueprint* ที่มีโครงสร้าง แบ่งการพัฒนาออกเป็นไฟล์ markdown หลัก 3 ไฟล์:
+        </p>
+        <ol>
+          <li>
+            <strong>requirements.md:</strong> คุณต้องการสร้างอะไร? ประกอบด้วยความต้องการเชิงฟังก์ชันผ่าน *user stories*
+            และ *acceptance criteria*.
+          </li>
+          <li>
+            <strong>design.md:</strong> คุณจะสร้างมันอย่างไร? เอกสารสถาปัตยกรรม เชิงเทคนิคและ *sequence diagrams*.
+          </li>
+          <li>
+            <strong>tasks.md:</strong> ขั้นตอนที่เป็นรูปธรรมมีอะไรบ้าง? รายการงาน ที่เรียงลำดับตาม dependency พร้อมให้
+            AI ลงมือทำได้.
+          </li>
+        </ol>
+
+        <div class="card" style="margin-top: 1.5rem; border-left-color: var(--dark-color)">
+          <h3>ขั้นตอนการทำงาน:</h3>
+          <p style="margin-top: 0.5rem">
+            วิเคราะห์เรื่องราวของไอเดีย ➔ ออกแบบสถาปัตยกรรมโค้ดเบสและการจัดการ ข้อผิดพลาด ➔
+            สร้างรายการงานเชิงเทคนิคโดยละเอียด ➔ คลิก "Run" เพื่อทำงานอัตโนมัติ.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 6: EARS Notation -->
+      <section id="kiro-ears-notation">
+        <h2>
+          <i class="fa-solid fa-spell-check"></i> 6. EARS Notation ใน Requirements
+        </h2>
+        <p>
+          <strong>EARS = Easy Approach to Requirements Syntax</strong>.รูปแบบมาตรฐาน การเขียน requirements
+          เพื่อให้ชัดเจน ไม่กำกวม และทดสอบได้โดยตรง.
+        </p>
+
+        <div class="card" style="
+              background-color: #fffbeb;
+              font-weight: 600;
+              font-size: 1.05rem;
+              text-align: center;
+              margin: 1.5rem 0;
+            ">
+          WHEN
+          <span style="color: var(--primary-color)">[เงื่อนไข/เหตุการณ์]</span>
+          THE SYSTEM SHALL
+          <span style="color: #059669">[พฤติกรรมที่คาดหวัง]</span>
+        </div>
+
+        <h4>ตัวอย่างการใช้งานอย่างรวดเร็ว:</h4>
+        <ul>
+          <li>
+            <strong>กรณีล็อกอิน:</strong> *WHEN* ผู้ใช้กรอกชื่อผู้ใช้และรหัสผ่าน ที่ถูกต้อง *THE SYSTEM SHALL*
+            พาผู้ใช้ไปยังหน้าแดชบอร์ด.
+          </li>
+          <li>
+            <strong>กรณีตรวจสอบฟอร์ม:</strong> *WHEN* ผู้ใช้ส่งฟอร์มที่ข้อมูลไม่ครบ *THE SYSTEM SHALL*
+            แสดงข้อความแจ้งเตือนข้างช่องที่ว่างเปล่า.
+          </li>
+        </ul>
+
+        <h4 style="margin-top: 1.5rem">ทำไม EARS ถึงสำคัญมาก:</h4>
+        <p>
+          รับประกันความชัดเจน ความสามารถในการทดสอบ การตรวจสอบย้อนกลับของโค้ด และความครบถ้วนของกรณีสถานการณ์.
+        </p>
+      </section>
+
+      <!-- Section 7: Steering -->
+      <section id="kiro-steering">
+        <h2>
+          <i class="fa-solid fa-compass"></i> 7. Steering: กฎถาวรของ AI
+        </h2>
+        <p>
+          Steering ประกอบด้วยไฟล์ markdown ในไดเรกทอรี
+          <code>.kiro/steering/</code> ที่ทำให้ Kiro มีความรู้ถาวรเกี่ยวกับ มาตรฐานของโปรเจกต์
+          จึงไม่จำเป็นต้องอธิบายใหม่ทุกครั้งที่เริ่มเซสชัน prompt.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>product.md</h3>
+            <p>
+              กำหนดจุดประสงค์ของผลิตภัณฑ์ กลุ่มผู้ใช้เป้าหมาย และวัตถุประสงค์ ทางธุรกิจหลัก.
+            </p>
+          </div>
+          <div class="card">
+            <h3>tech.md</h3>
+            <p>
+              บันทึกเฟรมเวิร์ก ไลบรารี และ *เครื่องมือ* ที่ทีมเลือกใช้.
+            </p>
+          </div>
+          <div class="card">
+            <h3>structure.md</h3>
+            <p>
+              อธิบายกฎการตั้งชื่อโฟลเดอร์ โครงสร้างไฟล์ และกฎการ import โค้ด.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Agent Hooks -->
+      <section id="kiro-agent-hooks">
+        <h2>
+          <i class="fa-solid fa-anchor"></i> 8. Agent Hooks: ระบบอัตโนมัติ ตามเหตุการณ์
+        </h2>
+        <p>
+          ตัวกระตุ้นอัตโนมัติที่ทำให้ AI Agent ลงมือทำงานเองได้ทันที เมื่อตรวจพบ *เหตุการณ์*
+          ในสภาพแวดล้อมพื้นที่ทำงานของ IDE.
+        </p>
+
+        <div class="card" style="
+              margin-bottom: 1.5rem;
+              text-align: center;
+              background-color: #f3f4f6;
+            ">
+          เกิด EVENT ➔ ตรวจพบ Hook ➔ AI Agent ทำงาน ➔ งานเสร็จสมบูรณ์
+        </div>
+
+        <h4>ตัวอย่างสถานการณ์จริง:</h4>
+        <ul>
+          <li>
+            <strong>บันทึกไฟล์:</strong> อัปเดตหรือสร้างไฟล์ *unit test* ใหม่โดยอัตโนมัติ.
+          </li>
+          <li>
+            <strong>สร้างไฟล์ใหม่:</strong> แทรกเอกสาร *header* มาตรฐาน ของทีมโดยอัตโนมัติ.
+          </li>
+          <li>
+            <strong>งานเสร็จสมบูรณ์:</strong> สั่งตรวจสอบ *linting* และ *code review* โดยอัตโนมัติ.
+          </li>
+          <li>
+            <strong>หลังจบ prompt:</strong> เขียนบันทึกการเปลี่ยนแปลง ในไฟล์<code>CHANGELOG.md</code> โดยอัตโนมัติ.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 9: MCP & Autopilot -->
+      <section id="kiro-mcp-autopilot">
+        <h2>
+          <i class="fa-solid fa-bolt"></i> 9. MCP Integration & Autopilot Mode
+        </h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Model Context Protocol (MCP)</h3>
+            <p>
+              มาตรฐานอุตสาหกรรมแบบเปิดสำหรับเชื่อมต่อ AI เข้ากับทรัพยากร บุคคลที่สามภายนอกโดยตรง เช่น ฐานข้อมูล
+              (MySQL/Postgres) REST API ของบุคคลที่สาม Google Drive, Notion, Jira, Figma และเอกสาร API ที่กำหนดเอง.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Autopilot Mode</h3>
+            <p>
+              มอบหมายคำสั่งขนาดใหญ่ให้ Kiro วางแผน *sub-tasks* และลงมือทำเองได้โดยไม่ต้องขัดจังหวะเพื่อยืนยันซ้ำๆ
+              คุณยังคงควบคุมได้เต็มที่ในการ *ตรวจสอบ* ผลลัพธ์สุดท้าย.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 10: Comparison -->
+      <section id="kiro-perbandingan-tools">
+        <h2>
+          <i class="fa-solid fa-sliders"></i> 10. เปรียบเทียบฟีเจอร์: Kiro เทียบกับเครื่องมือ AI อื่นๆ
+        </h2>
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>ฟีเจอร์สำคัญ</th>
+                <th>Kiro</th>
+                <th>GitHub Copilot</th>
+                <th>Cursor</th>
+                <th>ChatGPT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Spec-Driven Development</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-minus" style="color: #f59e0b"></i>
+                  มีบางส่วน
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+              </tr>
+              <tr>
+                <td><strong>EARS Notation Requirements</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Auto Architectural Design</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Agent Hooks Trigger</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Steering (Persistent Context)</strong></td>
+                <td>
+                  <i class="fa-solid fa-check" style="color: #10b981"></i> มี
+                </td>
+                <td>
+                  <i class="fa-solid fa-minus" style="color: #f59e0b"></i>
+                  มีบางส่วน
+                </td>
+                <td>
+                  <i class="fa-solid fa-minus" style="color: #f59e0b"></i>
+                  มีบางส่วน
+                </td>
+                <td>
+                  <i class="fa-solid fa-xmark" style="color: #ef4444"></i>
+                  ไม่มี
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="
+              margin-top: 1.5rem;
+              font-weight: 600;
+              text-align: center;
+              color: var(--dark-color);
+            ">
+          ปัจจุบัน Kiro เป็น IDE เพียงตัวเดียวที่มอบเวิร์กโฟลว์ *Spec-Driven Development* ครบวงจร
+          ตั้งแต่ไอเดียเชิงข้อกำหนดเริ่มต้นจนถึงการลงมือทำ ทั้งหมดอยู่ในระบบนิเวศเดียวกัน.
+        </p>
+
+        <div class="card" style=" margin-top: 2rem; border-left-color: rgb(86, 165, 211); text-align: center;">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            ดาวน์โหลด PDF
+            <a rel="noopener noreferrer"
+              href="https://drive.google.com/drive/folders/106mmgrukflL6QmOOO4XWcKa7YhOOsmFL"
+              target="_blank">คลิกที่นี่
+            </a>
+            <br>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab 5: Hands On PartyRock -->
+    <div id="tab-partyrock" class="tab-content">
+      <!-- Table of Contents: Hands-on PartyRock -->
+      <section>
+        <div class="container">
+          <div class="toc">
+            <h3>Table of Contents — ลงมือทำจริงกับ PartyRock</h3>
+            <ol>
+              <li><a href="#apa-itu-partyrock">PartyRock คืออะไร?</a></li>
+              <li>
+                <a href="#registrasi-akun">ขั้นตอนการสมัครบัญชี</a>
+              </li>
+              <li>
+                <a href="#verifikasi-data">การยืนยัน OTP และ Captcha</a>
+              </li>
+              <li><a href="#membuat-app">การสร้างแอปพลิเคชันใหม่</a></li>
+              <li>
+                <a href="#fungsi-widgets">ทำความเข้าใจฟีเจอร์ Widget</a>
+              </li>
+              <li>
+                <a href="#kustomisasi-prompt">การปรับแต่งพารามิเตอร์และโมเดล</a>
+              </li>
+              <li>
+                <a href="#publikasi-app">การเผยแพร่โปรเจกต์สู่สาธารณะ</a>
+              </li>
+              <li><a href="#ide-proyek">ไอเดียโปรเจกต์สร้างสรรค์</a></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: What is PartyRock -->
+      <section id="apa-itu-partyrock">
+        <h2>
+          <i class="fa-solid fa-circle-question"></i> 1. PartyRock คืออะไร?
+        </h2>
+        <p>
+          PartyRock คือ *สนามเด็กเล่นเครื่องมือ* Generative AI ที่ดูแลโดย AWS ซึ่งช่วยให้คุณสร้างและออกแบบแอปพลิเคชัน AI
+          ที่กำหนดเองได้ภายในไม่กี่วินาที โดยไม่ต้องมีทักษะการเขียนโค้ดเลย.
+        </p>
+
+        <div class="grid-3" style="margin-top: 1.5rem">
+          <div class="card">
+            <h3><i class="fa-solid fa-pen-nib"></i> Content Writing</h3>
+            <p>
+              ช่วยให้สร้างงานเขียนเชิงสร้างสรรค์ บทความ อีเมลธุรกิจ และงานที่โรงเรียนมอบหมายได้อย่างง่ายดาย.
+            </p>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-palette"></i> Art & Design</h3>
+            <p>
+              ช่วยแปลงไอเดียศิลปะให้เป็นภาพจากคำอธิบายที่เป็นข้อความโดยตรง.
+            </p>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-user-tie"></i> Work & Profession</h3>
+            <p>
+              เพิ่มประสิทธิภาพในการทำงานและความสามารถในการดำเนินงานประจำวัน.
+            </p>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem">
+          บริการนี้ยังครอบคลุม *คำแนะนำเครื่องมือ AI* *การพัฒนาสายอาชีพ* และ *การเรียนรู้และการศึกษา*.
+        </p>
+      </section>
+
+      <!-- Section 2: Account Registration Flow -->
+      <section id="registrasi-akun">
+        <h2>
+          <i class="fa-solid fa-user-plus"></i> 2. ขั้นตอนการสมัครบัญชีใหม่
+        </h2>
+        <p>
+          ทำตามขั้นตอนด้านล่างเพื่อเริ่มเข้าถึงสภาพแวดล้อม *AI Playground* อย่างเป็นทางการ:
+        </p>
+
+        <div class="card">
+          <span class="step-badge">ขั้นตอนที่ 01</span>
+          <h3>เข้าสู่พอร์ทัลหลัก</h3>
+          <p>
+            เปิดเบราว์เซอร์และเข้าเว็บไซต์ทางการของ PartyRock ที่ URL ต่อไปนี้:
+            <a href="https://partyrock.aws" rel="noopener noreferrer" target="_blank"
+              style="color: var(--primary-color); font-weight: 600">partyrock.aws</a>.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 1rem">
+          <span class="step-badge">ขั้นตอนที่ 02</span>
+          <h3>เมนูเข้าสู่ระบบ</h3>
+          <p>
+            คลิกปุ่ม <strong>"Log In"</strong> หรือ
+            <strong>"Get started for free"</strong> ที่มุมขวาบนของหน้าจอ.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 1rem">
+          <span class="step-badge">ขั้นตอนที่ 03</span>
+          <h3>วิธีเข้าสู่ระบบ</h3>
+          <p>
+            ในหน้าต่างเลือกวิธีเข้าสู่ระบบที่ปรากฏขึ้น คลิกตัวเลือก
+            <strong>"Sign in with Amazon"</strong> ซึ่งอยู่ด้านล่างของเมนู.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top: 1rem">
+          <span class="step-badge">ขั้นตอนที่ 04</span>
+          <h3>การสร้างบัญชี</h3>
+          <p>
+            หากคุณยังไม่มีบัญชี Amazon คลิกปุ่ม
+            <strong>"Create your Amazon account"</strong> ในกล่องข้อความนำทาง ที่ปรากฏขึ้น.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: Data Verification -->
+      <section id="verifikasi-data">
+        <h2>
+          <i class="fa-solid fa-shield-halved"></i> 3. ขั้นตอนยืนยัน OTP และความปลอดภัย
+        </h2>
+        <p>
+          เพื่อรักษาความถูกต้องของการเข้าถึงบัญชี AWS ใช้การตรวจสอบข้อมูล ยืนยันตัวตนหลายชั้น:
+        </p>
+
+        <ul>
+          <li>
+            <strong>กรอกข้อมูลส่วนตัว:</strong> กรอกแบบฟอร์มด้วยชื่อ-นามสกุลเต็ม อีเมลที่ใช้งานอยู่ (เช่น Gmail/iCloud)
+            และตั้งรหัสผ่านอย่างน้อย 6 ตัวอักษร แล้วคลิกปุ่ม <strong>"Verify email"</strong>.
+          </li>
+          <li>
+            <strong>ยืนยัน OTP ทางอีเมล:</strong> เปิดกล่องข้อความอีเมล คัดลอกรหัสความปลอดภัย One Time Password (OTP)
+            ที่ระบบส่งให้ กรอกลงในช่องยืนยัน แล้วคลิก
+            <strong>"Verify"</strong>.
+          </li>
+          <li>
+            <strong>หมายเลขโทรศัพท์และ SMS OTP:</strong>กรอกหมายเลขโทรศัพท์ มือถือที่ใช้งานอยู่ รอรับรหัส SMS OTP
+            แล้วคลิกปุ่มยืนยัน การสร้างบัญชี.
+          </li>
+          <li>
+            <strong>ผ่านการตรวจสอบ Captcha:</strong> ทำตามความท้าทายยืนยันความ เป็นมนุษย์ (ตัวอย่างสถานการณ์:
+            *เลือกหมวกทั้งหมด*) แล้วคลิกปุ่ม สีเหลือง <strong>"Confirm"</strong> เพื่อยืนยัน.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Creating a New Application -->
+      <section id="membuat-app">
+        <h2>
+          <i class="fa-solid fa-square-plus"></i> 4. สร้างแอปพลิเคชันใหม่แรก ของคุณ
+        </h2>
+        <p>
+          เมื่อล็อกอินสำเร็จแล้ว คุณจะถูกพาไปที่ *Home Dashboard* หลักโดยตรง.
+        </p>
+
+        <div class="card" style="margin-bottom: 1rem">
+          <h3>
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Initiation Button
+          </h3>
+          <p>
+            คลิกปุ่มสีเขียวสด <strong>"Generate app"</strong> ที่อยู่บน แถบนำทางมุมขวาบน.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><i class="fa-solid fa-sliders"></i> เลือก Build Mode</h3>
+          <p>
+            หน้าต่างป็อปอัปจะปรากฏขึ้นถามว่าคุณต้องการวิธีสร้างแอปแบบไหน
+            หากต้องการควบคุมองค์ประกอบการออกแบบแอปได้เต็มที่ คลิก
+            <strong>"Build manually"</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 5: Widget Features -->
+      <section id="fungsi-widgets">
+        <h2>
+          <i class="fa-solid fa-table-cells-large"></i> 5. ทำความเข้าใจ ประเภทและหน้าที่ของ Widget
+        </h2>
+        <p>
+          ในหน้าแคนวาสแก้ไขโปรเจกต์ คุณสามารถเพิ่มบล็อกฟังก์ชันต่างๆ ได้โดยใช้ เมนูหลัก
+          <strong>"+ Add widget"</strong> ด้านล่างนี้คือรายละเอียดหน้าที่การ ทำงานของแต่ละส่วนประกอบ:
+        </p>
+
+        <div class="table-responsive-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>
+                  ชื่อส่วนประกอบ Widget</th>
+                <th>หน้าที่หลัก</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>User Input</strong></td>
+                <td>
+                  ให้ช่องกรอกข้อความอิสระสำหรับผู้ใช้แอปกรอกข้อมูลที่เปลี่ยนแปลงได้ (เช่น แนวหนัง ชื่อวัตถุ).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Select</strong></td>
+                <td>
+                  ให้พารามิเตอร์การโต้ตอบในรูปแบบรายการดรอปดาวน์ตัวเลือกที่กำหนดไว้ ตายตัวสำหรับผู้ใช้r.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Document Select</strong></td>
+                <td>
+                  ให้ผู้ใช้อัปโหลดเอกสารข้อความภายนอก (PDF, DOCX, PPTX, HTML, JSON, CSV) ได้สูงสุด 800,000 ตัวอักษร.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Static Text</strong></td>
+                <td>
+                  แสดงข้อความข้อมูลคงที่ถาวรที่คุณในฐานะผู้ออกแบบแอปกำหนดเอง โดยตรง.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Text Generation</strong></td>
+                <td>
+                  สร้างผลลัพธ์ข้อความใหม่ทันทีตามพารามิเตอร์ prompt ของ AI (AI-powered text).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Chatbot</strong></td>
+                <td>
+                  ให้พื้นที่แชทแบบโต้ตอบด้วย AI แบบไดนามิกระหว่างผู้ใช้กับแอป (AI-powered chat).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Image Generation</strong></td>
+                <td>
+                  สร้างภาพวิชวลใหม่โดยอัตโนมัติตามคำอธิบายที่กำหนดไว้.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 6: Customizing Parameters & Model -->
+      <section id="kustomisasi-prompt">
+        <h2>
+          <i class="fa-solid fa-sliders"></i> 6. การปรับแต่งพารามิเตอร์และ โมเดล AI
+        </h2>
+        <p>
+          บล็อก widget ทุกตัวที่คุณเพิ่มลงในแคนวาสออกแบบสามารถปรับแต่งใหม่ได้ — ชื่อหัวข้อ (*Widget title*) ข้อความ
+          placeholder (*Placeholder*) และค่าเริ่มต้น (*Default value*) — ให้เหมาะกับกรณีใช้งานขององค์กรคุณ.
+        </p>
+
+        <div class="card">
+          <h3>
+            <i class="fa-solid fa-terminal"></i> Prompt Engineering และการเลือก โมเดล AI
+          </h3>
+          <p>
+            ใน widget สร้างเนื้อหาอย่างเช่น *Profile Summary* คุณสามารถ สร้างคำสั่ง prompt
+            เฉพาะที่อ้างอิงข้อมูลจากตัวแปร widget อื่นๆ ได้ (ตัวอย่าง: เรียกข้อมูลอายุ เพศ ส่วนสูง น้ำหนัก
+            และกิจกรรมทางกาย).
+          </p>
+          <p style="margin-top: 0.75rem">
+            คุณยังสามารถเลือกประเภทโมเดล AI ขั้นสูงที่เชื่อถือได้เป็นเอนจิน ตรรกะหลักของแอปพลิเคชัน เช่น
+            <strong>Claude 3.5 Sonnet v2</strong>, และปรับพารามิเตอร์ *Temperature* และ *Top P*.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 7: Publishing a Project -->
+      <section id="publikasi-app">
+        <h2>
+          <i class="fa-solid fa-globe"></i> 7. เผยแพร่โปรเจกต์ของคุณสู่สาธารณะ
+        </h2>
+        <p>
+          โดยค่าเริ่มต้น แอปที่คุณออกแบบครั้งแรกบนแคนวาสจะเป็น *Private*
+          หากต้องการให้แอปของคุณถูกทดลองใช้และเข้าถึงได้โดยสาธารณะหรือเพื่อนร่วมงาน ทำตามขั้นตอนนี้:
+        </p>
+        <ol>
+          <li>
+            เปิดไอคอนแฮมเบอร์เกอร์หรือเมนูตั้งค่าโปรเจกต์ที่อยู่บนแถบนำทาง ด้านขวา.
+          </li>
+          <li>
+            เลือกสถานะไอคอนล็อกที่มีชื่อกำกับว่า
+            <strong>"App is private"</strong>.
+          </li>
+          <li>
+            ในกล่องข้อความยืนยันสิทธิ์การเข้าถึงที่ปรากฏขึ้น คลิกและเลือก ตัวเลือก <strong>"Public"</strong>
+            (ทุกคนสามารถใช้แอปของคุณได้ และจะถูกแชร์บนเพลย์ลิสต์ของคุณ).
+          </li>
+        </ol>
+      </section>
+
+      <!-- Section 8: Creative Project Ideas -->
+      <section id="ide-proyek">
+        <h2>
+          <i class="fa-solid fa-lightbulb"></i> 8. ไอเดียการพัฒนาโปรเจกต์ สร้างสรรค์
+        </h2>
+        <p>
+          ใช้ความสามารถ *no-code Generative AI* เหล่านี้เพื่อสร้างสรรค์ โซลูชันแก้ปัญหากรณีศึกษาต่างๆ รอบตัวคุณ:
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>AI Yearbook</h3>
+            <p>
+              แอปสนุกๆ ที่วิเคราะห์รูปที่ผู้ใช้อัปโหลด แล้วมอบคำนิยาม บุคลิกเฉพาะตัวโดยอัตโนมัติ เช่น "มีแววรวยสุด" หรือ
+              "ยิ้มสวยสุด".
+            </p>
+          </div>
+          <div class="card">
+            <h3>Debate Coach</h3>
+            <p>
+              ผู้ช่วยอัจฉริยะแบบโต้ตอบเพื่อฝึกนักเรียนให้กล้าแสดงข้อโต้แย้ง อย่างมั่นใจ ลับคมทักษะการสื่อสาร
+              และสร้างกรอบตรรกะที่สอดคล้องกัน.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Major Matcher</h3>
+            <p>
+              แอปที่ปรึกษาด้านการศึกษาสำหรับนักเรียนในการค้นหาสาขาวิชาและ
+              มหาวิทยาลัยในฝันที่เหมาะกับความสามารถและพรสวรรค์ทางวิชาการ.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="
+              margin-top: 2rem;
+              border-left-color: var(--dark-color);
+              text-align: center;
+              background-color: #f1f5f9;
+            ">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            ตัวอย่างเดโมโปรเจกต์แบบสด:
+          </p>
+          <a rel="noopener noreferrer" href="https://s.id/BMICHECK" target="_blank">s.id/BMICHECK</a>
+        </div>
+
+        <div class="card" style="
+              margin-top: 2rem;
+              border-left-color: rgb(86, 165, 211);
+              text-align: center;
+            ">
+          <p style="font-weight: 600; margin-bottom: 0.25rem">
+            ดาวน์โหลด PDF
+            <a rel="noopener noreferrer"
+              href="https://drive.google.com/drive/folders/106mmgrukflL6QmOOO4XWcKa7YhOOsmFL"
+              target="_blank">คลิกที่นี่
+            </a>
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Thank You</p>
+    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #aab7c4">
+      Email:
+      <a href="mailto:presenter@inspirasips.id">presenter@inspirasips.id</a> |
+      Web:
+      <a href="http://www.inspirasips.id" target="_blank" rel="noopener">www.inspirasips.id</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript for Tab & Slider Navigation -->
+  <script>
+    // Function for switching tabs
+    function openTab(evt, tabId) {
+      // Hide all tab content
+      const tabContents = document.getElementsByClassName('tab-content')
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active')
+      }
+
+      // Remove active class from all tab buttons
+      const tabLinks = document.getElementsByClassName('tab-link')
+      for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove('active')
+      }
+
+      // Show the selected tab & mark the clicked button as active
+      document.getElementById(tabId).classList.add('active')
+      evt.currentTarget.classList.add('active')
+
+      // Automatically center the active tab menu when clicked (user-friendly scroll)
+      evt.currentTarget.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+
+    // Horizontal slider control logic using left & right buttons
+    const wrapper = document.getElementById('tabs-wrapper')
+    const btnLeft = document.getElementById('slide-left')
+    const btnRight = document.getElementById('slide-right')
+
+    btnLeft.addEventListener('click', () => {
+      wrapper.scrollLeft -= 200 // Slide 200px to the left
+    })
+
+    btnRight.addEventListener('click', () => {
+      wrapper.scrollLeft += 200 // Slide 200px to the right
+    })
+  </script>
+</body>
+
+</html>

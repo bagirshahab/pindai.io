@@ -11,26 +11,7 @@
     --bg-alt: #F8FAFC;
     --border-color: rgba(255, 255, 255, 0.1);
     --border-color-dark: rgba(0, 0, 0, 0.1);
-    
-    /* Display defaults for bilingual system */
-    --display-id: block;
-    --display-en: none;
-    --display-inline-id: inline-block;
-    --display-inline-en: none;
 }
-
-/* Bilingual Toggle Logic */
-body.show-en {
-    --display-id: none;
-    --display-en: block;
-    --display-inline-id: none;
-    --display-inline-en: inline-block;
-}
-
-.lang-id { display: var(--display-id); }
-.lang-en { display: var(--display-en); }
-span.lang-id, a.lang-id { display: var(--display-inline-id); }
-span.lang-en, a.lang-en { display: var(--display-inline-en); }
 
 /* Base Reset & Typography */
 * {
@@ -912,4 +893,26 @@ table.data-table th {
     .toc-list { grid-template-columns: 1fr 1fr; }
     .do-dont { grid-template-columns: 1fr 1fr; }
     .era-timeline { gap: 1.25rem; }
+}
+
+/* =========================================
+   Smart Multi-Language Switcher
+   ========================================= */
+
+/* 1. Default mode (Indonesian) -> Hide English and Thai */
+body:not(.show-en):not(.show-th) .lang-en,
+body:not(.show-en):not(.show-th) .lang-th {
+    display: none !important;
+}
+
+/* 2. English mode (.show-en) -> Hide Indonesian and Thai */
+body.show-en .lang-id,
+body.show-en .lang-th {
+    display: none !important;
+}
+
+/* 3. Thai mode (.show-th) -> Hide Indonesian and English */
+body.show-th .lang-id,
+body.show-th .lang-en {
+    display: none !important;
 }
