@@ -1,388 +1,540 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amazon Quick Courses - by PindAI</title>
-    <meta name="description" content="A curated set of Amazon Quick Courses from AWS Skill Builder, by PindAI.">
+    <meta
+      name="description"
+      content="A curated set of Amazon Quick Courses from AWS Skill Builder, by PindAI."
+    />
 
     <!-- =========================================================
          Google Tag Manager
          Replace 'GTM-XXXXXXX' with your own GTM Container ID.
          ========================================================= -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T2KJGBFT');</script>
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-T2KJGBFT')
+    </script>
     <!-- End Google Tag Manager -->
 
     <!-- =========================================================
          Google Analytics 4 (gtag.js)
          Replace 'G-XXXXXXXXXX' with your own GA4 Measurement ID.
          ========================================================= -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QVZCLSXCN"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2QVZCLSXCN"
+    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2QVZCLSXCN');
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-2QVZCLSXCN')
     </script>
     <!-- End Google Analytics 4 -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-navy: #122746;
-            --primary-navy-dark: #0d1c33;
-            --accent-orange: #EF7D00;
-            --accent-orange-hover: #D96B27;
-            --text-light: #F3F4F6;
-            --text-muted: #9CA3AF;
-            --text-dark: #1F2937;
-            --bg-light: #FFFFFF;
-            --border-card: rgba(255, 255, 255, 0.12);
-            --aws-teal: #1b5e73;
+      :root {
+        --primary-navy: #122746;
+        --primary-navy-dark: #0d1c33;
+        --accent-orange: #ef7d00;
+        --accent-orange-hover: #d96b27;
+        --text-light: #f3f4f6;
+        --text-muted: #9ca3af;
+        --text-dark: #1f2937;
+        --bg-light: #ffffff;
+        --border-card: rgba(255, 255, 255, 0.12);
+        --aws-teal: #1b5e73;
 
-            /* Language display defaults: English shown, Thai hidden */
-            --display-en: block;
-            --display-inline-en: inline-block;
-            --display-th: none;
-            --display-inline-th: none;
-        }
+        /* Language display defaults: English shown, Thai hidden */
+        --display-en: block;
+        --display-inline-en: inline-block;
+        --display-th: none;
+        --display-inline-th: none;
+      }
 
-        /* When Thai is active */
-        body.show-th {
-            --display-en: none;
-            --display-inline-en: none;
-            --display-th: block;
-            --display-inline-th: inline-block;
-        }
+      /* When Thai is active */
+      body.show-th {
+        --display-en: none;
+        --display-inline-en: none;
+        --display-th: block;
+        --display-inline-th: inline-block;
+      }
 
-        .lang-en { display: var(--display-en); }
-        span.lang-en, a.lang-en { display: var(--display-inline-en); }
-        .lang-th { display: var(--display-th); }
-        span.lang-th, a.lang-th { display: var(--display-inline-th); }
+      .lang-en {
+        display: var(--display-en);
+      }
+      span.lang-en,
+      a.lang-en {
+        display: var(--display-inline-en);
+      }
+      .lang-th {
+        display: var(--display-th);
+      }
+      span.lang-th,
+      a.lang-th {
+        display: var(--display-inline-th);
+      }
 
-        body.show-th,
-        body.show-th .lang-th {
-            font-family: 'Noto Sans Thai', 'Inter', sans-serif;
-        }
+      body.show-th,
+      body.show-th .lang-th {
+        font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+      }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-light);
-            background: var(--primary-navy);
-            min-height: 100vh;
-        }
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: var(--text-light);
+        background: var(--primary-navy);
+        min-height: 100vh;
+      }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
 
-        /* Header / Brand */
-        header { padding: 2rem 0 0; }
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-        .brand {
-            display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-        }
-        .brand .logo-text { font-size: 1.25rem; font-weight: 800; color: var(--text-light); }
-        .brand .logo-sub { font-size: 0.9rem; font-weight: 600; color: var(--accent-orange); }
+      /* Header / Brand */
+      header {
+        padding: 2rem 0 0;
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .brand {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+      .brand .logo-text {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text-light);
+      }
+      .brand .logo-sub {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--accent-orange);
+      }
 
-        .lang-toggle-btn {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: var(--text-light);
-            font-family: inherit;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            padding: 0.45rem 0.85rem;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: background 0.18s ease, border-color 0.18s ease;
-        }
-        .lang-toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent-orange);
-        }
+      .lang-toggle-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: var(--text-light);
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        padding: 0.45rem 0.85rem;
+        border-radius: 999px;
+        cursor: pointer;
+        transition:
+          background 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .lang-toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent-orange);
+      }
 
-        /* Hero */
-        .hero { text-align: center; padding: 3.5rem 0 2.5rem; }
-        .eyebrow {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-weight: 700;
-            color: var(--accent-orange);
-            margin-bottom: 1rem;
+      /* Hero */
+      .hero {
+        text-align: center;
+        padding: 3.5rem 0 2.5rem;
+      }
+      .eyebrow {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        color: var(--accent-orange);
+        margin-bottom: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.75rem;
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+      .hero h1 .by {
+        color: var(--accent-orange);
+      }
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      /* Course grid */
+      .courses {
+        padding: 1rem 0 5rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      @media (max-width: 700px) {
+        .grid {
+          grid-template-columns: 1fr;
         }
         .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 1rem;
+          font-size: 2rem;
         }
-        .hero h1 .by { color: var(--accent-orange); }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 640px;
-            margin: 0 auto;
-        }
+      }
 
-        /* Course grid */
-        .courses { padding: 1rem 0 5rem; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        @media (max-width: 700px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
-        }
+      .course-card {
+        display: flex;
+        flex-direction: column;
+        background: var(--aws-teal);
+        border: 1px solid var(--border-card);
+        border-radius: 14px;
+        padding: 1.75rem 1.5rem;
+        text-decoration: none;
+        color: var(--text-light);
+        min-height: 190px;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      }
+      .course-card:hover,
+      .course-card:focus-visible {
+        transform: translateY(-4px);
+        background: #206d85;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+        outline: none;
+      }
+      .course-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--accent-orange);
+        margin-bottom: 0.75rem;
+      }
+      .course-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+      }
+      .course-card p {
+        font-size: 0.9rem;
+        color: rgba(243, 244, 246, 0.8);
+        flex: 1;
+      }
+      .course-cta {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-light);
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .course-cta .arrow {
+        transition: transform 0.18s ease;
+      }
+      .course-card:hover .course-cta .arrow {
+        transform: translateX(4px);
+      }
 
-        .course-card {
-            display: flex;
-            flex-direction: column;
-            background: var(--aws-teal);
-            border: 1px solid var(--border-card);
-            border-radius: 14px;
-            padding: 1.75rem 1.5rem;
-            text-decoration: none;
-            color: var(--text-light);
-            min-height: 190px;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-        }
-        .course-card:hover,
-        .course-card:focus-visible {
-            transform: translateY(-4px);
-            background: #206d85;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-            outline: none;
-        }
-        .course-tag {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--accent-orange);
-            margin-bottom: 0.75rem;
-        }
-        .course-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-        .course-card p {
-            font-size: 0.9rem;
-            color: rgba(243, 244, 246, 0.8);
-            flex: 1;
-        }
-        .course-cta {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-light);
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .course-cta .arrow { transition: transform 0.18s ease; }
-        .course-card:hover .course-cta .arrow { transform: translateX(4px); }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        footer a { color: var(--accent-orange); text-decoration: none; }
+      /* Footer */
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+      footer a {
+        color: var(--accent-orange);
+        text-decoration: none;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2KJGBFT"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T2KJGBFT"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <header>
-        <div class="container header-inner">
-            <div class="brand">
-                <span class="logo-text">Amazon Quick</span>
-                <span class="logo-sub">by PindAI</span>
-            </div>
-            <button id="lang-toggle" class="lang-toggle-btn">EN | TH</button>
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="logo-text">Amazon Quick</span>
+          <span class="logo-sub">by PindAI</span>
         </div>
+        <button id="lang-toggle" class="lang-toggle-btn">EN | TH</button>
+      </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <div class="eyebrow">AWS Skill Builder</div>
+      <div class="container">
+        <div class="eyebrow">AWS Skill Builder</div>
 
-            <h1 class="lang-en">Amazon Quick Courses <span class="by">by PindAI</span></h1>
-            <h1 class="lang-th">คอร์สสั้น Amazon Quick <span class="by">by PindAI</span></h1>
+        <h1 class="lang-en">
+          Amazon Quick Courses <span class="by">by PindAI</span>
+        </h1>
+        <h1 class="lang-th">
+          คอร์สสั้น Amazon Quick <span class="by">by PindAI</span>
+        </h1>
 
-            <p class="lang-en">A handpicked set of short courses from AWS Skill Builder to fast-track your cloud &amp; AI skills. Tap a card to start learning for free.</p>
-            <p class="lang-th">คอร์สสั้นคัดสรรจาก AWS Skill Builder เพื่อพัฒนาทักษะคลาวด์และ AI ของคุณอย่างรวดเร็ว แตะที่การ์ดเพื่อเริ่มเรียนฟรี</p>
-        </div>
+        <p class="lang-en">
+          A handpicked set of short courses from AWS Skill Builder to fast-track
+          your cloud &amp; AI skills. Tap a card to start learning for free.
+        </p>
+        <p class="lang-th">
+          คอร์สสั้นคัดสรรจาก AWS Skill Builder เพื่อพัฒนาทักษะคลาวด์และ AI
+          ของคุณอย่างรวดเร็ว แตะที่การ์ดเพื่อเริ่มเรียนฟรี
+        </p>
+      </div>
     </section>
 
     <section class="courses">
-        <div class="container">
-            <div class="grid" id="course-grid">
+      <div class="container">
+        <div class="grid" id="course-grid">
+          <a
+            class="course-card"
+            href="https://skillbuilder.aws/learn/D9PHJ3Y1A2/a/FF9X4F7BBU"
+            target="_blank"
+            rel="noopener"
+            data-course-id="D9PHJ3Y1A2"
+            data-course-name="Introduction to Amazon Quick"
+          >
+            <span class="course-tag lang-en">Quick Course</span>
+            <span class="course-tag lang-th">คอร์สสั้น</span>
+            <h3 class="lang-en">Introduction to Amazon Quick</h3>
+            <h3 class="lang-th">Introduction to Amazon Quick</h3>
+            <p class="lang-en">
+              Get started with the basics of Amazon Quick on AWS Skill Builder.
+            </p>
+            <p class="lang-th">
+              เริ่มต้นทำความรู้จักพื้นฐานของ Amazon Quick บน AWS Skill Builder
+            </p>
+            <span class="course-cta lang-en"
+              >Start learning <span class="arrow">&rarr;</span></span
+            >
+            <span class="course-cta lang-th"
+              >เริ่มเรียน <span class="arrow">&rarr;</span></span
+            >
+          </a>
 
-                <a class="course-card"
-                   href="https://skillbuilder.aws/learn/D9PHJ3Y1A2/a/FF9X4F7BBU"
-                   target="_blank" rel="noopener"
-                   data-course-id="D9PHJ3Y1A2"
-                   data-course-name="Introduction to Amazon Quick">
-                    <span class="course-tag lang-en">Quick Course</span>
-                    <span class="course-tag lang-th">คอร์สสั้น</span>
-                    <h3 class="lang-en">Introduction to Amazon Quick</h3>
-                    <h3 class="lang-th">Introduction to Amazon Quick</h3>
-                    <p class="lang-en">Get started with the basics of Amazon Quick on AWS Skill Builder.</p>
-                    <p class="lang-th">เริ่มต้นทำความรู้จักพื้นฐานของ Amazon Quick บน AWS Skill Builder</p>
-                    <span class="course-cta lang-en">Start learning <span class="arrow">&rarr;</span></span>
-                    <span class="course-cta lang-th">เริ่มเรียน <span class="arrow">&rarr;</span></span>
-                </a>
+          <a
+            class="course-card"
+            href="https://skillbuilder.aws/learn/TQYK9FAWNA/a/ZTQT7ERK6Z"
+            target="_blank"
+            rel="noopener"
+            data-course-id="TQYK9FAWNA"
+            data-course-name="Amazon Quick Getting Started"
+          >
+            <span class="course-tag lang-en">Quick Course</span>
+            <span class="course-tag lang-th">คอร์สสั้น</span>
+            <h3 class="lang-en">Amazon Quick Getting Started</h3>
+            <h3 class="lang-th">Amazon Quick Getting Started</h3>
+            <p class="lang-en">
+              A hands-on guide to getting up and running with Amazon Quick.
+            </p>
+            <p class="lang-th">
+              คู่มือลงมือปฏิบัติเพื่อเริ่มต้นใช้งาน Amazon Quick
+            </p>
+            <span class="course-cta lang-en"
+              >Start learning <span class="arrow">&rarr;</span></span
+            >
+            <span class="course-cta lang-th"
+              >เริ่มเรียน <span class="arrow">&rarr;</span></span
+            >
+          </a>
 
-                <a class="course-card"
-                   href="https://skillbuilder.aws/learn/TQYK9FAWNA/a/ZTQT7ERK6Z"
-                   target="_blank" rel="noopener"
-                   data-course-id="TQYK9FAWNA"
-                   data-course-name="Amazon Quick Getting Started">
-                    <span class="course-tag lang-en">Quick Course</span>
-                    <span class="course-tag lang-th">คอร์สสั้น</span>
-                    <h3 class="lang-en">Amazon Quick Getting Started</h3>
-                    <h3 class="lang-th">Amazon Quick Getting Started</h3>
-                    <p class="lang-en">A hands-on guide to getting up and running with Amazon Quick.</p>
-                    <p class="lang-th">คู่มือลงมือปฏิบัติเพื่อเริ่มต้นใช้งาน Amazon Quick</p>
-                    <span class="course-cta lang-en">Start learning <span class="arrow">&rarr;</span></span>
-                    <span class="course-cta lang-th">เริ่มเรียน <span class="arrow">&rarr;</span></span>
-                </a>
+          <a
+            class="course-card"
+            href="https://skillbuilder.aws/learn/97D7SGDXT2/a/6ZUSWGR8SN"
+            target="_blank"
+            rel="noopener"
+            data-course-id="97D7SGDXT2"
+            data-course-name="Introduction to Building apps in Amazon Quick"
+          >
+            <span class="course-tag lang-en">Quick Course</span>
+            <span class="course-tag lang-th">คอร์สสั้น</span>
+            <h3 class="lang-en">
+              Introduction to Building apps in Amazon Quick
+            </h3>
+            <h3 class="lang-th">
+              Introduction to Building apps in Amazon Quick
+            </h3>
+            <p class="lang-en">
+              Learn how to build applications inside Amazon Quick.
+            </p>
+            <p class="lang-th">
+              เรียนรู้วิธีสร้างแอปพลิเคชันภายใน Amazon Quick
+            </p>
+            <span class="course-cta lang-en"
+              >Start learning <span class="arrow">&rarr;</span></span
+            >
+            <span class="course-cta lang-th"
+              >เริ่มเรียน <span class="arrow">&rarr;</span></span
+            >
+          </a>
 
-                <a class="course-card"
-                   href="https://skillbuilder.aws/learn/97D7SGDXT2/a/6ZUSWGR8SN"
-                   target="_blank" rel="noopener"
-                   data-course-id="97D7SGDXT2"
-                   data-course-name="Introduction to Building apps in Amazon Quick">
-                    <span class="course-tag lang-en">Quick Course</span>
-                    <span class="course-tag lang-th">คอร์สสั้น</span>
-                    <h3 class="lang-en">Introduction to Building apps in Amazon Quick</h3>
-                    <h3 class="lang-th">Introduction to Building apps in Amazon Quick</h3>
-                    <p class="lang-en">Learn how to build applications inside Amazon Quick.</p>
-                    <p class="lang-th">เรียนรู้วิธีสร้างแอปพลิเคชันภายใน Amazon Quick</p>
-                    <span class="course-cta lang-en">Start learning <span class="arrow">&rarr;</span></span>
-                    <span class="course-cta lang-th">เริ่มเรียน <span class="arrow">&rarr;</span></span>
-                </a>
-
-                <a class="course-card"
-                   href="https://skillbuilder.aws/learn/JCZSDRA748/a/ZYTUR2CPRD"
-                   target="_blank" rel="noopener"
-                   data-course-id="JCZSDRA748"
-                   data-course-name="Introduction to Custom Agents in Amazon Quick">
-                    <span class="course-tag lang-en">Quick Course</span>
-                    <span class="course-tag lang-th">คอร์สสั้น</span>
-                    <h3 class="lang-en">Introduction to Custom Agents in Amazon Quick</h3>
-                    <h3 class="lang-th">Introduction to Custom Agents in Amazon Quick</h3>
-                    <p class="lang-en">Discover how to create and use custom agents in Amazon Quick.</p>
-                    <p class="lang-th">ค้นพบวิธีสร้างและใช้งาน custom agents ใน Amazon Quick</p>
-                    <span class="course-cta lang-en">Start learning <span class="arrow">&rarr;</span></span>
-                    <span class="course-cta lang-th">เริ่มเรียน <span class="arrow">&rarr;</span></span>
-                </a>
-
-            </div>
+          <a
+            class="course-card"
+            href="https://skillbuilder.aws/learn/JCZSDRA748/a/ZYTUR2CPRD"
+            target="_blank"
+            rel="noopener"
+            data-course-id="JCZSDRA748"
+            data-course-name="Introduction to Custom Agents in Amazon Quick"
+          >
+            <span class="course-tag lang-en">Quick Course</span>
+            <span class="course-tag lang-th">คอร์สสั้น</span>
+            <h3 class="lang-en">
+              Introduction to Custom Agents in Amazon Quick
+            </h3>
+            <h3 class="lang-th">
+              Introduction to Custom Agents in Amazon Quick
+            </h3>
+            <p class="lang-en">
+              Discover how to create and use custom agents in Amazon Quick.
+            </p>
+            <p class="lang-th">
+              ค้นพบวิธีสร้างและใช้งาน custom agents ใน Amazon Quick
+            </p>
+            <span class="course-cta lang-en"
+              >Start learning <span class="arrow">&rarr;</span></span
+            >
+            <span class="course-cta lang-th"
+              >เริ่มเรียน <span class="arrow">&rarr;</span></span
+            >
+          </a>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p class="lang-en">&copy; <span id="year-en"></span> PindAI &middot; Courses belong to AWS Skill Builder. <a href="index.html">Back to home</a></p>
-            <p class="lang-th">&copy; <span id="year-th"></span> PindAI &middot; คอร์สเป็นของ AWS Skill Builder <a href="index.html">กลับหน้าแรก</a></p>
-        </div>
+      <div class="container">
+        <p class="lang-en">
+          &copy; <span id="year-en"></span> PindAI &middot; Courses belong to
+          AWS Skill Builder. <a href="index.html">Back to home</a>
+        </p>
+        <p class="lang-th">
+          &copy; <span id="year-th"></span> PindAI &middot; คอร์สเป็นของ AWS
+          Skill Builder <a href="index.html">กลับหน้าแรก</a>
+        </p>
+      </div>
     </footer>
 
     <script>
-        (function () {
-            var year = new Date().getFullYear();
-            var yEn = document.getElementById('year-en');
-            var yTh = document.getElementById('year-th');
-            if (yEn) yEn.textContent = year;
-            if (yTh) yTh.textContent = year;
+      ;(function () {
+        var year = new Date().getFullYear()
+        var yEn = document.getElementById('year-en')
+        var yTh = document.getElementById('year-th')
+        if (yEn) yEn.textContent = year
+        if (yTh) yTh.textContent = year
 
-            /* ---------- Language switcher (EN / TH) ---------- */
-            var availableLangs = ['en', 'th'];
-            var toggleBtn = document.getElementById('lang-toggle');
+        /* ---------- Language switcher (EN / TH) ---------- */
+        var availableLangs = ['en', 'th']
+        var toggleBtn = document.getElementById('lang-toggle')
 
-            function applyLanguage(lang) {
-                if (availableLangs.indexOf(lang) === -1) lang = 'en';
-                document.body.classList.remove('show-th');
-                if (lang === 'th') document.body.classList.add('show-th');
-                localStorage.setItem('pindai_lang_quick', lang);
+        function applyLanguage(lang) {
+          if (availableLangs.indexOf(lang) === -1) lang = 'en'
+          document.body.classList.remove('show-th')
+          if (lang === 'th') document.body.classList.add('show-th')
+          localStorage.setItem('pindai_lang_quick', lang)
+        }
+
+        // Default to English; reuse saved choice if it is EN or TH
+        var saved = localStorage.getItem('pindai_lang_quick')
+        if (saved !== 'en' && saved !== 'th') saved = 'en'
+        applyLanguage(saved)
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', function (e) {
+            e.preventDefault()
+            var current = localStorage.getItem('pindai_lang_quick') || 'en'
+            var idx = availableLangs.indexOf(current)
+            if (idx === -1) idx = 0
+            var next = availableLangs[(idx + 1) % availableLangs.length]
+            applyLanguage(next)
+          })
+        }
+
+        /* ---------- Click tracking (GTM + GA4) ---------- */
+        window.dataLayer = window.dataLayer || []
+
+        document.querySelectorAll('.course-card').forEach(function (card) {
+          function trackCourseClick() {
+            var courseId = card.getAttribute('data-course-id')
+            var courseName = card.getAttribute('data-course-name')
+            var courseUrl = card.getAttribute('href')
+
+            // Push to Google Tag Manager
+            window.dataLayer.push({
+              event: 'course_click',
+              course_id: courseId,
+              course_name: courseName,
+              course_url: courseUrl,
+            })
+
+            // Send directly to GA4 (if gtag is available)
+            if (typeof gtag === 'function') {
+              gtag('event', 'course_click', {
+                course_id: courseId,
+                course_name: courseName,
+                course_url: courseUrl,
+                link_url: courseUrl,
+              })
             }
+          }
 
-            // Default to English; reuse saved choice if it is EN or TH
-            var saved = localStorage.getItem('pindai_lang_quick');
-            if (saved !== 'en' && saved !== 'th') saved = 'en';
-            applyLanguage(saved);
+          // Primary click (also fires for Enter/Space on the anchor)
+          card.addEventListener('click', trackCourseClick)
 
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    var current = localStorage.getItem('pindai_lang_quick') || 'en';
-                    var idx = availableLangs.indexOf(current);
-                    if (idx === -1) idx = 0;
-                    var next = availableLangs[(idx + 1) % availableLangs.length];
-                    applyLanguage(next);
-                });
-            }
-
-            /* ---------- Click tracking (GTM + GA4) ---------- */
-            window.dataLayer = window.dataLayer || [];
-
-            document.querySelectorAll('.course-card').forEach(function (card) {
-                card.addEventListener('click', function () {
-                    var courseId = card.getAttribute('data-course-id');
-                    var courseName = card.getAttribute('data-course-name');
-                    var courseUrl = card.getAttribute('href');
-
-                    // Push to Google Tag Manager
-                    window.dataLayer.push({
-                        event: 'course_click',
-                        course_id: courseId,
-                        course_name: courseName,
-                        course_url: courseUrl
-                    });
-
-                    // Send directly to GA4 (if gtag is available)
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'course_click', {
-                            course_id: courseId,
-                            course_name: courseName,
-                            course_url: courseUrl,
-                            link_url: courseUrl
-                        });
-                    }
-                });
-            });
-        })();
+          // Middle-click / "open in new tab" fires auxclick, not click
+          card.addEventListener('auxclick', function (e) {
+            if (e.button === 1) trackCourseClick()
+          })
+        })
+      })()
     </script>
-
-</body>
+  </body>
 </html>
