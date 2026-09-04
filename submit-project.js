@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const fileChosenName = document.getElementById("file-chosen-name");
     const fileLabel = document.querySelector(".file-input-label");
 
-    // Tampilkan nama file yang dipilih
     fileInput.addEventListener("change", () => {
         if (fileInput.files.length > 0) {
             fileChosenName.textContent = fileInput.files[0].name;
@@ -24,37 +23,27 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         clearMessage();
 
-        // Validasi dasar di sisi klien
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-
         const file = fileInput.files[0];
         if (!file) {
             showMessage("Pilih file proyek HTML terlebih dahulu.", "error");
             return;
         }
 
-        const allowedExt = [".html", ".htm"];
-        const isValidExt = allowedExt.some((ext) => file.name.toLowerCase().endsWith(ext));
-        if (!isValidExt) {
-            showMessage("File harus berformat .html atau .htm", "error");
-            return;
-        }
+        const formData = new FormData();
+        
+        // Ambil elemen berdasarkan atribut name atau ID
+        const getVal = (selector) => form.querySelector(selector)?.value || "";
 
-        const maxSizeBytes = 5 * 1024 * 1024; // 5MB
-        if (file.size > maxSizeBytes) {
-            showMessage("Ukuran file maksimal 5MB.", "error");
-            return;
-        }
+        formData.append("nama", getVal('[name="nama"]') || getVal('[name="full_name"]'));
+        formData.append("email", getVal('[name="email"]'));
+        formData.append("no_wa", getVal('[name="no_wa"]') || getVal('[name="whatsapp"]') || "08123456789"); // Default fallback jika input WA tidak ada di HTML
+        formData.append("instansi", getVal('[name="instansi"]') || getVal('[name="institution"]'));
+        formData.append("judul_proyek", getVal('[name="judul_proyek"]') || getVal('[name="project_title"]'));
+        formData.append("file_html", file);
 
         setLoading(true);
 
         try {
-            // Gunakan FormData bawaan form HTML agar sesuai dengan backend
-            const formData = new FormData(form);
-
             const res = await fetch(API_URL, {
                 method: "POST",
                 body: formData,
@@ -67,19 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            showMessage(
-                "Proyek berhasil dikirim! Cek email kamu untuk konfirmasi.",
-                "success"
-            );
+            showMessage("Proyek berhasil dikirim! Cek email kamu untuk konfirmasi.", "success");
             form.reset();
             fileChosenName.textContent = "Pilih file .html";
             fileLabel.classList.remove("has-file");
         } catch (err) {
             console.error(err);
-            showMessage(
-                "Gagal terhubung ke server. Periksa koneksi internet kamu dan coba lagi.",
-                "error"
-            );
+            showMessage("Gagal terhubung ke server. Periksa koneksi internet kamu.", "error");
         } finally {
             setLoading(false);
         }
