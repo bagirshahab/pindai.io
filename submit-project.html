@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Proyek — Hackathon Thailand | Pintar dengan AI</title>
+    <meta name="description" content="Kirim proyek Gen AI kamu untuk PindAI x Thailand Hackathon.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="submit-project.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigasi -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="logo-text">Pintar dengan AI</span>
+                <span class="logo-sub">by PindAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#tentang">Tentang</a>
+                <a href="index.html#materi">Program</a>
+                <a href="workshop.html">Materi Workshop</a>
+                <a href="submit-project.html" style="color: var(--accent-orange);">Submit Proyek</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html#cta" class="btn-primary">Mulai</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="hero" class="section-dark page-hero">
+        <div class="container hero-content">
+            <a href="index.html" class="breadcrumb-back">← Kembali ke Pintar dengan AI</a>
+            <div class="eyebrow">PindAI × Thailand Hackathon</div>
+            <h1>Submit Proyek Kamu</h1>
+            <p class="subheadline">
+                Sudah menyelesaikan proyek Gen AI dari workshop atau hackathon? Kirimkan di sini.
+                Tim kami akan meninjau, dan kamu akan menerima email konfirmasi begitu proyek berhasil masuk.
+            </p>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <section id="form-proyek" class="section-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="eyebrow">Form Submission</div>
+                <h2>Kirim Proyek Hackathon</h2>
+                <p class="lede">Lengkapi data di bawah ini. Semua kolom wajib diisi, termasuk file HTML proyekmu.</p>
+            </div>
+
+            <div class="form-card card card-light">
+                <form id="hackathon-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Nama sesuai identitas" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (Gmail)</label>
+                        <input type="email" id="email" name="email" placeholder="namamu@gmail.com" required>
+                        <span class="help-text">Email konfirmasi akan dikirim ke alamat ini.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_wa">Nomor WhatsApp</label>
+                        <input type="tel" id="no_wa" name="no_wa" placeholder="08xxxxxxxxxx" pattern="[0-9+ ]{8,15}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instansi">Instansi / Asal</label>
+                        <input type="text" id="instansi" name="instansi" placeholder="Sekolah, kampus, atau komunitas" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="judul_proyek">Judul Proyek</label>
+                        <input type="text" id="judul_proyek" name="judul_proyek" placeholder="Judul proyek Gen AI kamu" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file_html">File HTML Proyek</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="file_html" name="file_html" accept=".html,.htm" required>
+                            <label for="file_html" class="file-input-label">
+                                <span id="file-chosen-name">Pilih file .html</span>
+                            </label>
+                        </div>
+                        <span class="help-text">Format .html atau .htm, maksimal 5MB.</span>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-submit" id="submit-btn">
+                        <span id="submit-btn-text">Kirim Proyek</span>
+                    </button>
+
+                    <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+                </form>
+            </div>
+
+            <p class="privacy-note text-center">
+                Data yang kamu kirim hanya digunakan untuk keperluan verifikasi dan komunikasi terkait hackathon ini.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section section-dark">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <div class="logo-text">Pintar dengan AI</div>
+                    <p class="brand-line">Program belajar AI oleh PindAI — membekali Asia Tenggara dengan keterampilan yang relevan, dimulai dari Indonesia.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#tentang">Tentang</a>
+                    <a href="index.html#materi">Program</a>
+                    <a href="workshop.html">Materi Workshop</a>
+                    <a href="submit-project.html">Submit Proyek</a>
+                </div>
+                <div class="footer-meta">
+                    <span class="copyright">© 2026 PindAI · Pintar dengan AI</span>
+                    <span class="region-note">Indonesia · Thailand (segera)</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="submit-project.js"></script>
+</body>
+
+</html>
