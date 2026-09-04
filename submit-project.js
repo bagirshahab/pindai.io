@@ -52,33 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
         setLoading(true);
 
         try {
-            // Baca isi file HTML sebagai String Teks
-            const htmlContent = await file.text();
-
-            // Ambil elemen form berdasarkan atribut name
-            const fullNameVal = form.querySelector('[name="full_name"]')?.value || form.querySelector('[name="fullName"]')?.value || "";
-            const emailVal = form.querySelector('[name="email"]')?.value || "";
-            const institutionVal = form.querySelector('[name="institution"]')?.value || "";
-            const projectTitleVal = form.querySelector('[name="project_title"]')?.value || form.querySelector('[name="projectTitle"]')?.value || "";
-
-            // Payload disesuaikan dengan key snake_case dan camelCase agar cocok dengan backend
-            const payload = {
-                full_name: fullNameVal,
-                fullName: fullNameVal,
-                email: emailVal,
-                institution: institutionVal,
-                project_title: projectTitleVal,
-                projectTitle: projectTitleVal,
-                html_content: htmlContent,
-                htmlContent: htmlContent
-            };
+            // Gunakan FormData bawaan form HTML agar sesuai dengan backend
+            const formData = new FormData(form);
 
             const res = await fetch(API_URL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
+                body: formData,
             });
 
             const data = await res.json().catch(() => ({}));
