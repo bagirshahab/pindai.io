@@ -1,5 +1,5 @@
 // ⚠️ Ganti URL ini dengan URL backend kamu setelah di-deploy (lihat panduan implementasi)
-const API_URL = "https://pindai-hackathon-api.vercel.app/api/submit";
+const API_URL = "https://pindai-hackathon-api.vercel.app/api/submit';
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("hackathon-form");
